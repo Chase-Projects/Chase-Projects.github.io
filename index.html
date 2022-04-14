@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<body>
+<Body bgcolor="pink">  
+<form>
+    <p>Things to do today:</p>
+    <input type="checkbox" name="veggies" id="veg1" value="💩 poop" onclick="return       ValidateSelection();">
+    <label for="veg1">💩 poop</label>
+    <input form="myForm" type="checkbox" name="veggies" id="veg2"  value="🥞 breakfast" onclick="return ValidateSelection();"> 
+    <label for="veg2">🥞 breakfast</label>
+    <input form="myForm" type="checkbox" name="veggies" id="veg3"  value="🌌 make bed" onclick="return ValidateSelection();"> 
+    <label for="veg3">🌌 make bed</label>
+    <input type="checkbox" name="veggies" id="veg4" value="🤢 not be stinky" disabled> 
+    <label for="veg4">🤢 not be stinky</label>
+
+</form>
+<script type="text/javascript">  
+    function ValidateSelection()  
+    {  
+        var cb = document.getElementsByName("veggies");  
+        var CheckedItems = 0; 
+        for(var i = 0; i < cb.length; i++)  
+        {  
+            if(cb[i].checked)  
+                CheckedItems++;  
+        }  
+        if(CheckedItems > 2){
+           alert("You did the things you needed to do today!");
+           return false; }
+}  
+ </script>
+</body>
+</html>
