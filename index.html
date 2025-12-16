@@ -7,42 +7,59 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Chase Varga</h1>
-        <p class="tagline">Your tagline here</p>
-    </header>
+    <!-- TOP NAVIGATION BAR -->
+    <nav class="navbar">
+        <a href="#about" class="nav-brand">About Me</a>
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#writing">Writing</a>
+            <a href="#links">Links</a>
+        </div>
+    </nav>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <h1>Chase Varga</h1>
+            <p class="tagline">Welcome to my personal homepage</p>
+            <div class="about-links">
+                <a href="https://github.com/Chase-Projects" target="_blank">GitHub</a>
+                <a href="#" target="_blank">LinkedIn</a>
+                <a href="mailto:info@chasevarga.com">Contact</a>
+            </div>
+        </div>
+    </section>
 
     <main>
         <!-- PROJECTS SECTION -->
-        <section class="category">
+        <section id="projects" class="category">
             <h2>Projects</h2>
             <div class="widget-grid">
 
-                <!-- Widget Template - Copy this block to add more -->
+                <!-- NutriSave Widget -->
                 <article class="widget">
                     <div class="widget-image">
-                        <img src="https://via.placeholder.com/400x250" alt="Project name">
+                        <img src="https://via.placeholder.com/400x250" alt="NutriSave">
                     </div>
-                    <a href="#" class="widget-title">Project Title</a>
+                    <a href="https://chase-projects.github.io/nutrisave-solutions/" class="widget-title">NutriSave</a>
                     <div class="widget-content">
-                        <p>Brief description of the project goes here.</p>
+                        <p>NutriSave project description goes here.</p>
                         <ul class="widget-links">
-                            <li><a href="#">GitHub</a></li>
-                            <li><a href="#">Live Demo</a></li>
+                            <li><a href="https://github.com/Chase-Projects/nutrisave-solutions">GitHub</a></li>
                         </ul>
                     </div>
                 </article>
 
-                <!-- Another widget example -->
+                <!-- Placeholder widget - duplicate and customize -->
                 <article class="widget">
                     <div class="widget-image">
-                        <img src="https://via.placeholder.com/400x250" alt="Project name">
+                        <img src="https://via.placeholder.com/400x250" alt="Project">
                     </div>
-                    <a href="#" class="widget-title">Another Project</a>
+                    <a href="#" class="widget-title">Project Title</a>
                     <div class="widget-content">
-                        <p>Description text here.</p>
+                        <p>Project description here.</p>
                         <ul class="widget-links">
-                            <li><a href="#">Link 1</a></li>
+                            <li><a href="#">Link</a></li>
                         </ul>
                     </div>
                 </article>
@@ -51,7 +68,7 @@
         </section>
 
         <!-- WRITING SECTION -->
-        <section class="category">
+        <section id="writing" class="category">
             <h2>Writing</h2>
             <div class="widget-grid">
 
@@ -69,7 +86,7 @@
         </section>
 
         <!-- LINKS SECTION -->
-        <section class="category">
+        <section id="links" class="category">
             <h2>Links</h2>
             <div class="widget-grid">
 
