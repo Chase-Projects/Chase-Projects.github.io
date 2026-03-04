@@ -165,10 +165,23 @@ letters.forEach(l => {
 let activeLetter = 'all';
 let searchQ = '';
 
+function getGuestProfile(name) {
+  if (typeof GUEST_PROFILES === 'undefined') return null;
+  const key = normalizeGuestKey(name);
+  return GUEST_PROFILES[key] || null;
+}
+
 function buildGuestCard(name) {
   const episodes = guestMap[name];
   const img = getGuestImage(name);
+  const profile = getGuestProfile(name);
   const imgHtml = img ? `<img class="guest-card-img" src="${img}" alt="${name}">` : '';
+  const affiliationHtml = profile && profile.affiliation
+    ? `<div class="guest-card-affiliation">${profile.affiliation}</div>` : '';
+  const bioHtml = profile && profile.bio
+    ? `<div class="guest-card-bio">${profile.bio}</div>` : '';
+  const websiteHtml = profile && profile.website
+    ? `<a href="${profile.website}" target="_blank" rel="noopener" class="guest-card-website" title="Visit website">&#x1F517;</a>` : '';
   const epList = episodes.map(ep => {
     const epNum = ep.num ? `<span class="guest-ep-num">Ep ${ep.num}</span> · ` : '';
     const cleanTitle = ep.title.replace(/\s*\((?:Ep|EP|BEN)\s*\d+\)\s*$/, '').replace(/^\d+\.\s+/, '').trim();
@@ -180,8 +193,10 @@ function buildGuestCard(name) {
   <div class="guest-card" id="guest-${lastName}">
     <div class="guest-card-header">
       ${imgHtml}
-      <h3>${name}</h3>
+      <h3>${name} ${websiteHtml}</h3>
     </div>
+    ${affiliationHtml}
+    ${bioHtml}
     <ul class="guest-episodes">${epList}</ul>
   </div>`;
 }
