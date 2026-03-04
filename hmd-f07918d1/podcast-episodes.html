@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="warm">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Episodes — Hypermobility MD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="podcast-styles.css">
+</head>
+<body class="podcast-page">
+
+<div id="site-nav" data-active="podcast"></div>
+<script src="components.js"></script>
+
+<nav class="podcast-subnav">
+  <a href="podcast.html">Bendy Bodies Podcast</a>
+  <a href="podcast-episodes.html" class="active">Episodes</a>
+  <a href="podcast-guests.html">Guests</a>
+  <a href="podcast-appearances.html">Appearances</a>
+</nav>
+
+<!-- Page Hero -->
+<div class="podcast-page-hero">
+  <div class="container">
+    <div>
+      <h1>All Episodes</h1>
+      <p id="episodeCountHero">Search by topic, guest, or keyword</p>
+    </div>
+    <div class="subscribe-buttons" style="margin: 0;">
+      <a href="https://podcasts.apple.com/us/podcast/bendy-bodies-with-the-hypermobility-md/id1582031757" class="btn-subscribe apple" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 17a1 1 0 1 0-2 0l.5 4.5a.5.5 0 0 0 1 0z" fill="currentColor"/><path d="M16.85 18.58a9 9 0 1 0-9.7 0"/><path d="M8 14a5 5 0 1 1 8 0"/><circle cx="12" cy="11" r="1" fill="currentColor"/></svg>
+        Apple Podcasts
+      </a>
+      <a href="https://open.spotify.com/show/1wjqjnOsBpVVkNIcbDJJP8" class="btn-subscribe spotify" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        Spotify
+      </a>
+      <a href="https://www.youtube.com/@BendyBodiesPodcast" class="btn-subscribe youtube" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Search & Filter Bar -->
+<div class="filter-bar" id="filterBar">
+  <div class="filter-inner">
+    <div class="search-row">
+      <div class="search-box">
+        <span class="search-icon">&#x1F50D;</span>
+        <input type="text" id="searchInput" placeholder="Search episodes, guests, topics..." autocomplete="off" spellcheck="false">
+      </div>
+      <select class="sort-select" id="sortSelect">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+      </select>
+    </div>
+    <div class="tag-row">
+      <button class="tag-toggle-btn" id="tagToggle">
+        <span>Tags</span>
+        <svg class="tag-toggle-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2,4 6,8 10,4"/></svg>
+      </button>
+      <span class="active-tag-label" id="activeTagLabel"></span>
+    </div>
+    <div class="tag-dropdown" id="tagDropdown" style="display:none;">
+      <button class="filter-tag active" data-tag="all">All</button>
+      <button class="filter-tag" data-tag="EDS">EDS</button>
+      <button class="filter-tag" data-tag="POTS">POTS</button>
+      <button class="filter-tag" data-tag="MCAS">MCAS</button>
+      <button class="filter-tag" data-tag="Pain">Pain</button>
+      <button class="filter-tag" data-tag="Nutrition">Nutrition</button>
+      <button class="filter-tag" data-tag="Mental Health">Mental Health</button>
+      <button class="filter-tag" data-tag="Exercise">Exercise</button>
+      <button class="filter-tag" data-tag="Diagnosis">Diagnosis</button>
+      <button class="filter-tag" data-tag="Treatment">Treatment</button>
+      <button class="filter-tag" data-tag="Neurology">Neurology</button>
+      <button class="filter-tag" data-tag="Genetics">Genetics</button>
+      <button class="filter-tag" data-tag="Research">Research</button>
+      <button class="filter-tag" data-tag="Surgery">Surgery</button>
+    </div>
+  </div>
+</div>
+
+<!-- Main Content -->
+<main>
+  <div class="container" style="padding-top: 24px; padding-bottom: 64px;">
+    <div class="results-bar">
+      <span class="results-count" id="resultsCount">Loading episodes...</span>
+    </div>
+    <div class="episode-grid" id="episodeGrid">
+      <!-- Episodes rendered by JS -->
+    </div>
+    <div class="no-results" id="noResults" style="display:none;">
+      <h3>No episodes found</h3>
+      <p>Try a different search term or clear your filters.</p>
+      <button class="btn btn-secondary" onclick="clearAll()" style="margin-top:16px; cursor:pointer;">Clear All Filters</button>
+    </div>
+  </div>
+</main>
+
+<!-- Episode Detail Modal -->
+<div class="episode-modal-overlay" id="episodeModal">
+  <div class="episode-modal">
+    <div class="modal-header">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-ep-num" id="modalEpNum"></div>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <div class="modal-guest-row">
+        <div>
+          <div class="modal-guest" id="modalGuest"></div>
+          <div class="modal-meta" id="modalMeta"></div>
+        </div>
+        <div id="modalAvatars"></div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <h4>Description</h4>
+      <p class="modal-description" id="modalDescription"></p>
+
+      <h4>Listen</h4>
+      <div id="modalAudio" class="embed-placeholder">Audio player will appear here</div>
+
+      <h4>Watch</h4>
+      <div id="modalVideo" class="embed-placeholder">Video player will appear here</div>
+
+      <div id="modalSnippetsSection" style="display:none;">
+        <h4>Snippets</h4>
+        <div class="snippets-grid" id="modalSnippets"></div>
+      </div>
+
+      <div id="modalTranscriptSection" style="display:none;">
+        <h4>Transcript</h4>
+        <div id="modalTranscript"></div>
+      </div>
+
+      <h4>Tags</h4>
+      <div class="modal-tags" id="modalTags"></div>
+    </div>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+<div id="theme-switcher"></div>
+
+<script src="data.js"></script>
+<script>
+// ============================================
+//  Episode Search & Filter Engine
+// ============================================
+
+let activeTag = 'all';
+let searchQuery = '';
+let sortMode = 'newest';
+
+const TAG_COLORS = {
+  'EDS': '#4a2d7a', 'POTS': '#2a7a9d', 'MCAS': '#9d2a6b',
+  'Pain': '#9d4a2a', 'Nutrition': '#2a7a4a', 'Mental Health': '#6b4a9d',
+  'Exercise': '#2a5c9d', 'Diagnosis': '#7a5c2a', 'Treatment': '#2a9d8f',
+  'Neurology': '#4a4a9d', 'Surgery': '#7a2a2a', 'Genetics': '#5c7a2a',
+  'Hypermobility': '#4a2d7a', 'Research': '#2a4a7a',
+};
+
+function cleanTitle(title) {
+  return title.replace(/\s*\((?:Ep|EP|BEN)\s*\d+\)\s*$/, '').replace(/^\d+\.\s+/, '').trim();
+}
+
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  try { return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); }
+  catch (e) { return dateStr; }
+}
+
+const ABBREVS = /(?:Dr|Mr|Mrs|Ms|Prof|Sr|Jr|St|vs|etc|e\.g|i\.e|Vol|Ep|Inc|Ltd|M\.?D|Ph\.?D|D\.?P\.?T|P\.?A|R\.?D\.?N|O\.?T|P\.?T|J\.?D)\s*$/i;
+
+function truncateAtSentence(text, maxChars) {
+  if (!text || text.length <= maxChars) return text;
+  const firstPara = text.split('\n\n')[0];
+  if (firstPara.length <= maxChars) return firstPara;
+  let lastGoodEnd = -1;
+  for (let i = maxChars * 0.5; i < Math.min(firstPara.length, maxChars * 1.5); i++) {
+    const ch = firstPara[i];
+    if ((ch === '.' || ch === '!' || ch === '?') && (i + 1 >= firstPara.length || firstPara[i + 1] === ' ' || firstPara[i + 1] === '\n')) {
+      const before = firstPara.substring(Math.max(0, i - 15), i + 1);
+      if (!ABBREVS.test(before)) {
+        lastGoodEnd = i + 1;
+        if (i >= maxChars * 0.8) break;
+      }
+    }
+  }
+  if (lastGoodEnd > 0) return firstPara.substring(0, lastGoodEnd).trim();
+  const cut = firstPara.substring(0, maxChars).lastIndexOf(' ');
+  return firstPara.substring(0, cut > 0 ? cut : maxChars).trim() + '...';
+}
+
+function getGuestLastName(name) {
+  let n = name.replace(/^(Dr\.?|Prof\.?|Professor)\s+/i, '');
+  n = n.replace(/,?\s*(M\.?D\.?|Ph\.?D\.?|D\.?O\.?|D\.?P\.?T\.?|P\.?A\.?|R\.?D\.?N\.?|O\.?T\.?|P\.?T\.?|J\.?D\.?|D\.?C\.?|FACP|FACS|FACR|DO|PA-C|RN|NP|LCSW|LPC|BCPS|MPH)\.?\s*/gi, '');
+  const parts = n.trim().split(/\s+/);
+  return parts[parts.length - 1];
+}
+
+function resolveGuestImage(name) {
+  let n = name.replace(/^(Dr\.?|Prof\.?|Professor)\s+/i, '');
+  let prev;
+  do {
+    prev = n;
+    n = n.replace(/[,\s]+(M\.?D\.?|Ph\.?D\.?|D\.?P\.?T\.?|D\.?O\.?|P\.?A\.?\-?C?|R\.?D\.?N\.?|O\.?T\.?|P\.?T\.?|J\.?D\.?|LICSW|NCPT|ATC|MS|MA|MPT|DMSC|MRCPsych|DDS|D\.?C\.?|FACP|FACS|FAANS|FAAFP|FAAN|FAMSSM|FACOG|FRCPC|IFMCP|ABIHM|CCSP|CEDS-S|FAED|CHT|CYT|CHC|CMTPT|COMT|NCS|OCS|CES|MHCM)\.?\s*$/i, '');
+  } while (n !== prev);
+  n = n.replace(/[,.\s]+$/, '').trim().toLowerCase();
+  return GUEST_IMAGES[n] || null;
+}
+
+function buildAvatarHtml(ep, linkable, showAll) {
+  if (!ep.guests || ep.guests.length === 0) return '';
+  const guestsWithImages = ep.guests.map(g => ({ name: g, src: resolveGuestImage(g) })).filter(x => x.src);
+  if (guestsWithImages.length === 0) return '';
+  const MAX_SHOW = showAll ? guestsWithImages.length : 2;
+  const isMulti = guestsWithImages.length > 1 && !showAll;
+  let html = guestsWithImages.slice(0, MAX_SHOW).map((g) => {
+    const img = `<img class="guest-avatar-img" src="${g.src}" alt="">`;
+    if (linkable) {
+      const lastName = getGuestLastName(g.name);
+      return `<a href="podcast-guests.html#guest-${lastName}" title="${g.name}" onclick="event.stopPropagation();">${img}</a>`;
+    }
+    return img;
+  }).join('');
+  if (guestsWithImages.length > MAX_SHOW) {
+    html += `<span class="guest-avatar-overflow">+${guestsWithImages.length - MAX_SHOW}</span>`;
+  }
+  const classes = showAll ? 'guest-avatars modal-avatars-all' : `guest-avatars${isMulti ? ' multi' : ''}`;
+  return `<div class="${classes}">${html}</div>`;
+}
+
+function buildCard(ep) {
+  const tagChips = ep.tags.slice(0, 3).map(t => {
+    const color = TAG_COLORS[t] || '#4a2d7a';
+    return `<span class="tag-chip" style="background:${color}18; color:${color}; border-color:${color}30;">${t}</span>`;
+  }).join('');
+
+  const epNum = ep.num ? `<div class="ep-number">${ep.num}</div>` : '';
+  const guestStr = ep.guests && ep.guests.length ? ep.guests.join(', ') : '';
+  const isMulti = ep.guests && ep.guests.length > 1;
+  const guestLine = guestStr ? `<div class="guest-name${isMulti ? ' multi-guest' : ''}">with ${guestStr}</div>` : '';
+  const meta = [ep.date ? formatDate(ep.date) : '', ep.duration].filter(Boolean).join(' · ');
+  const idx = EPISODES.indexOf(ep);
+
+  return `
+  <article class="episode-card" onclick="openEpisode(${idx})">
+    <div class="card-header">
+      ${epNum}
+      <div class="card-header-text">
+        ${guestLine}
+        <h3>${cleanTitle(ep.title)}</h3>
+      </div>
+      ${buildAvatarHtml(ep)}
+    </div>
+    <div class="card-body">
+      <p class="card-description">${truncateAtSentence(ep.description, 280)}</p>
+      <div class="card-tags">${tagChips}</div>
+    </div>
+    <div class="card-footer">
+      <span class="card-meta">${meta}</span>
+      <span class="btn-listen">Listen</span>
+    </div>
+  </article>`;
+}
+
+function getFilteredSorted() {
+  let list = EPISODES.slice();
+  if (activeTag !== 'all') list = list.filter(ep => ep.tags.includes(activeTag));
+  if (searchQuery.trim()) {
+    const q = searchQuery.trim().toLowerCase();
+    list = list.filter(ep =>
+      ep.title.toLowerCase().includes(q) ||
+      (ep.guests && ep.guests.some(g => g.toLowerCase().includes(q))) ||
+      ep.description.toLowerCase().includes(q) ||
+      ep.tags.some(t => t.toLowerCase().includes(q))
+    );
+  }
+  list.sort((a, b) => sortMode === 'oldest'
+    ? new Date(a.date) - new Date(b.date)
+    : new Date(b.date) - new Date(a.date)
+  );
+  return list;
+}
+
+function renderEpisodes() {
+  const grid = document.getElementById('episodeGrid');
+  const noResults = document.getElementById('noResults');
+  const countEl = document.getElementById('resultsCount');
+  const list = getFilteredSorted();
+
+  if (list.length === 0) {
+    grid.innerHTML = '';
+    noResults.style.display = 'block';
+    countEl.innerHTML = '<strong>0</strong> episodes found';
+    return;
+  }
+
+  noResults.style.display = 'none';
+  grid.innerHTML = list.map(buildCard).join('');
+  countEl.innerHTML = `Showing <strong>${list.length}</strong> of <strong>${EPISODES.length}</strong> episodes`;
+}
+
+function clearAll() {
+  searchQuery = '';
+  activeTag = 'all';
+  document.getElementById('searchInput').value = '';
+  document.querySelectorAll('.filter-tag').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.tag === 'all');
+  });
+  updateActiveTagLabel();
+  renderEpisodes();
+}
+
+// ---- Event Listeners ----
+let searchTimer;
+document.getElementById('searchInput').addEventListener('input', function(e) {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => { searchQuery = e.target.value; renderEpisodes(); }, 180);
+});
+
+document.getElementById('sortSelect').addEventListener('change', function(e) {
+  sortMode = e.target.value;
+  renderEpisodes();
+});
+
+document.querySelectorAll('.filter-tag').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const tag = this.dataset.tag;
+    activeTag = (tag === 'all') ? 'all' : (activeTag === tag ? 'all' : tag);
+    document.querySelectorAll('.filter-tag').forEach(b => {
+      b.classList.toggle('active',
+        (activeTag === 'all' && b.dataset.tag === 'all') ||
+        (activeTag !== 'all' && b.dataset.tag === activeTag)
+      );
+    });
+    updateActiveTagLabel();
+    renderEpisodes();
+  });
+});
+
+// ---- Tag Dropdown Toggle ----
+const tagToggle = document.getElementById('tagToggle');
+const tagDropdown = document.getElementById('tagDropdown');
+const activeTagLabelEl = document.getElementById('activeTagLabel');
+
+tagToggle.addEventListener('click', () => {
+  const isOpen = tagDropdown.style.display !== 'none';
+  tagDropdown.style.display = isOpen ? 'none' : 'flex';
+  tagToggle.classList.toggle('open', !isOpen);
+});
+
+function updateActiveTagLabel() {
+  activeTagLabelEl.textContent = activeTag === 'all' ? '' : activeTag;
+}
+
+// ---- Episode Detail Modal ----
+const modal = document.getElementById('episodeModal');
+
+function openEpisode(idx) {
+  const ep = EPISODES[idx];
+  if (!ep) return;
+
+  document.getElementById('modalEpNum').textContent = ep.num ? `Episode ${ep.num}` : '';
+  document.getElementById('modalTitle').textContent = cleanTitle(ep.title);
+  const guestStr = ep.guests && ep.guests.length ? ep.guests.join(', ') : '';
+  document.getElementById('modalGuest').textContent = guestStr ? `with ${guestStr}` : '';
+  document.getElementById('modalAvatars').innerHTML = buildAvatarHtml(ep, true, true);
+  document.getElementById('modalMeta').textContent = [formatDate(ep.date), ep.duration].filter(Boolean).join(' · ');
+  document.getElementById('modalDescription').innerHTML = ep.description.split('\n\n').map(p => `<p>${p}</p>`).join('');
+
+  // Audio
+  const audioEl = document.getElementById('modalAudio');
+  if (ep.audioUrl) {
+    audioEl.innerHTML = `<audio controls style="width:100%;" preload="none"><source src="${ep.audioUrl}" type="audio/mpeg">Your browser does not support audio.</audio>`;
+    audioEl.className = '';
+  } else {
+    audioEl.innerHTML = 'Audio player will be embedded here';
+    audioEl.className = 'embed-placeholder';
+  }
+
+  // Video
+  const videoEl = document.getElementById('modalVideo');
+  if (ep.videoUrl) {
+    const vidEmbed = ep.videoUrl.replace('youtube.com/watch?v=', 'youtube.com/embed/')
+                                .replace('youtube.com/shorts/', 'youtube.com/embed/')
+                                .replace('youtu.be/', 'youtube.com/embed/');
+    videoEl.innerHTML = `<div style="aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;"><iframe src="${vidEmbed}" style="width:100%;height:100%;border:none;" allowfullscreen loading="lazy"></iframe></div>`;
+    videoEl.className = '';
+  } else {
+    videoEl.innerHTML = 'Video player will be embedded here';
+    videoEl.className = 'embed-placeholder';
+  }
+
+  // Snippets
+  const snippetsSection = document.getElementById('modalSnippetsSection');
+  const snippetsEl = document.getElementById('modalSnippets');
+  if (ep.snippets && ep.snippets.length > 0) {
+    snippetsSection.style.display = 'block';
+    snippetsEl.innerHTML = ep.snippets.map(url => {
+      let embedUrl = url.replace('youtube.com/watch?v=', 'youtube.com/embed/')
+                        .replace('youtube.com/shorts/', 'youtube.com/embed/')
+                        .replace('youtu.be/', 'youtube.com/embed/');
+      const sep = embedUrl.includes('?') ? '&' : '?';
+      embedUrl += `${sep}origin=${encodeURIComponent(window.location.origin)}`;
+      return `<div class="snippet-embed"><iframe src="${embedUrl}" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>`;
+    }).join('');
+  } else {
+    snippetsSection.style.display = 'none';
+  }
+
+  // Transcript
+  const transcriptSection = document.getElementById('modalTranscriptSection');
+  const transcriptEl = document.getElementById('modalTranscript');
+  if (ep.transcript) {
+    transcriptSection.style.display = 'block';
+    if (ep.transcript.startsWith('http')) {
+      transcriptEl.innerHTML = `<a href="${ep.transcript}" target="_blank" class="transcript-link">View Full Transcript &rarr;</a>`;
+    } else {
+      transcriptEl.innerHTML = `<div class="transcript-content">${ep.transcript}</div>`;
+    }
+  } else {
+    transcriptSection.style.display = 'none';
+  }
+
+  // Tags
+  document.getElementById('modalTags').innerHTML = ep.tags.map(t => {
+    const color = TAG_COLORS[t] || '#4a2d7a';
+    return `<span class="tag-chip" style="background:${color}18; color:${color}; border-color:${color}30;">${t}</span>`;
+  }).join('');
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modalClose').addEventListener('click', closeModal);
+modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+// ---- Initial Render ----
+document.getElementById('episodeCountHero').textContent = `${EPISODES.length} episodes — Search by topic, guest, or keyword`;
+renderEpisodes();
+
+// ---- Auto-open episode from URL param ----
+const urlParams = new URLSearchParams(window.location.search);
+const epParam = urlParams.get('ep');
+if (epParam) {
+  const epNum = parseInt(epParam, 10);
+  const idx = EPISODES.findIndex(e => e.num === epNum);
+  if (idx !== -1) openEpisode(idx);
+}
+</script>
+
+<script>
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('hmd-theme', theme);
+  document.querySelectorAll('.theme-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === theme);
+  });
+}
+const saved = localStorage.getItem('hmd-theme') || 'warm';
+setTheme(saved);
+</script>
+</body>
+</html>

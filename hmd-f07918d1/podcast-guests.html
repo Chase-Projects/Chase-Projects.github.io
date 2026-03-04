@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="warm">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Index — Hypermobility MD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="podcast-styles.css">
+</head>
+<body class="podcast-page">
+
+<div id="site-nav" data-active="podcast"></div>
+<script src="components.js"></script>
+
+<nav class="podcast-subnav">
+  <a href="podcast.html">Bendy Bodies Podcast</a>
+  <a href="podcast-episodes.html">Episodes</a>
+  <a href="podcast-guests.html" class="active">Guests</a>
+  <a href="podcast-appearances.html">Appearances</a>
+</nav>
+
+<!-- Hero -->
+<div class="podcast-page-hero">
+  <div class="container">
+    <div>
+      <h1>Guest Index</h1>
+      <p>Specialists, researchers, and patient advocates who have appeared on Bendy Bodies</p>
+    </div>
+    <div class="subscribe-buttons" style="margin: 0;">
+      <a href="https://podcasts.apple.com/us/podcast/bendy-bodies-with-the-hypermobility-md/id1582031757" class="btn-subscribe apple" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 17a1 1 0 1 0-2 0l.5 4.5a.5.5 0 0 0 1 0z" fill="currentColor"/><path d="M16.85 18.58a9 9 0 1 0-9.7 0"/><path d="M8 14a5 5 0 1 1 8 0"/><circle cx="12" cy="11" r="1" fill="currentColor"/></svg>
+        Apple Podcasts
+      </a>
+      <a href="https://open.spotify.com/show/1wjqjnOsBpVVkNIcbDJJP8" class="btn-subscribe spotify" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        Spotify
+      </a>
+      <a href="https://www.youtube.com/@BendyBodiesPodcast" class="btn-subscribe youtube" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Search & Filter Bar -->
+<div class="guest-filter-bar">
+  <div class="filter-inner">
+    <div class="search-box">
+      <span class="search-icon">&#x1F50D;</span>
+      <input type="text" id="guestSearch" placeholder="Search guests by name..." autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+</div>
+
+<!-- Alphabet Filter -->
+<div class="section" style="padding-top: 32px; padding-bottom: 32px;">
+  <div class="container">
+    <div class="alpha-filter" id="alphaFilter">
+      <button class="alpha-btn active" data-letter="all">All</button>
+    </div>
+  </div>
+</div>
+
+<!-- Guest Grid -->
+<div style="background: var(--section-alt); padding-bottom: 64px;">
+  <div class="container">
+    <div id="guestsContainer">
+      <!-- Rendered by JS -->
+    </div>
+    <div class="no-results" id="noGuests" style="display:none;">
+      <h3>No guests found</h3>
+      <p>Try a different name or clear the filter.</p>
+    </div>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+<div id="theme-switcher"></div>
+
+<script src="data.js"></script>
+<script>
+// Build guest index from episode data
+const HOST_PATTERNS = [/linda\s+bluestein/i];
+const INVALID_GUESTS = [
+  'guest host', 'dance injuries', 'physical therapists', 'chronic pain',
+  'multisystemic diseases', 'whealth founders', 'royal ballet',
+  'orthopedic surgeon', 'physiotherapist', 'immunologist',
+  'psychotherapist', 'anesthesiologist',
+];
+
+function isHost(name) { return HOST_PATTERNS.some(p => p.test(name)); }
+function isInvalidGuest(name) { const lower = name.toLowerCase(); return INVALID_GUESTS.some(inv => lower.startsWith(inv)); }
+
+function stripCredentials(name) {
+  let n = name, prev;
+  do {
+    prev = n;
+    n = n.replace(/[,\s]+(M\.?D\.?|Ph\.?D\.?|D\.?P\.?T\.?|D\.?O\.?|P\.?A\.?-?C?|R\.?D\.?N\.?|O\.?T\.?|P\.?T\.?|J\.?D\.?|LICSW|NCPT|ATC|MS|MA|MPT|DMSC|MRCPsych|DDS)\.?\s*$/i, '');
+  } while (n !== prev);
+  return n.replace(/[,.\s]+$/, '').trim();
+}
+
+function normalizeGuestKey(name) {
+  let n = name.replace(/^(Dr\.?|Prof\.?|Professor)\s+/i, '');
+  n = stripCredentials(n);
+  return n.toLowerCase().replace(/\s+/g, ' ');
+}
+
+function getGuestImage(name) {
+  let n = name.replace(/^(Dr\.?|Prof\.?|Professor)\s+/i, '');
+  n = stripCredentials(n).toLowerCase();
+  return GUEST_IMAGES[n] || null;
+}
+
+function getSortLastName(name) {
+  let n = name.replace(/^(Dr\.?|Prof\.?|Professor)\s+/i, '');
+  n = stripCredentials(n);
+  const parts = n.split(/\s+/);
+  return parts[parts.length - 1];
+}
+
+// Build guest map
+const tempMap = {};
+EPISODES.forEach(ep => {
+  if (!ep.guests || ep.guests.length === 0) return;
+  ep.guests.forEach(g => {
+    if (!g || isHost(g) || isInvalidGuest(g) || g.length < 3) return;
+    const key = normalizeGuestKey(g);
+    if (key.length < 3) return;
+    if (!tempMap[key]) {
+      tempMap[key] = { displayName: g, episodes: [] };
+    } else {
+      const current = tempMap[key].displayName;
+      if (g.match(/^Dr\.?\s/i) && !current.match(/^Dr\.?\s/i)) tempMap[key].displayName = g;
+      else if (g.length > current.length && !current.match(/^Dr\.?\s/i)) tempMap[key].displayName = g;
+    }
+    if (!tempMap[key].episodes.find(e => e.title === ep.title)) tempMap[key].episodes.push(ep);
+  });
+});
+
+const guestMap = {};
+Object.values(tempMap).forEach(({ displayName, episodes }) => { guestMap[displayName] = episodes; });
+
+const allGuests = Object.keys(guestMap).sort((a, b) => {
+  return getSortLastName(a).toLowerCase().localeCompare(getSortLastName(b).toLowerCase());
+});
+
+const letters = [...new Set(allGuests.map(g => getSortLastName(g)[0].toUpperCase()))].sort();
+
+// Build alphabet buttons
+const alphaFilter = document.getElementById('alphaFilter');
+letters.forEach(l => {
+  const btn = document.createElement('button');
+  btn.className = 'alpha-btn';
+  btn.dataset.letter = l;
+  btn.textContent = l;
+  alphaFilter.appendChild(btn);
+});
+
+let activeLetter = 'all';
+let searchQ = '';
+
+function buildGuestCard(name) {
+  const episodes = guestMap[name];
+  const img = getGuestImage(name);
+  const imgHtml = img ? `<img class="guest-card-img" src="${img}" alt="${name}">` : '';
+  const epList = episodes.map(ep => {
+    const epNum = ep.num ? `<span class="guest-ep-num">Ep ${ep.num}</span> · ` : '';
+    const cleanTitle = ep.title.replace(/\s*\((?:Ep|EP|BEN)\s*\d+\)\s*$/, '').replace(/^\d+\.\s+/, '').trim();
+    const href = ep.num ? `podcast-episodes.html?ep=${ep.num}` : '#';
+    return `<li><a href="${href}" style="color: inherit; text-decoration: none; display: block;">${epNum}${cleanTitle}</a></li>`;
+  }).join('');
+  const lastName = getSortLastName(name);
+  return `
+  <div class="guest-card" id="guest-${lastName}">
+    <div class="guest-card-header">
+      ${imgHtml}
+      <h3>${name}</h3>
+    </div>
+    <ul class="guest-episodes">${epList}</ul>
+  </div>`;
+}
+
+function renderGuests() {
+  const container = document.getElementById('guestsContainer');
+  const noGuests = document.getElementById('noGuests');
+  const q = searchQ.toLowerCase();
+
+  let filtered = allGuests.filter(g => {
+    const matchSearch = !q || g.toLowerCase().includes(q);
+    const lastLetter = getSortLastName(g)[0].toUpperCase();
+    const matchLetter = activeLetter === 'all' || lastLetter === activeLetter;
+    return matchSearch && matchLetter;
+  });
+
+  if (filtered.length === 0) {
+    container.innerHTML = '';
+    noGuests.style.display = 'block';
+    return;
+  }
+  noGuests.style.display = 'none';
+
+  if (activeLetter === 'all' && !q) {
+    const groups = {};
+    filtered.forEach(g => {
+      const l = getSortLastName(g)[0].toUpperCase();
+      if (!groups[l]) groups[l] = [];
+      groups[l].push(g);
+    });
+    container.innerHTML = Object.keys(groups).sort().map(letter => `
+      <div class="alpha-section">
+        <div class="alpha-section-heading">${letter}</div>
+        <div class="guest-index">${groups[letter].map(buildGuestCard).join('')}</div>
+      </div>
+    `).join('');
+  } else {
+    container.innerHTML = `<div class="guest-index" style="padding-top: 8px;">${filtered.map(buildGuestCard).join('')}</div>`;
+  }
+}
+
+// Alpha filter click
+document.getElementById('alphaFilter').addEventListener('click', e => {
+  const btn = e.target.closest('.alpha-btn');
+  if (!btn) return;
+  activeLetter = btn.dataset.letter;
+  document.querySelectorAll('.alpha-btn').forEach(b => b.classList.toggle('active', b.dataset.letter === activeLetter));
+  renderGuests();
+});
+
+// Guest search
+let timer;
+document.getElementById('guestSearch').addEventListener('input', e => {
+  clearTimeout(timer);
+  timer = setTimeout(() => {
+    searchQ = e.target.value;
+    activeLetter = 'all';
+    document.querySelectorAll('.alpha-btn').forEach(b => b.classList.toggle('active', b.dataset.letter === 'all'));
+    renderGuests();
+  }, 200);
+});
+
+// Handle guest link from episodes page
+const urlParams = new URLSearchParams(window.location.search);
+const guestParam = urlParams.get('guest');
+if (guestParam) {
+  document.getElementById('guestSearch').value = guestParam;
+  searchQ = guestParam;
+}
+
+renderGuests();
+
+// Scroll to guest anchor
+if (window.location.hash) {
+  const hashId = window.location.hash.slice(1);
+  setTimeout(() => {
+    const el = document.getElementById(hashId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      el.style.outline = '3px solid var(--primary)';
+      el.style.outlineOffset = '4px';
+      el.style.borderRadius = 'var(--radius-sm)';
+      setTimeout(() => { el.style.outline = ''; el.style.outlineOffset = ''; }, 2000);
+    }
+  }, 100);
+}
+</script>
+
+<script>
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('hmd-theme', theme);
+  document.querySelectorAll('.theme-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === theme);
+  });
+}
+const saved = localStorage.getItem('hmd-theme') || 'warm';
+setTheme(saved);
+</script>
+</body>
+</html>

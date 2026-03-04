@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="warm">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Podcast — Hypermobility MD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="podcast-styles.css">
+</head>
+<body class="podcast-page">
+
+<div id="site-nav" data-active="podcast"></div>
+<script src="components.js"></script>
+
+<nav class="podcast-subnav">
+  <a href="podcast.html" class="active">Bendy Bodies Podcast</a>
+  <a href="podcast-episodes.html">Episodes</a>
+  <a href="podcast-guests.html">Guests</a>
+  <a href="podcast-appearances.html">Appearances</a>
+</nav>
+
+<!-- Podcast Hero -->
+<section class="hero podcast-hero-full">
+  <div class="podcast-hero-inner">
+    <div class="podcast-hero-text">
+      <h1>Bendy Bodies with<br>Dr. Linda Bluestein</h1>
+      <p class="hero-subtitle" style="color: rgba(255,255,255,0.85);">Conversations about hypermobility, EDS, POTS, MCAS, and life in a complex, connective-tissue body. Hosted by the Hypermobility MD.</p>
+      <div class="subscribe-buttons" style="justify-content: flex-start;">
+        <a href="https://podcasts.apple.com/us/podcast/bendy-bodies-with-the-hypermobility-md/id1582031757" class="btn-subscribe apple" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 17a1 1 0 1 0-2 0l.5 4.5a.5.5 0 0 0 1 0z" fill="currentColor"/><path d="M16.85 18.58a9 9 0 1 0-9.7 0"/><path d="M8 14a5 5 0 1 1 8 0"/><circle cx="12" cy="11" r="1" fill="currentColor"/></svg>
+          Apple Podcasts
+        </a>
+        <a href="https://open.spotify.com/show/1wjqjnOsBpVVkNIcbDJJP8" class="btn-subscribe spotify" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          Spotify
+        </a>
+        <a href="https://www.youtube.com/@BendyBodiesPodcast" class="btn-subscribe youtube" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          YouTube
+        </a>
+      </div>
+    </div>
+    <div class="podcast-hero-image">
+      <img src="assets/bendy-bodies-hero.png" alt="The Bendy Bodies Podcast with Linda Bluestein MD and Dacre Knight MD">
+    </div>
+  </div>
+</section>
+
+<!-- Latest Episode -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Latest Episode</h2>
+    </div>
+    <div class="featured-episode" id="latestEpisode">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- Featured Episodes -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <h2>Featured Episodes</h2>
+      <p>A few episodes that have resonated most with the Bendy Bodies community.</p>
+    </div>
+    <div class="episode-grid" id="featuredGrid">
+      <!-- Rendered by JS -->
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="podcast-episodes.html" class="btn btn-primary" id="viewAllBtn">View All Episodes</a>
+    </div>
+  </div>
+</section>
+
+<!-- About this Podcast -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Welcome</p>
+      <h2>About This Podcast</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start;" class="about-podcast-layout">
+      <div>
+        <p>Whether you're bendy with all the benefits or hurting in all the wrong places, you've come to the right place for all things hypermobility. Connective tissue disorders like Ehlers-Danlos Syndromes (EDS) are often dismissed or overlooked by healthcare providers as a cause of chronic pain. But if you or someone you care about struggles with the life-altering symptoms of hypermobility, you should know <strong>YOU ARE NOT ALONE!</strong></p>
+        <p>Each week, join <strong>Dr. Linda Bluestein</strong> (The Hypermobility MD) as she pulls back the curtain on how to prevent injury and unnecessary suffering in "double-jointed" individuals seeking a more comfortable life in their unique, complex "bendy bodies." When you tune in, you're engaging in more than a podcast. Both on-air and online, you're joining a supportive community where patients, caregivers, and healthcare professionals trade insights, life hacks, and inspiring stories.</p>
+        <p>Multi-systemic symptoms affect quality of life &mdash; with pain, frequent injury, joints "giving way," fatigue, headache, gastrointestinal problems, and insomnia being common. Learn from specialists with diverse areas of medical and scientific expertise. <strong>Learn to optimize your hypermobile health!</strong></p>
+      </div>
+      <div style="flex-shrink: 0;">
+        <img src="Populate/BB.png" alt="Bendy Bodies logo" style="width: 180px; border-radius: var(--radius); opacity: 0.85;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About the Hosts -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">The Team</p>
+      <h2>About the Hosts</h2>
+    </div>
+    <div class="hosts-grid">
+
+      <div class="host-card">
+        <div class="host-header">
+          <img src="Populate/Linda.avif" alt="Dr. Linda Bluestein" class="host-avatar">
+          <div>
+            <h3>Dr. Linda Bluestein, MD</h3>
+            <p class="host-title">Founder &amp; Host &middot; The Hypermobility MD</p>
+          </div>
+        </div>
+        <p class="host-bio">Dr. Linda Bluestein is a multifaceted professional renowned for her expertise in hypermobility disorders. As the founder of Hypermobility MD, she offers specialized medical care to individuals grappling with these conditions, and is the driving force behind Bendy Bodies coaching. Dr. Bluestein received her Doctor of Medicine from UCLA and completed her anesthesiology residency at Mayo Clinic. Her special interest in treating performing artists stems from her many years as a ballet dancer and her own EDS diagnosis. She actively contributes to research and advocacy, serving on the Allergy and Immunology Working Group for the International Consortium on EDS and HSD, the Medical Advisory Board for Standing Up to POTS, and chairing the Pain Management Committee for the EDS Research Foundation.</p>
+        <div class="host-social-icons">
+          <a href="https://www.hypermobilitymd.com/" target="_blank" rel="noopener" title="Website"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></a>
+          <a href="https://twitter.com/BluesteinLinda" target="_blank" rel="noopener" title="Twitter/X"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.instagram.com/hypermobilitymd/" target="_blank" rel="noopener" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="https://youtube.com/@bendybodiespodcast" target="_blank" rel="noopener" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          <a href="https://www.facebook.com/hypermobilityMD" target="_blank" rel="noopener" title="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.linkedin.com/in/hypermobilitymd/" target="_blank" rel="noopener" title="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://www.tiktok.com/@hypermobilitymd" target="_blank" rel="noopener" title="TikTok"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="host-card">
+        <div class="host-header">
+          <img src="Populate/Knight.avif" alt="Dr. Dacre Knight" class="host-avatar">
+          <div>
+            <h3>Dr. Dacre Knight, MD</h3>
+            <p class="host-title">Co-Host &middot; Medical Director, UVA EDS Center</p>
+          </div>
+        </div>
+        <p class="host-bio">Dr. Dacre Knight is the Medical Director of the EDS &amp; Hypermobility Disorders Center at the University of Virginia, where he also serves as an Associate Professor of Medicine. A board-certified internal medicine physician, Dr. Knight specializes in consultative and diagnostic medicine with a clinical focus on chronic disease, unresolved illness, and the coordinated care of patients with Ehlers-Danlos syndromes. An active researcher and educator, he mentors medical students and residents, with diverse academic interests including the treatment of complex EDS cases and the application of machine learning and AI to diagnostic medicine. Dr. Knight received the Pioneer in Clinical Care award from the Ehlers-Danlos Society for 2025.</p>
+        <div class="host-social-icons">
+          <a href="https://www.uvahealth.com/healthy-practice/advancing-care-through-ehlers-danlos-clinic" target="_blank" rel="noopener" title="UVA EDS Center"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></a>
+          <a href="https://twitter.com/knidac" target="_blank" rel="noopener" title="@knidac on X"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Community Testimonials -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Community</p>
+      <h2>From the Bendy Bodies Community</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">The subject matter is relevant, the content is peer-reviewed, and the guests are reputable. Not sure you can ask for more in the EDS society! Doing a deep dive into these episodes is an effective method to really learning about how to care for your EDS, which is so much more than a bendy body as we all know.</p>
+        <p class="testimonial-author">— Dr. Hollie R</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">Really love the wide range of guests this podcast hosts — it has been really valuable for gaining different perspectives and insights. The information is superbly helpful, and it's so wonderful that there is a consolidated bank of information that we can look to!</p>
+        <p class="testimonial-author">— Jwpcrbm</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">The Bendy Bodies podcast has empowered and encouraged me as a patient and professional in more ways than I can describe! Thank you for your generosity, compassion, and hard work in bringing so much visibility to connective tissue disorders!</p>
+        <p class="testimonial-author">— Katie</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="podcast-cta-section" style="text-align: center;">
+  <div class="container">
+    <h2 style="color: #fff;">Ready to Listen?</h2>
+    <p style="color: rgba(255,255,255,0.8); max-width: 500px; margin: 12px auto 24px;">Search <span id="epCountCta">180+</span> episodes by topic, guest, or keyword. Filter by EDS, POTS, MCAS, Pain, Nutrition, and more.</p>
+    <a href="podcast-episodes.html" class="btn btn-primary" style="background: #fff; color: var(--primary-dark);">Browse All Episodes</a>
+  </div>
+</section>
+
+<!-- Book Dr. Bluestein -->
+<section class="section">
+  <div class="container text-center">
+    <h2>Book the Hypermobility MD</h2>
+    <p style="color: var(--text-muted); max-width: 500px; margin: 12px auto 24px;">Invite Dr. Bluestein to speak at your studio, company, or organization. Workshops and lectures available online and in person.</p>
+    <a href="mailto:info@hypermobilitymd.com" class="btn btn-primary">Contact Us</a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<div id="theme-switcher"></div>
+
+<script src="data.js"></script>
+<script>
+// ---- Helpers ----
+function formatDate(d) {
+  if (!d) return '';
+  try { return new Date(d).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }); }
+  catch(e) { return d; }
+}
+
+const ABBREVS = /(?:Dr|Mr|Mrs|Ms|Prof|Sr|Jr|St|vs|etc|e\.g|i\.e|Vol|Ep|Inc|Ltd|M\.?D|Ph\.?D|D\.?P\.?T|P\.?A|R\.?D\.?N|O\.?T|P\.?T|J\.?D)\s*$/i;
+function truncateAtSentence(text, maxChars) {
+  if (!text || text.length <= maxChars) return text;
+  const firstPara = text.split('\n\n')[0];
+  if (firstPara.length <= maxChars) return firstPara;
+  let lastGoodEnd = -1;
+  for (let i = maxChars * 0.5; i < Math.min(firstPara.length, maxChars * 1.5); i++) {
+    const ch = firstPara[i];
+    if ((ch === '.' || ch === '!' || ch === '?') && (i + 1 >= firstPara.length || firstPara[i + 1] === ' ' || firstPara[i + 1] === '\n')) {
+      const before = firstPara.substring(Math.max(0, i - 15), i + 1);
+      if (!ABBREVS.test(before)) {
+        lastGoodEnd = i + 1;
+        if (i >= maxChars * 0.8) break;
+      }
+    }
+  }
+  if (lastGoodEnd > 0) return firstPara.substring(0, lastGoodEnd).trim();
+  const cut = firstPara.substring(0, maxChars).lastIndexOf(' ');
+  return firstPara.substring(0, cut > 0 ? cut : maxChars).trim() + '...';
+}
+
+function resolveGuestImage(name) {
+  let n = name.replace(/^(Dr\.?|Prof\.?|Professor)\s+/i, '');
+  let prev;
+  do {
+    prev = n;
+    n = n.replace(/[,\s]+(M\.?D\.?|Ph\.?D\.?|D\.?P\.?T\.?|D\.?O\.?|P\.?A\.?\-?C?|R\.?D\.?N\.?|O\.?T\.?|P\.?T\.?|J\.?D\.?|LICSW|NCPT|ATC|MS|MA|MPT|DMSC|MRCPsych|DDS|D\.?C\.?|FACP|FACS|FAANS|FAAFP|FAAN|FAMSSM|FACOG|FRCPC|IFMCP|ABIHM|CCSP|CEDS-S|FAED|CHT|CYT|CHC|CMTPT|COMT|NCS|OCS|CES|MHCM)\.?\s*$/i, '');
+  } while (n !== prev);
+  n = n.replace(/[,.\s]+$/, '').trim().toLowerCase();
+  return GUEST_IMAGES[n] || null;
+}
+
+function buildAvatarHtml(ep) {
+  if (!ep.guests || ep.guests.length === 0) return '';
+  const resolved = ep.guests.map(g => resolveGuestImage(g)).filter(Boolean);
+  if (resolved.length === 0) return '';
+  const MAX_SHOW = 2;
+  const isMulti = resolved.length > 1;
+  let html = resolved.slice(0, MAX_SHOW).map(src =>
+    `<img class="guest-avatar-img" src="${src}" alt="">`
+  ).join('');
+  if (resolved.length > MAX_SHOW) {
+    html += `<span class="guest-avatar-overflow">+${resolved.length - MAX_SHOW}</span>`;
+  }
+  return `<div class="guest-avatars${isMulti ? ' multi' : ''}">${html}</div>`;
+}
+
+function cleanTitle(t) {
+  return t.replace(/\s*\((?:Ep|EP|BEN)\s*\d+\)\s*$/, '').replace(/^\d+\.\s+/, '').trim();
+}
+
+// ---- Latest Episode ----
+function buildLatest(ep) {
+  const guestStr = ep.guests && ep.guests.length ? ep.guests.join(', ') : '';
+  const epLabel = ep.num ? `<span class="featured-ep-num">Episode ${ep.num}</span>` : '';
+  const guestLabel = guestStr ? `<span class="featured-guest-inline">${guestStr}</span>` : '';
+  const separator = (epLabel && guestLabel) ? '<span class="featured-top-sep">&middot;</span>' : '';
+
+  return `
+  <div class="featured-top-bar">
+    ${epLabel}${separator}
+    ${buildAvatarHtml(ep)}
+    ${guestLabel}
+  </div>
+  <div class="featured-bottom">
+    <h2>${cleanTitle(ep.title)}</h2>
+    <p class="featured-description">${truncateAtSentence(ep.description, 350)}</p>
+    ${ep.audioUrl ? `<div style="margin-bottom: 20px;"><audio controls preload="none" style="width:100%; border-radius:28px;"><source src="${ep.audioUrl}" type="audio/mpeg">Your browser does not support audio.</audio></div>` : ''}
+    <div class="featured-actions">
+      <a href="podcast-episodes.html?ep=${ep.num}" class="btn btn-primary">Full Episode Details</a>
+      <a href="podcast-episodes.html" class="btn btn-secondary">Browse All Episodes</a>
+    </div>
+  </div>`;
+}
+
+const sorted = EPISODES.slice().sort((a,b) => new Date(b.date) - new Date(a.date));
+document.getElementById('latestEpisode').innerHTML = buildLatest(sorted[0]);
+
+// ---- Featured Episodes ----
+const featuredNums = [184, 170, 155, 140, 120, 100];
+const featured = featuredNums.map(n => EPISODES.find(e => e.num === n)).filter(Boolean).slice(0, 3);
+if (featured.length < 3) {
+  const picks = sorted.filter((ep, i) => i > 0 && i < 30);
+  while (featured.length < 3 && picks.length > 0) {
+    const pick = picks.splice(Math.floor(picks.length / 2), 1)[0];
+    if (pick && !featured.find(e => e.num === pick.num)) featured.push(pick);
+  }
+}
+
+function buildCard(ep) {
+  const epNum = ep.num ? `<div class="ep-number">${ep.num}</div>` : '';
+  const guestStr = ep.guests && ep.guests.length ? ep.guests.join(', ') : '';
+  const isMulti = ep.guests && ep.guests.length > 1;
+  const guestLine = guestStr ? `<div class="guest-name${isMulti ? ' multi-guest' : ''}">with ${guestStr}</div>` : '';
+  const meta = formatDate(ep.date);
+  return `
+  <article class="episode-card" onclick="window.location.href='podcast-episodes.html?ep=${ep.num}'" style="cursor:pointer;">
+    <div class="card-header">
+      ${epNum}
+      <div class="card-header-text">
+        ${guestLine}
+        <h3>${cleanTitle(ep.title)}</h3>
+      </div>
+      ${buildAvatarHtml(ep)}
+    </div>
+    <div class="card-body">
+      <p class="card-description">${truncateAtSentence(ep.description, 200)}</p>
+    </div>
+    <div class="card-footer">
+      <span class="card-meta">${meta}</span>
+      <span class="btn-listen">Listen</span>
+    </div>
+  </article>`;
+}
+
+document.getElementById('featuredGrid').innerHTML = featured.map(buildCard).join('');
+
+// Dynamic episode count
+const epCount = EPISODES.length;
+document.getElementById('viewAllBtn').textContent = `View All ${epCount} Episodes`;
+const inlineEl = document.getElementById('epCountInline');
+if (inlineEl) inlineEl.textContent = epCount + '+';
+document.getElementById('epCountCta').textContent = epCount;
+</script>
+
+<script>
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('hmd-theme', theme);
+  document.querySelectorAll('.theme-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === theme);
+  });
+}
+const saved = localStorage.getItem('hmd-theme') || 'warm';
+setTheme(saved);
+</script>
+</body>
+</html>

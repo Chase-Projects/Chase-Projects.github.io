@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /hmd-f07918d1/

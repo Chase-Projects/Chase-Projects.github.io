@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="warm">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — Hypermobility MD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="site-nav" data-active="services"></div>
+<script src="components.js"></script>
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="container">
+    <h1>Frequently Asked Questions</h1>
+    <p>Common questions about our medical services, coaching, and how we can help.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="faq-list">
+
+      <details class="faq-item" open>
+        <summary class="faq-question">What services are offered by Dr. Linda Bluestein, the Hypermobility MD?</summary>
+        <div class="faq-answer">
+          <p>We are accepting new clients for EduCoaching, a unique process developed by Dr. Bluestein, that combines personalized information with one-on-one coaching. All sessions are with Dr. Bluestein. EduCoaching is available worldwide.</p>
+          <p>We have a waiting list for patients that you can join. Dr. Linda Bluestein is also the founder and host of the <a href="podcast.html">Bendy Bodies with the Hypermobility MD podcast</a>. Listen and learn from Dr. Bluestein and other specialists with diverse areas of medical and scientific expertise.</p>
+          <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="services.html#coaching" class="btn btn-secondary">Learn About EduCoaching</a>
+            <a href="services.html" class="btn btn-secondary">Join the Patient Waiting List</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Does Hypermobility MD offer virtual appointments?</summary>
+        <div class="faq-answer">
+          <p>Virtual appointments are available for clients and some patient follow-up visits. New and existing clients can schedule virtual appointments for EduCoaching through Bendy Bodies, LLC. Existing patients may schedule medical appointments through the patient portal.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">What are the payment options?</summary>
+        <div class="faq-answer">
+          <p>Clients and patients are directly responsible for payment for services. We accept credit cards and Venmo (@Linda-Bluestein).</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">What is the difference between being a patient (medical services) and being an EduCoaching client (coaching services)?</summary>
+        <div class="faq-answer">
+          <p><strong>Medical Services:</strong> Patients must meet Dr. Bluestein in person for their first appointment, which can take place in Colorado or Wisconsin. During this appointment, they can receive prescriptions for medications, lab orders, or imaging orders. After the initial visit, Dr. Bluestein becomes one of your doctors. Follow-up appointments can be virtual for up to one year, but you must be located in Colorado or Wisconsin for these sessions.</p>
+          <p><strong>Coaching Services:</strong> Clients can live anywhere in the world and do not need to travel for appointments. They receive coaching from Dr. Bluestein, but they do not become her patients. All coaching sessions are conducted online, one-on-one with Dr. Bluestein. She provides information to help you work with your own local healthcare team. As a coach, Dr. Bluestein cannot write prescriptions or orders for medications, labs, or imaging.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">How does Hypermobility MD prioritize creating an inclusive environment?</summary>
+        <div class="faq-answer">
+          <p>At Hypermobility MD, PLLC, and Bendy Bodies, LLC, we are dedicated to fostering an inclusive atmosphere where individuals from diverse backgrounds feel not only welcomed but truly supported. Recognizing the potential disparities within the healthcare system, especially for those managing chronic and/or complex conditions, we strive to treat each patient or client with the utmost respect and sincerity.</p>
+          <p>Your unique conditions and experiences are valued, and our commitment is to provide a healthcare experience that is considerate, empathetic, and tailored to your individual needs.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-alt" style="text-align: center;">
+  <div class="container">
+    <h2>Still Have Questions?</h2>
+    <p style="color: var(--text-muted); max-width: 500px; margin: 12px auto 24px;">Don't hesitate to reach out. We're happy to help you understand your options.</p>
+    <a href="mailto:info@hypermobilitymd.com" class="btn btn-primary">Contact Us</a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<div id="theme-switcher"></div>
+
+<script>
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('hmd-theme', theme);
+  document.querySelectorAll('.theme-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === theme);
+  });
+}
+const saved = localStorage.getItem('hmd-theme') || 'warm';
+setTheme(saved);
+</script>
+</body>
+</html>
