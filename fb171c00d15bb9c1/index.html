@@ -391,6 +391,11 @@ Remember: output ONLY the JSON object. No other text before or after it.`;
         return;
       }
 
+      const stamp = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      const chasesNotes = document.getElementById('f_chases_notes').value.trim();
+      const stampLine = `Generated from form submission ${stamp}`;
+      const chasesNotesWithStamp = chasesNotes ? `${chasesNotes}; ${stampLine}` : stampLine;
+
       const row = {
         '#':              '',
         'Doctor Name':    document.getElementById('f_doctor_name').value.trim(),
@@ -408,7 +413,7 @@ Remember: output ONLY the JSON object. No other text before or after it.`;
         'Notes':          document.getElementById('notesManual').value.trim(),
         'Year':           String(new Date().getFullYear()),
         'Country':        document.getElementById('f_country').value.trim(),
-        "Chase's Notes":  document.getElementById('f_chases_notes').value.trim(),
+        "Chase's Notes":  chasesNotesWithStamp,
       };
 
       const btn = document.getElementById('submitBtn');
