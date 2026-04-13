@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Specialist Lookup</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 760px; margin: 0 auto; padding: 24px; background: rgb(38,28,32); color: #e0d6d9; }
+    h1 { font-size: 1.4rem; margin-bottom: 4px; }
+    h3 { font-size: 0.95rem; margin-bottom: 10px; color: #c4b5b9; }
+    .subtitle { color: #a89a9e; font-size: 0.85rem; margin-bottom: 20px; }
+    .subtitle a { color: rgb(180,160,210); text-decoration: none; }
+    .subtitle a:hover { text-decoration: underline; }
+    section { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+    label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; color: #c4b5b9; }
+    input[type="text"], input[type="password"], input[type="url"], input[type="number"], textarea {
+      width: 100%; padding: 8px 10px; border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; font-size: 0.9rem; margin-bottom: 10px; background: rgba(255,255,255,0.08); color: #e0d6d9; font-family: inherit;
+    }
+    textarea { resize: vertical; min-height: 56px; }
+    input::placeholder, textarea::placeholder { color: #7a6d71; }
+    input:focus, textarea:focus { outline: none; border-color: rgb(180,160,210); box-shadow: 0 0 0 2px rgba(180,160,210,0.3); }
+    .row { display: flex; gap: 12px; }
+    .row > div { flex: 1; }
+    button {
+      padding: 9px 20px; border: none; border-radius: 6px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.15s;
+    }
+    .btn-primary { background: rgb(180,160,210); color: rgb(38,28,32); }
+    .btn-primary:hover { background: rgb(160,140,195); }
+    .btn-primary:disabled { background: rgba(180,160,210,0.4); cursor: not-allowed; }
+    .btn-secondary { background: rgba(180,160,210,0.15); color: rgb(180,160,210); border: 1px solid rgba(180,160,210,0.3); }
+    .btn-secondary:hover { background: rgba(180,160,210,0.25); }
+    .btn-icon { display: inline-flex; align-items: center; gap: 6px; }
+    .btn-icon svg { width: 16px; height: 16px; }
+    .status-pill { display: inline-block; margin-left: 10px; font-size: 0.8rem; }
+    .status-pill.set { color: #6fbf73; }
+    .status-pill.unset { color: #7a6d71; }
+    #results { display: none; }
+    .confidence-badge {
+      display: inline-block; padding: 1px 8px; border-radius: 10px; font-weight: 700; font-size: 0.8rem; color: #fff;
+    }
+    .stats { font-size: 0.78rem; color: #8a7d81; margin-top: 10px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+    .stat-item { display: inline-flex; align-items: center; gap: 4px; }
+    .error { color: #ef5350; font-size: 0.85rem; margin-top: 8px; white-space: pre-wrap; }
+    .ok-msg { color: #6fbf73; font-size: 0.85rem; margin-top: 8px; }
+    .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.15); border-top-color: rgb(180,160,210); border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; margin-right: 6px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 12px; }
+    .field-grid .full { grid-column: 1 / -1; }
+    .section-hint { font-size: 0.75rem; color: #8a7d81; margin-bottom: 10px; }
+    .yn-group { display: flex; gap: 8px; margin-bottom: 10px; }
+    .yn-btn { flex: 0 0 64px; padding: 9px 0; background: rgba(255,255,255,0.08); color: #e0d6d9; border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; font-weight: 600; cursor: pointer; }
+    .yn-btn:hover { background: rgba(255,255,255,0.14); }
+    .yn-btn.active { background: rgb(180,160,210); color: rgb(38,28,32); border-color: rgb(180,160,210); }
+  </style>
+</head>
+<body>
+  <h1>Specialist Spreadsheet Lookup</h1>
+  <p class="subtitle">Fill specialist entries in <a href="https://docs.google.com/spreadsheets/d/16W8Ww12LPx_zIERXYRNdT2VoAsUKqEi3X2edYB291-s/edit?gid=963110880#gid=963110880">Specialist Docs</a></p>
+
+  <!-- Passcode -->
+  <section>
+    <label for="passcode">Access Passcode</label>
+    <div style="display:flex; gap:8px; align-items:center;">
+      <input type="password" id="passcode" placeholder="Enter passcode" style="margin-bottom:0; flex:1;">
+      <button class="btn-primary" onclick="savePasscode()">Save</button>
+      <span id="passcodeStatus" class="status-pill unset">No passcode</span>
+    </div>
+  </section>
+
+  <!-- Manual entry info -->
+  <section>
+    <h3>Entry Info <span class="section-hint">(manually filled)</span></h3>
+    <label for="recdBy">Rec'd By</label>
+    <input type="text" id="recdBy" placeholder="Who recommended">
+    <label>Recommendation</label>
+    <div class="yn-group">
+      <button type="button" class="yn-btn" data-val="Y" onclick="setRecommendation('Y')">Y</button>
+      <button type="button" class="yn-btn" data-val="N" onclick="setRecommendation('N')">N</button>
+    </div>
+    <label for="notesManual">Notes</label>
+    <textarea id="notesManual" placeholder="Free-form notes"></textarea>
+  </section>
+
+  <!-- AI Search -->
+  <section>
+    <h3>AI Lookup <span class="section-hint">(hints for the search — all optional)</span></h3>
+    <label for="doctorName">Doctor Name</label>
+    <input type="text" id="doctorName" placeholder="Doctor name">
+    <label for="websiteUrl">Website URL</label>
+    <input type="url" id="websiteUrl" placeholder="Website URL">
+    <div class="row">
+      <div>
+        <label for="searchCity">City</label>
+        <input type="text" id="searchCity" placeholder="City">
+      </div>
+      <div>
+        <label for="searchState">State</label>
+        <input type="text" id="searchState" placeholder="State">
+      </div>
+      <div>
+        <label for="specialty">Specialty</label>
+        <input type="text" id="specialty" placeholder="Specialty">
+      </div>
+    </div>
+    <button class="btn-primary btn-icon" id="searchBtn" onclick="search()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+      <span id="searchBtnText">Search</span>
+    </button>
+    <span id="searchStatus"></span>
+    <div id="searchError" class="error"></div>
+  </section>
+
+  <!-- Review & Submit -->
+  <section id="results">
+    <h3>Review &amp; Submit <span class="section-hint">(edit anything before submitting)</span></h3>
+    <div class="field-grid">
+      <div class="full"><label for="f_doctor_name">Doctor Name</label><input type="text" id="f_doctor_name"></div>
+      <div class="full"><label for="f_website">Website</label><input type="text" id="f_website"></div>
+      <div><label for="f_title">Title</label><input type="text" id="f_title"></div>
+      <div><label for="f_field">Field</label><input type="text" id="f_field"></div>
+      <div><label for="f_subspecialty">Subspecialty</label><input type="text" id="f_subspecialty"></div>
+      <div><label for="f_email">Email</label><input type="text" id="f_email"></div>
+      <div class="full"><label for="f_street">Street</label><input type="text" id="f_street"></div>
+      <div><label for="f_city">City</label><input type="text" id="f_city"></div>
+      <div><label for="f_state">State</label><input type="text" id="f_state"></div>
+      <div><label for="f_country">Country</label><input type="text" id="f_country"></div>
+      <div><label for="f_phone">Phone</label><input type="text" id="f_phone"></div>
+      <div class="full"><label for="f_chases_notes">Chase's Notes <span class="section-hint">(flags: doesn't take insurance; no longer practicing; outside the U.S.; accepts telehealth)</span></label><textarea id="f_chases_notes"></textarea></div>
+    </div>
+
+    <div class="stats">
+      <span class="stat-item"><span id="confidenceBadge" class="confidence-badge"></span></span>
+      <span class="stat-item" id="statTime"></span>
+      <span class="stat-item" id="statCost"></span>
+      <span class="stat-item" id="statSearches"></span>
+      <span class="stat-item" id="statIn"></span>
+      <span class="stat-item" id="statOut"></span>
+    </div>
+
+    <div style="margin-top:14px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+      <button class="btn-primary btn-icon" id="submitBtn" onclick="submitRow()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <span id="submitBtnText">Submit to Sheet</span>
+      </button>
+      <button class="btn-secondary" onclick="resetForNewSearch()">New Entry</button>
+      <span id="submitStatus"></span>
+    </div>
+    <div id="submitError" class="error"></div>
+    <div id="submitOk" class="ok-msg"></div>
+  </section>
+
+  <script>
+    // -------- Config --------
+    // Paste your Apps Script Web App /exec URL here after deploying Code.gs.
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzVRyn0BfaViekuoCs4r1GGlm8RGJ8syrbtG5EPKIYBqhG-uyvif-bkKD5-E2vQl0r4/exec';
+
+    // -------- Passcode (stored locally so it persists across tabs) --------
+    function savePasscode() {
+      const v = document.getElementById('passcode').value.trim();
+      if (!v) return;
+      localStorage.setItem('specialist_passcode', v);
+      document.getElementById('passcode').value = '';
+      updatePasscodeStatus();
+    }
+    function updatePasscodeStatus() {
+      const el = document.getElementById('passcodeStatus');
+      if (localStorage.getItem('specialist_passcode')) {
+        el.textContent = 'Passcode set ✓';
+        el.className = 'status-pill set';
+      } else {
+        el.textContent = 'No passcode';
+        el.className = 'status-pill unset';
+      }
+    }
+    updatePasscodeStatus();
+
+    function getPasscode() {
+      return localStorage.getItem('specialist_passcode') || '';
+    }
+
+    // -------- Backend call (avoids CORS preflight by using text/plain) --------
+    async function callBackend(payload) {
+      if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.startsWith('REPLACE_')) {
+        throw new Error('Backend URL not configured. Edit APPS_SCRIPT_URL in index.html.');
+      }
+      const resp = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+      });
+      const text = await resp.text();
+      let data;
+      try { data = JSON.parse(text); } catch (_) { throw new Error('Bad response from backend: ' + text.slice(0, 200)); }
+      if (!data.ok) throw new Error(data.error || 'Unknown backend error');
+      return data;
+    }
+
+    // -------- Confidence color --------
+    function getConfidenceColor(score) {
+      if (score <= 3) return '#c62828';
+      if (score <= 5) return '#e65100';
+      if (score <= 7) return '#f9a825';
+      return '#2e7d32';
+    }
+
+    function estimateCost(usage, numSearches) {
+      const inputCost  = (usage.input_tokens  || 0) / 1_000_000 * 3;
+      const outputCost = (usage.output_tokens || 0) / 1_000_000 * 15;
+      const searchCost = numSearches * 0.01;
+      return inputCost + outputCost + searchCost;
+    }
+
+    // -------- Recommendation Y/N --------
+    function setRecommendation(val) {
+      document.querySelectorAll('.yn-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.val === val);
+      });
+    }
+    function getRecommendation() {
+      const active = document.querySelector('.yn-btn.active');
+      return active ? active.dataset.val : '';
+    }
+
+    // -------- Reset --------
+    function resetForNewSearch() {
+      ['recdBy','notesManual','doctorName','websiteUrl','searchCity','searchState','specialty',
+       'f_doctor_name','f_website','f_title','f_field','f_subspecialty','f_email','f_street','f_city',
+       'f_state','f_country','f_phone','f_chases_notes'].forEach(id => {
+         const el = document.getElementById(id); if (el) el.value = '';
+      });
+      document.querySelectorAll('.yn-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('results').style.display = 'none';
+      document.getElementById('searchError').textContent = '';
+      document.getElementById('submitError').textContent = '';
+      document.getElementById('submitOk').textContent = '';
+      document.getElementById('recdBy').focus();
+    }
+
+    // -------- Main search --------
+    async function search() {
+      if (!getPasscode()) {
+        document.getElementById('searchError').textContent = 'Please set your passcode first.';
+        return;
+      }
+
+      const name      = document.getElementById('doctorName').value.trim();
+      const url       = document.getElementById('websiteUrl').value.trim();
+      const city      = document.getElementById('searchCity').value.trim();
+      const state     = document.getElementById('searchState').value.trim();
+      const specialty = document.getElementById('specialty').value.trim();
+      const cityState = [city, state].filter(Boolean).join(', ');
+
+      if (!name && !url) {
+        document.getElementById('searchError').textContent = 'Please enter at least a doctor name or website URL.';
+        return;
+      }
+
+      document.getElementById('searchError').textContent = '';
+      document.getElementById('submitError').textContent = '';
+      document.getElementById('submitOk').textContent = '';
+      const btn = document.getElementById('searchBtn');
+      btn.disabled = true;
+      document.getElementById('searchStatus').innerHTML = '<span class="spinner"></span>Searching...';
+
+      const startTime = performance.now();
+
+      let query = 'Look up this medical provider and return their information:\n';
+      if (name)      query += `Name: ${name}\n`;
+      if (url)       query += `Website/URL: ${url}\n`;
+      if (cityState) query += `Location: ${cityState}\n`;
+      if (specialty) query += `Specialty: ${specialty}\n`;
+
+      const systemPrompt = `You are a medical provider research assistant. Given provider details, use web search to find accurate information about the provider.
+
+CRITICAL: Your final response must be ONLY a raw JSON object. No introductory text, no explanation, no markdown, no code fences. Just the JSON object starting with { and ending with }.
+
+The JSON object must have these exact fields, matching the spreadsheet columns (# | Doctor Name | Rec'd By | Recommendation | Website | Title | Field | Subspecialty | Street | City | State | Email | Phone | Notes | Year | Country | Chase's Notes). You fill the AI-derived fields only:
+{
+  "doctor_name": "(Dr) First Last — if they are a doctor, prefix with 'Dr' (no period), then first name, then last name. Do NOT include suffixes like MD, DO, etc. in this field. Example: 'Dr Jane Smith' or 'Jane Smith' if not a doctor.",
+  "website": "Their practice/profile URL",
+  "title": "Their professional title/credentials (MD, DO, NP, PA-C, DPT, etc.)",
+  "field": "Broad medical specialty only (e.g. Rheumatology, Cardiology, Genetics, Physical Therapy, Allergy & Immunology). No subspecialties here.",
+  "subspecialty": "Subspecialty if applicable (e.g. Pediatric Rheumatology, Interventional Cardiology). Empty string if none.",
+  "street": "Practice street address",
+  "city": "City",
+  "state": "State/Province abbreviation (2 letters for U.S.)",
+  "country": "Country name (e.g. United States, Canada, United Kingdom)",
+  "email": "Practice or provider email if publicly listed. Leave as empty string if not clearly found — do NOT guess.",
+  "phone": "Phone number",
+  "chases_notes": "Only include flags from this exact list, separated by semicolons, if they apply: doesn't take insurance; no longer practicing; outside the U.S.; accepts telehealth. If none apply, use an empty string.",
+  "confidence": 8
+}
+
+The "confidence" field is 0-10: how confident you are in the accuracy of the data.
+- 9-10: Found official website or verified directory listing with all details confirmed
+- 7-8: Found on reputable medical directories, most details confirmed
+- 5-6: Found some info but had to piece together from multiple sources
+- 3-4: Limited info found, some fields are best guesses
+- 0-2: Very little found, most fields uncertain
+
+If you cannot find a field, use an empty string "". Never make up information — leave fields blank rather than guessing. Email and phone especially: leave blank rather than guessing.
+
+Remember: output ONLY the JSON object. No other text before or after it.`;
+
+      try {
+        const backend = await callBackend({
+          action: 'lookup',
+          passcode: getPasscode(),
+          anthropicRequest: {
+            model: 'claude-sonnet-4-6',
+            max_tokens: 1500,
+            system: systemPrompt,
+            tools: [{ type: 'web_search_20250305', name: 'web_search', max_uses: 5 }],
+            messages: [{ role: 'user', content: query }],
+          },
+        });
+
+        const data = backend.data;
+        const elapsed = ((performance.now() - startTime) / 1000).toFixed(1);
+
+        let numSearches = 0;
+        for (const block of data.content) {
+          if (block.type === 'web_search_tool_result') numSearches++;
+        }
+
+        const textBlocks = data.content
+          .filter(b => b.type === 'text' && b.text.trim())
+          .map(b => b.text.trim());
+
+        if (textBlocks.length === 0) throw new Error('No text response from API.');
+
+        let result = null;
+        for (const raw of textBlocks) {
+          let cleaned = raw.replace(/```(?:json)?\s*/gi, '').replace(/\s*```/gi, '').trim();
+          try { result = JSON.parse(cleaned); break; } catch (_) {}
+          const match = cleaned.match(/\{[^{}]*"confidence"\s*:\s*\d+[^{}]*\}/s);
+          if (match) { try { result = JSON.parse(match[0]); break; } catch (_) {} }
+          const broad = cleaned.match(/\{[\s\S]*\}/);
+          if (broad) { try { result = JSON.parse(broad[0]); break; } catch (_) {} }
+        }
+        if (!result) throw new Error('Could not parse JSON from response:\n' + textBlocks[textBlocks.length - 1].slice(0, 300));
+
+        // Populate editable fields (only overwrite empty ones so manual edits survive re-search)
+        const map = {
+          f_doctor_name: 'doctor_name',
+          f_website:     'website',
+          f_title:       'title',
+          f_field:       'field',
+          f_subspecialty:'subspecialty',
+          f_email:       'email',
+          f_street:      'street',
+          f_city:        'city',
+          f_state:       'state',
+          f_country:     'country',
+          f_phone:       'phone',
+          f_chases_notes:'chases_notes',
+        };
+        for (const [fid, key] of Object.entries(map)) {
+          const el = document.getElementById(fid);
+          if (!el.value) el.value = result[key] || '';
+        }
+
+        // Confidence + stats
+        const confidence = Math.round(result.confidence ?? 0);
+        const badge = document.getElementById('confidenceBadge');
+        badge.textContent = `Confidence: ${confidence}/10`;
+        badge.style.background = getConfidenceColor(confidence);
+
+        const cost = estimateCost(data.usage, numSearches);
+        document.getElementById('statTime').textContent      = elapsed + 's';
+        document.getElementById('statCost').textContent      = '~$' + cost.toFixed(4);
+        document.getElementById('statSearches').textContent  = numSearches + ' searches';
+        document.getElementById('statIn').textContent        = data.usage.input_tokens + ' in';
+        document.getElementById('statOut').textContent       = data.usage.output_tokens + ' out';
+
+        document.getElementById('results').style.display = 'block';
+      } catch (err) {
+        document.getElementById('searchError').textContent = err.message;
+      } finally {
+        btn.disabled = false;
+        document.getElementById('searchStatus').innerHTML = '';
+      }
+    }
+
+    // -------- Submit to sheet --------
+    async function submitRow() {
+      if (!getPasscode()) {
+        document.getElementById('submitError').textContent = 'Please set your passcode first.';
+        return;
+      }
+
+      const stamp = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      const chasesNotes = document.getElementById('f_chases_notes').value.trim();
+      const stampLine = `Generated from form submission ${stamp}`;
+      const chasesNotesWithStamp = chasesNotes ? `${chasesNotes}; ${stampLine}` : stampLine;
+
+      const row = {
+        '#':              '',
+        'Doctor Name':    document.getElementById('f_doctor_name').value.trim(),
+        "Rec'd By":       document.getElementById('recdBy').value.trim(),
+        'Recommendation': getRecommendation(),
+        'Website':        document.getElementById('f_website').value.trim(),
+        'Title':          document.getElementById('f_title').value.trim(),
+        'Field':          document.getElementById('f_field').value.trim(),
+        'Subspecialty':   document.getElementById('f_subspecialty').value.trim(),
+        'Street':         document.getElementById('f_street').value.trim(),
+        'City':           document.getElementById('f_city').value.trim(),
+        'State':          document.getElementById('f_state').value.trim(),
+        'Email':          document.getElementById('f_email').value.trim(),
+        'Phone':          document.getElementById('f_phone').value.trim(),
+        'Notes':          document.getElementById('notesManual').value.trim(),
+        'Year':           String(new Date().getFullYear()),
+        'Country':        document.getElementById('f_country').value.trim(),
+        "Chase's Notes":  chasesNotesWithStamp,
+      };
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      document.getElementById('submitError').textContent = '';
+      document.getElementById('submitOk').textContent = '';
+      document.getElementById('submitStatus').innerHTML = '<span class="spinner"></span>Submitting...';
+
+      try {
+        const res = await callBackend({ action: 'submit', passcode: getPasscode(), row });
+        document.getElementById('submitOk').textContent = `Added to row ${res.rowNumber}. Ready for next entry.`;
+        setTimeout(resetForNewSearch, 800);
+      } catch (err) {
+        document.getElementById('submitError').textContent = err.message;
+      } finally {
+        btn.disabled = false;
+        document.getElementById('submitStatus').innerHTML = '';
+      }
+    }
+
+    // -------- Keyboard --------
+    document.querySelectorAll('#doctorName, #websiteUrl, #searchCity, #searchState, #specialty').forEach(el => {
+      el.addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
+    });
+    document.getElementById('passcode').addEventListener('keydown', e => { if (e.key === 'Enter') savePasscode(); });
+  </script>
+</body>
+</html>
