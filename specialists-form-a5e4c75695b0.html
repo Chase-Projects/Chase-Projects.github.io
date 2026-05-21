@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Add Yourself — EDS Specialist Directory</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 680px; margin: 0 auto; padding: 24px; background: rgb(38,28,32); color: #e0d6d9; }
+    h1 { font-size: 1.4rem; margin-bottom: 6px; }
+    .subtitle { color: #a89a9e; font-size: 0.9rem; margin-bottom: 24px; line-height: 1.45; }
+    section { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+    .step-label { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; color: #e0d6d9; }
+    .step-hint { font-size: 0.78rem; color: #8a7d81; margin-bottom: 12px; line-height: 1.4; }
+    label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; color: #c4b5b9; }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="url"], textarea {
+      width: 100%; padding: 9px 11px; border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; font-size: 0.95rem; margin-bottom: 10px; background: rgba(255,255,255,0.08); color: #e0d6d9; font-family: inherit;
+    }
+    textarea { resize: vertical; min-height: 80px; }
+    input::placeholder, textarea::placeholder { color: #7a6d71; }
+    input:focus, textarea:focus { outline: none; border-color: rgb(180,160,210); box-shadow: 0 0 0 2px rgba(180,160,210,0.3); }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .row > div { flex: 1; min-width: 120px; }
+    button { padding: 9px 18px; border: none; border-radius: 6px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.15s; }
+    .btn-primary { background: rgb(180,160,210); color: rgb(38,28,32); }
+    .btn-primary:hover { background: rgb(160,140,195); }
+    .btn-primary:disabled { background: rgba(180,160,210,0.4); cursor: not-allowed; }
+    .chip-group { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+    .chip { padding: 7px 14px; background: rgba(255,255,255,0.08); color: #e0d6d9; border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+    .chip:hover { background: rgba(255,255,255,0.14); }
+    .chip.active { background: rgb(180,160,210); color: rgb(38,28,32); border-color: rgb(180,160,210); }
+    .toggle-group { display: flex; gap: 8px; margin-bottom: 14px; }
+    .toggle-btn { flex: 1; padding: 9px 0; background: rgba(255,255,255,0.08); color: #e0d6d9; border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.85rem; }
+    .toggle-btn.active { background: rgb(180,160,210); color: rgb(38,28,32); border-color: rgb(180,160,210); }
+    .hidden { display: none; }
+    .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.15); border-top-color: rgb(180,160,210); border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; margin-right: 6px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .error { color: #ef5350; font-size: 0.9rem; margin-top: 10px; white-space: pre-wrap; }
+    .ok-msg { color: #6fbf73; font-size: 0.95rem; margin-top: 10px; line-height: 1.4; }
+    .submit-row { display: flex; gap: 12px; align-items: center; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Add Yourself to the EDS Specialist Directory</h1>
+  <p class="subtitle">If you are a clinician who treats Ehlers-Danlos Syndrome and related conditions, you can list your practice here. Patients use this directory to find providers. It only takes a minute.</p>
+
+  <!-- 1. Name + credentials -->
+  <section>
+    <div class="step-label">1. Your name</div>
+    <input type="text" id="name" placeholder="e.g. Dr. Jane Smith">
+    <label>Credentials</label>
+    <div class="chip-group" id="credChips"></div>
+    <input type="text" id="credOther" placeholder="Other credentials">
+  </section>
+
+  <!-- 2. Website -->
+  <section>
+    <div class="step-label">2. Your practice's website</div>
+    <div class="step-hint">For a large clinic with multiple providers, your personal "About" or provider page is ideal.</div>
+    <input type="url" id="website" placeholder="https://...">
+  </section>
+
+  <!-- 3. Location -->
+  <section>
+    <div class="step-label">3. Where is your practice?</div>
+    <div class="toggle-group">
+      <button type="button" class="toggle-btn active" data-mode="full" onclick="setAddrMode('full')">Paste full address</button>
+      <button type="button" class="toggle-btn" data-mode="parts" onclick="setAddrMode('parts')">Enter fields separately</button>
+    </div>
+    <div id="addrFull">
+      <label for="fullAddress">Full address</label>
+      <textarea id="fullAddress" placeholder="123 Main St, Springfield, IL 62701&#10;Separate the parts with commas."></textarea>
+    </div>
+    <div id="addrParts" class="hidden">
+      <label for="street">Street</label>
+      <input type="text" id="street" placeholder="Street address">
+      <div class="row">
+        <div><label for="city">City</label><input type="text" id="city" placeholder="City"></div>
+        <div><label for="state">State</label><input type="text" id="state" placeholder="State"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Field -->
+  <section>
+    <div class="step-label">4. What is your primary field?</div>
+    <div class="step-hint">Tap one, or type your own below.</div>
+    <div class="chip-group" id="fieldChips"></div>
+    <input type="text" id="field" placeholder="Your field">
+  </section>
+
+  <!-- 5. Contact -->
+  <section>
+    <div class="step-label">5. Practice's contact</div>
+    <div class="row">
+      <div><label for="email">Your email</label><input type="email" id="email" placeholder="Practice email"></div>
+      <div><label for="phone">Your phone number</label><input type="tel" id="phone" placeholder="Practice phone"></div>
+    </div>
+  </section>
+
+  <!-- Notes -->
+  <section>
+    <div class="step-label">Anything else patients should know?</div>
+    <div class="step-hint">Not a bio. Just practical info, e.g. "I accept telehealth", "I don't accept insurance", "I work at multiple clinics", "referral only", "outside the US".</div>
+    <textarea id="notes" placeholder="Optional notes"></textarea>
+  </section>
+
+  <!-- Submit -->
+  <section>
+    <div class="submit-row">
+      <button class="btn-primary" id="submitBtn" onclick="submitForm()">Add me to the directory</button>
+      <span id="submitStatus"></span>
+    </div>
+    <div id="submitError" class="error"></div>
+    <div id="submitOk" class="ok-msg"></div>
+  </section>
+
+  <script>
+    // -------- Config --------
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyoVx8XmN25XNGlNZ-Dc9ATdpf4FWCq0iCMPgPbLNpf4z3VcnjaMb-94CXGWrqAPCWZ/exec';
+    const SHEET_TAB = 'Self-Referred';
+
+    const CREDENTIALS = ['MD', 'DO', 'NP', 'PA-C', 'DPT', 'DC', 'ND', 'PhD', 'PsyD', 'RN'];
+    const FIELDS = ['Genetics', 'Rheumatology', 'Cardiology', 'Physical Therapy', 'Pain Management',
+      'Gastroenterology', 'Neurology', 'Allergy & Immunology', 'Physiatry (PM&R)', 'Primary Care',
+      'Dysautonomia', 'Orthopedics', 'Psychiatry', 'Dentistry', 'Gynecology'];
+
+    // -------- Build chips --------
+    function buildCredChips() {
+      const c = document.getElementById('credChips');
+      CREDENTIALS.forEach(cred => {
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'chip'; b.textContent = cred;
+        b.onclick = () => b.classList.toggle('active');
+        c.appendChild(b);
+      });
+    }
+    function buildFieldChips() {
+      const c = document.getElementById('fieldChips');
+      FIELDS.forEach(f => {
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'chip'; b.textContent = f;
+        b.onclick = () => {
+          const wasActive = b.classList.contains('active');
+          c.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
+          if (!wasActive) { b.classList.add('active'); document.getElementById('field').value = f; }
+          else { document.getElementById('field').value = ''; }
+        };
+        c.appendChild(b);
+      });
+      // Typing a custom field clears chip selection
+      document.getElementById('field').addEventListener('input', () => {
+        const v = document.getElementById('field').value.trim();
+        c.querySelectorAll('.chip').forEach(x => x.classList.toggle('active', x.textContent === v));
+      });
+    }
+    buildCredChips();
+    buildFieldChips();
+
+    function getCredentials() {
+      const chosen = [...document.querySelectorAll('#credChips .chip.active')].map(b => b.textContent);
+      const other = document.getElementById('credOther').value.trim();
+      if (other) chosen.push(other);
+      return chosen.join(', ');
+    }
+
+    // -------- Address mode toggle --------
+    function setAddrMode(mode) {
+      document.querySelectorAll('.toggle-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+      document.getElementById('addrFull').classList.toggle('hidden', mode !== 'full');
+      document.getElementById('addrParts').classList.toggle('hidden', mode !== 'parts');
+    }
+
+    // Drop a trailing ZIP/postal code from a "ST 62701" style state segment.
+    function stripZip(s) {
+      return s.replace(/[\s,]+(?:\d{5}(?:-\d{4})?|[A-Za-z]\d[A-Za-z]\s?\d[A-Za-z]\d)\s*$/i, '').trim();
+    }
+
+    function getAddress() {
+      const fullVisible = !document.getElementById('addrFull').classList.contains('hidden');
+      if (fullVisible) {
+        const raw = document.getElementById('fullAddress').value.trim();
+        if (!raw) return { street: '', city: '', state: '' };
+        const parts = raw.split(',').map(s => s.trim()).filter(Boolean);
+        if (parts.length >= 3) {
+          return { street: parts.slice(0, parts.length - 2).join(', '), city: parts[parts.length - 2], state: stripZip(parts[parts.length - 1]) };
+        } else if (parts.length === 2) {
+          return { street: parts[0], city: parts[1], state: '' };
+        }
+        return { street: parts[0] || '', city: '', state: '' };
+      }
+      return {
+        street: document.getElementById('street').value.trim(),
+        city:   document.getElementById('city').value.trim(),
+        state:  document.getElementById('state').value.trim(),
+      };
+    }
+
+    // -------- Backend call (text/plain avoids CORS preflight) --------
+    async function callBackend(payload) {
+      const resp = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+      });
+      const text = await resp.text();
+      let data;
+      try { data = JSON.parse(text); } catch (_) { throw new Error('Unexpected response from server: ' + text.slice(0, 200)); }
+      if (!data.ok) throw new Error(data.error || 'Unknown server error');
+      return data;
+    }
+
+    // -------- Submit --------
+    async function submitForm() {
+      const name = document.getElementById('name').value.trim();
+      const addr = getAddress();
+      if (!name) { showError('Please enter your name.'); return; }
+
+      const stamp = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      const userNotes = document.getElementById('notes').value.trim();
+      const notes = userNotes
+        ? `Self-referred submission at ${stamp}\n${userNotes}`
+        : `Self-referred submission at ${stamp}`;
+
+      const row = {
+        '#':              '',
+        'Doctor Name':    name,
+        "Rec'd By":       'Self Referred',
+        'Recommendation': '',
+        'Website':        document.getElementById('website').value.trim(),
+        'Title':          getCredentials(),
+        'Field':          document.getElementById('field').value.trim(),
+        'Subspecialty':   '',
+        'Street':         addr.street,
+        'City':           addr.city,
+        'State':          addr.state,
+        'Email':          document.getElementById('email').value.trim(),
+        'Phone':          document.getElementById('phone').value.trim(),
+        'Notes':          notes,
+        'Year':           String(new Date().getFullYear()),
+        'Country':        '',
+        "Chase's Notes":  '',
+      };
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      showError(''); document.getElementById('submitOk').textContent = '';
+      document.getElementById('submitStatus').innerHTML = '<span class="spinner"></span>Submitting...';
+
+      try {
+        await callBackend({ action: 'submit', tab: SHEET_TAB, row });
+        document.getElementById('submitOk').textContent = 'Thank you! Your information has been submitted and will be reviewed before it appears in the directory.';
+        document.getElementById('submitBtn').classList.add('hidden');
+      } catch (err) {
+        showError(err.message);
+        btn.disabled = false;
+      } finally {
+        document.getElementById('submitStatus').innerHTML = '';
+      }
+    }
+
+    function showError(msg) { document.getElementById('submitError').textContent = msg; }
+  </script>
+</body>
+</html>

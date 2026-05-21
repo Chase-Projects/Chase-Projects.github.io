@@ -73,8 +73,11 @@
   <section>
     <h3>Entry Info <span class="section-hint">(manually filled)</span></h3>
     <label for="recdBy">Rec'd By</label>
-    <input type="text" id="recdBy" placeholder="Who recommended">
-    <label>Recommendation</label>
+    <div style="display:flex; gap:8px; align-items:center; margin-bottom:10px;">
+      <input type="text" id="recdBy" placeholder="Who recommended" style="margin-bottom:0; flex:1;">
+      <button type="button" class="btn-secondary" onclick="document.getElementById('recdBy').value='Linda'">Linda</button>
+    </div>
+    <label>Recommendation <span class="section-hint">(click again to clear)</span></label>
     <div class="yn-group">
       <button type="button" class="yn-btn" data-val="Y" onclick="setRecommendation('Y')">Y</button>
       <button type="button" class="yn-btn" data-val="N" onclick="setRecommendation('N')">N</button>
@@ -117,7 +120,15 @@
     <h3>Review &amp; Submit <span class="section-hint">(edit anything before submitting)</span></h3>
     <div class="field-grid">
       <div class="full"><label for="f_doctor_name">Doctor Name</label><input type="text" id="f_doctor_name"></div>
-      <div class="full"><label for="f_website">Website</label><input type="text" id="f_website"></div>
+      <div class="full"><label for="f_website">Website</label>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <input type="text" id="f_website" style="margin-bottom:0; flex:1;">
+          <button type="button" class="btn-secondary btn-icon" onclick="verifyWebsite()" title="Open site to verify">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            Verify
+          </button>
+        </div>
+      </div>
       <div><label for="f_title">Title</label><input type="text" id="f_title"></div>
       <div><label for="f_field">Field</label><input type="text" id="f_field"></div>
       <div><label for="f_subspecialty">Subspecialty</label><input type="text" id="f_subspecialty"></div>
@@ -127,7 +138,7 @@
       <div><label for="f_state">State</label><input type="text" id="f_state"></div>
       <div><label for="f_country">Country</label><input type="text" id="f_country"></div>
       <div><label for="f_phone">Phone</label><input type="text" id="f_phone"></div>
-      <div class="full"><label for="f_chases_notes">Chase's Notes <span class="section-hint">(flags: doesn't take insurance; no longer practicing; outside the U.S.; accepts telehealth)</span></label><textarea id="f_chases_notes"></textarea></div>
+      <div class="full"><label for="f_chases_notes">Chase's Notes <span class="section-hint">(flags: doesn't take insurance; no longer practicing; outside the U.S.; accepts telehealth; multiple locations; multiple phone numbers)</span></label><textarea id="f_chases_notes"></textarea></div>
     </div>
 
     <div class="stats">
@@ -214,13 +225,22 @@
 
     // -------- Recommendation Y/N --------
     function setRecommendation(val) {
-      document.querySelectorAll('.yn-btn').forEach(b => {
-        b.classList.toggle('active', b.dataset.val === val);
-      });
+      const btn = document.querySelector(`.yn-btn[data-val="${val}"]`);
+      const alreadyActive = btn && btn.classList.contains('active');
+      document.querySelectorAll('.yn-btn').forEach(b => b.classList.remove('active'));
+      if (btn && !alreadyActive) btn.classList.add('active');
     }
     function getRecommendation() {
       const active = document.querySelector('.yn-btn.active');
       return active ? active.dataset.val : '';
+    }
+
+    // -------- Open website to verify --------
+    function verifyWebsite() {
+      let url = document.getElementById('f_website').value.trim();
+      if (!url) return;
+      if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+      window.open(url, '_blank', 'noopener');
     }
 
     // -------- Reset --------
@@ -289,7 +309,7 @@ The JSON object must have these exact fields, matching the spreadsheet columns (
   "country": "Country name (e.g. United States, Canada, United Kingdom)",
   "email": "Practice or provider email if publicly listed. Leave as empty string if not clearly found — do NOT guess.",
   "phone": "Phone number",
-  "chases_notes": "Only include flags from this exact list, separated by semicolons, if they apply: doesn't take insurance; no longer practicing; outside the U.S.; accepts telehealth. If none apply, use an empty string.",
+  "chases_notes": "Only include flags from this exact list, separated by semicolons, if they apply: doesn't take insurance; no longer practicing; outside the U.S.; accepts telehealth; multiple locations; multiple phone numbers. For 'multiple locations' and 'multiple phone numbers', just note that there are several — do NOT try to figure out which clinic the provider primarily works at, or which number is phone vs. fax. That can be sorted out later. If none apply, use an empty string.",
   "confidence": 8
 }
 
