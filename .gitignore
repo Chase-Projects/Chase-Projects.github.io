@@ -1,0 +1,6 @@
+# Local-only working notes — never push these
+CLAUDE.md
+README.md
+
+# OS noise
+.DS_Store
