@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Add Yourself — EDS Specialist Directory</title>
+  <title>Add Yourself to Bendy Bodies's Specialist Directory</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 680px; margin: 0 auto; padding: 24px; background: rgb(38,28,32); color: #e0d6d9; }
@@ -42,7 +42,7 @@
   </style>
 </head>
 <body>
-  <h1>Add Yourself to the EDS Specialist Directory</h1>
+  <h1>Add Yourself to Bendy Bodies's Specialist Directory</h1>
   <p class="subtitle">If you are a clinician who treats Ehlers-Danlos Syndrome and related conditions, you can list your practice here. Patients use this directory to find providers. It only takes a minute.</p>
 
   <!-- 1. Name + credentials -->
@@ -51,14 +51,14 @@
     <input type="text" id="name" placeholder="e.g. Dr. Jane Smith">
     <label>Credentials</label>
     <div class="chip-group" id="credChips"></div>
-    <input type="text" id="credOther" placeholder="Other credentials">
+    <input type="text" id="credOther" placeholder="Other credentials (optional)">
   </section>
 
   <!-- 2. Website -->
   <section>
     <div class="step-label">2. Your practice's website</div>
     <div class="step-hint">For a large clinic with multiple providers, your personal "About" or provider page is ideal.</div>
-    <input type="url" id="website" placeholder="https://...">
+    <input type="url" id="website" placeholder="https://your-site.com">
   </section>
 
   <!-- 3. Location -->
@@ -85,9 +85,9 @@
   <!-- 4. Field -->
   <section>
     <div class="step-label">4. What is your primary field?</div>
-    <div class="step-hint">Tap one, or type your own below.</div>
+    <div class="step-hint">Tap any that apply, or add your own below.</div>
     <div class="chip-group" id="fieldChips"></div>
-    <input type="text" id="field" placeholder="Your field">
+    <input type="text" id="fieldOther" placeholder="Other field">
   </section>
 
   <!-- 5. Contact -->
@@ -101,8 +101,8 @@
 
   <!-- Notes -->
   <section>
-    <div class="step-label">Anything else patients should know?</div>
-    <div class="step-hint">Not a bio. Just practical info, e.g. "I accept telehealth", "I don't accept insurance", "I work at multiple clinics", "referral only", "outside the US".</div>
+    <div class="step-label">6. Anything else patients should know?</div>
+    <div class="step-hint">Not a bio. Just practical info, e.g. "I accept telehealth", "I don't accept insurance", "I work at multiple clinics", "referral only", "outside the US", "I am also lisenced in states X,Y,Z".</div>
     <textarea id="notes" placeholder="Optional notes"></textarea>
   </section>
 
@@ -141,18 +141,8 @@
       FIELDS.forEach(f => {
         const b = document.createElement('button');
         b.type = 'button'; b.className = 'chip'; b.textContent = f;
-        b.onclick = () => {
-          const wasActive = b.classList.contains('active');
-          c.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
-          if (!wasActive) { b.classList.add('active'); document.getElementById('field').value = f; }
-          else { document.getElementById('field').value = ''; }
-        };
+        b.onclick = () => b.classList.toggle('active');
         c.appendChild(b);
-      });
-      // Typing a custom field clears chip selection
-      document.getElementById('field').addEventListener('input', () => {
-        const v = document.getElementById('field').value.trim();
-        c.querySelectorAll('.chip').forEach(x => x.classList.toggle('active', x.textContent === v));
       });
     }
     buildCredChips();
@@ -161,6 +151,13 @@
     function getCredentials() {
       const chosen = [...document.querySelectorAll('#credChips .chip.active')].map(b => b.textContent);
       const other = document.getElementById('credOther').value.trim();
+      if (other) chosen.push(other);
+      return chosen.join(', ');
+    }
+
+    function getField() {
+      const chosen = [...document.querySelectorAll('#fieldChips .chip.active')].map(b => b.textContent);
+      const other = document.getElementById('fieldOther').value.trim();
       if (other) chosen.push(other);
       return chosen.join(', ');
     }
@@ -230,7 +227,7 @@
         'Recommendation': '',
         'Website':        document.getElementById('website').value.trim(),
         'Title':          getCredentials(),
-        'Field':          document.getElementById('field').value.trim(),
+        'Field':          getField(),
         'Subspecialty':   '',
         'Street':         addr.street,
         'City':           addr.city,
