@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SD++ Completionist</title>
+<title>San Diego Completionist</title>
 <meta name="description" content="Checklists for San Diego completionists: the Mission Trails 5 peaks, summits, every library, every transit line, every museum. Progress saves in your browser.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -85,11 +85,25 @@ input[type=date]{padding:3px 6px;font-size:12px;color:var(--muted)}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .toggle{font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center;cursor:pointer}
 
-ul.items{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:12px}
-.group{display:flex;justify-content:space-between;padding:10px 14px 6px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-top:1px solid var(--line)}
-.group:first-child{border-top:0}
+#items{display:flex;flex-direction:column;gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.card h3{display:flex;justify-content:space-between;align-items:center;margin:0;padding:10px 14px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-bottom:1px solid var(--line)}
+.card h3 .full{color:var(--done)}
+.card ul{list-style:none;margin:0;padding:0}
+.thumb{width:32px;height:32px;border-radius:8px;flex:none;display:grid;place-items:center;background:var(--bg);border:1px solid var(--line);overflow:hidden}
+.thumb img{width:22px;height:22px;object-fit:contain}
+.thumb.badge{border:0;color:#fff;font-size:11px;font-weight:700;letter-spacing:-.02em}
+.thumb.badge svg.lucide{width:18px;height:18px}
+.thumb.plain{color:var(--accent)}
+.thumb.svg{background:none;border:0}
+.thumb.svg img{width:30px;height:30px}
+.thumb.pill{width:44px;height:24px;border-radius:999px;border:0;color:#fff;font-size:15px;font-weight:700;letter-spacing:-.01em}
+.dateclr{appearance:none;border:0;background:none;color:var(--muted);cursor:pointer;padding:4px;border-radius:6px;display:inline-flex}
+.dateclr:hover{color:var(--ink);background:var(--bg)}
+.dateclr svg.lucide{width:15px;height:15px}
+.adddate{font-size:12px;color:var(--muted)}
 li.item{display:flex;gap:12px;align-items:center;padding:9px 14px;border-top:1px solid var(--line)}
-li.item:first-child,.group+li.item{border-top:0}
+li.item:first-child{border-top:0}
 li.item input[type=checkbox]{width:19px;height:19px;margin:0;accent-color:var(--done);cursor:pointer;flex:none}
 .body{flex:1;min-width:0}
 .name{font-weight:500;cursor:pointer}
@@ -99,7 +113,7 @@ li.done .name{color:var(--muted)}
 .acts{display:flex;gap:2px;align-items:center;flex:none}
 .icon{display:inline-flex;padding:6px;border-radius:8px;color:var(--muted)}
 .icon:hover{color:var(--accent);background:var(--bg)}
-.empty{padding:20px;text-align:center;color:var(--muted)}
+.empty{padding:20px;text-align:center;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:12px}
 .counter{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .counter input{width:110px;padding:4px 8px;font-size:13px}
 .rt{display:inline-flex;align-items:center;gap:2px;font-size:12px;font-weight:600;background:var(--soft);color:var(--done);border-radius:6px;padding:2px 4px 2px 7px}
@@ -116,7 +130,7 @@ footer textarea{width:100%;min-height:64px;margin:8px 0;font-family:ui-monospace
 </head>
 <body>
 <header class="wrap">
-  <h1>San Diego<span>++</span></h1>
+  <h1>San Diego <span>Completionist</span></h1>
   <div class="overall" id="overall"></div>
 </header>
 
@@ -135,7 +149,7 @@ footer textarea{width:100%;min-height:64px;margin:8px 0;font-family:ui-monospace
     <label class="toggle"><input type="checkbox" id="hideDone"> Hide done</label>
   </div>
   <div class="chips" id="chips" style="margin-bottom:10px"></div>
-  <ul class="items" id="items"></ul>
+  <div id="items"></div>
 </main>
 
 <footer class="wrap">
@@ -156,7 +170,7 @@ footer textarea{width:100%;min-height:64px;margin:8px 0;font-family:ui-monospace
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
-<script src="data.js"></script>
+<script src="data.js?v=4"></script>
 <script>
 (function(){
 const LISTS = window.SD_LISTS;
@@ -170,7 +184,7 @@ try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.done) state = 
 function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} }
 
 const today = () => { const d=new Date(); return new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10); };
-const fmtDate = s => s ? new Date(s+'T12:00').toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'}) : '';
+const fmtDate = s => s && s!=='-' ? new Date(s+'T12:00').toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'}) : '';
 const esc = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const countDone = l => l.items.filter(i=>state.done[i.id]).length;
 const mapsUrl = i => 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(i.q || (i.lat+','+i.lng));
@@ -217,6 +231,7 @@ function metaFor(i){
 function tierInfo(l){
   const ds=l.items.map(i=>state.done[i.id]);
   if (ds.some(d=>!d)) return {day:false,week:false,all:false};
+  if (ds.some(d=>d==='-')) return {day:false,week:false,all:true};
   const t=ds.map(d=>new Date(d+'T12:00').getTime()), span=Math.round((Math.max(...t)-Math.min(...t))/864e5);
   return {day:span===0, week:span<=6, all:true};
 }
@@ -231,7 +246,7 @@ function render(fit){
   $('pct').textContent=Math.round(100*n/N)+'%';
   $('bar').style.width=(100*n/N)+'%';
   const tiers=$('tiers');
-  if (l.timed){
+  if (l.timed && n===N){
     const ti=tierInfo(l);
     tiers.hidden=false;
     tiers.innerHTML=[['day','Day','sun'],['week','Week','calendar-days'],['all','All time','infinity']]
@@ -269,7 +284,24 @@ function renderMap(fit){
     if (d) m.bringToFront();
     markers[i.id]=m; pts.push([i.lat,i.lng]);
   });
+  if (current.key==='transit') drawRoutes(cDone);
+  if (current.route && pts.length>1) L.polyline([...pts,pts[0]],{color:css.getPropertyValue('--accent').trim(),weight:2,dashArray:'4 6',interactive:false}).addTo(layer);
   if (fit && pts.length) map.fitBounds(pts,{padding:[30,30],maxZoom:14});
+}
+let routesLoading=false;
+function drawRoutes(){
+  if (!window.SD_ROUTES){
+    if (!routesLoading){ routesLoading=true; const sc=document.createElement('script'); sc.src='routes.js?v=1'; sc.onload=()=>renderMap(false); document.head.appendChild(sc); }
+    return;
+  }
+  visible().filter(i=>i.route && SD_ROUTES[i.id]).forEach(i=>{
+    const r=SD_ROUTES[i.id], d=!!state.done[i.id];
+    const pl=L.polyline(r.segs,{color:r.color,weight:d?5:3,opacity:d?1:.6,dashArray:r.dash?'6 6':null})
+      .bindPopup(()=>`<div class="pop"><b>${esc(i.name)}</b><button class="btn sm" data-toggle="${i.id}">${state.done[i.id]?'Undo':'Mark done'}</button></div>`)
+      .addTo(layer);
+    if (d) pl.bringToFront(); else pl.bringToBack();
+  });
+  Object.values(markers).forEach(m=>m.bringToFront());
 }
 map.on('popupopen',e=>{
   const btn=e.popup.getElement().querySelector('[data-toggle]');
@@ -283,37 +315,47 @@ function counterHtml(i){
     <span class="meta">${Math.min(state.bus.length,i.counter)}/${i.counter}${state.bus.length>i.counter?` (${state.bus.length} total)`:''}</span></div>`;
 }
 
+function thumb(i){
+  if (i.img) return `<span class="thumb svg"><img src="${i.img}" alt=""></span>`;
+  if (i.badge && i.badge.pill) return `<span class="thumb pill" style="background:${i.badge.c}">${esc(i.badge.t)}</span>`;
+  if (i.badge){ const t=i.badge.t; return `<span class="thumb badge" style="background:${i.badge.c}">${/^\d+$/.test(t)?t:`<i data-lucide="${t}"></i>`}</span>`; }
+  if (i.logo) return `<span class="thumb"><img src="https://www.google.com/s2/favicons?domain=${encodeURIComponent(i.logo)}&sz=64" alt="" loading="lazy" onerror="this.remove()"></span>`;
+  return `<span class="thumb plain"><i data-lucide="${i.icon||current.icon}"></i></span>`;
+}
+function itemHtml(i){
+  const d=state.done[i.id], meta=metaFor(i);
+  const date = !d ? '' : d==='-'
+    ? `<input type="date" class="adddate" max="${today()}" data-date="${i.id}" aria-label="Add date" title="Add date">`
+    : `<input type="date" value="${d}" max="${today()}" data-date="${i.id}" aria-label="Date done"><button class="dateclr" data-clr="${i.id}" aria-label="Remove date" title="Remove date"><i data-lucide="x"></i></button>`;
+  return `<li class="item${d?' done':''}">
+    <input type="checkbox" ${d?'checked':''} ${i.counter?'disabled title="Log routes below"':''} data-id="${i.id}" aria-label="${esc(i.name)}">
+    ${thumb(i)}
+    <div class="body"><div class="name" data-pan="${i.id}">${esc(i.name)}</div>${meta?`<div class="meta">${esc(meta)}</div>`:''}${i.counter?counterHtml(i):''}</div>
+    <div class="acts">${date}
+      ${i.url?`<a class="icon" href="${esc(i.url)}" target="_blank" rel="noopener" aria-label="Website" title="Website"><i data-lucide="globe"></i></a>`:''}
+      ${i.lat!=null?`<a class="icon" href="${mapsUrl(i)}" target="_blank" rel="noopener" aria-label="Open in Google Maps" title="Google Maps"><i data-lucide="map-pin"></i></a>`:''}
+    </div></li>`;
+}
 function renderItems(){
-  const l=current, items=visible(), multi=groups(l).length>1 && !groupFilter;
-  let html='', last=null;
-  const order=groups(l);
-  items.slice().sort((a,b)=>order.indexOf(a.g)-order.indexOf(b.g)).forEach(i=>{
-    if (multi && i.g!==last){
-      last=i.g;
-      const gi=l.items.filter(x=>x.g===last);
-      html+=`<li class="group"><span>${esc(last)}</span><span>${gi.filter(x=>state.done[x.id]).length}/${gi.length}</span></li>`;
-    }
-    const d=state.done[i.id], meta=metaFor(i);
-    html+=`<li class="item${d?' done':''}">
-      <input type="checkbox" ${d?'checked':''} ${i.counter?'disabled title="Log routes below"':''} data-id="${i.id}" aria-label="${esc(i.name)}">
-      <div class="body"><div class="name" data-pan="${i.id}">${esc(i.name)}</div>${meta?`<div class="meta">${esc(meta)}</div>`:''}${i.counter?counterHtml(i):''}</div>
-      <div class="acts">
-        ${d?`<input type="date" value="${d}" max="${today()}" data-date="${i.id}" aria-label="Date done">`:''}
-        ${i.url?`<a class="icon" href="${esc(i.url)}" target="_blank" rel="noopener" aria-label="Website" title="Website"><i data-lucide="globe"></i></a>`:''}
-        ${i.lat!=null?`<a class="icon" href="${mapsUrl(i)}" target="_blank" rel="noopener" aria-label="Open in Google Maps" title="Google Maps"><i data-lucide="map-pin"></i></a>`:''}
-      </div></li>`;
-  });
-  $('items').innerHTML = html || '<li class="empty">Nothing here.</li>';
+  const l=current, items=visible();
+  const html=groups(l).map(g=>{
+    const gi=items.filter(i=>i.g===g); if(!gi.length) return '';
+    const all=l.items.filter(x=>x.g===g), n=all.filter(x=>state.done[x.id]).length;
+    return `<section class="card">${groups(l).length>1?`<h3><span>${esc(g)}</span><span class="${n===all.length?'full':''}">${n}/${all.length}</span></h3>`:''}<ul>${gi.map(itemHtml).join('')}</ul></section>`;
+  }).join('');
+  $('items').innerHTML = html || '<div class="empty">Nothing here.</div>';
   icons();
 }
 $('items').addEventListener('change',e=>{
   const t=e.target;
   if (t.dataset.id) toggle(t.dataset.id);
-  else if (t.dataset.date){ state.done[t.dataset.date]=t.value||today(); save(); render(false); }
+  else if (t.dataset.date){ state.done[t.dataset.date]=t.value||'-'; save(); render(false); }
   else if (t.dataset.add) addRoute(t.value);
 });
 $('items').addEventListener('keydown',e=>{ if (e.target.dataset.add && e.key==='Enter'){ e.preventDefault(); addRoute(e.target.value); } });
 $('items').addEventListener('click',e=>{
+  const clr=e.target.closest('[data-clr]');
+  if (clr){ state.done[clr.dataset.clr]='-'; save(); render(false); return; }
   const rm=e.target.closest('[data-rm]');
   if (rm){ state.bus=state.bus.filter(r=>r!==rm.dataset.rm); syncCounter(); return; }
   const p=e.target.closest('[data-pan]'); if(!p) return;
@@ -371,7 +413,7 @@ function makeCert(l){
   doc.setFillColor(250,246,239); doc.triangle(W/2-19,118,W/2,88,W/2+19,118,'F');
   doc.setFillColor(...teal); doc.triangle(W/2-5,118,W/2+8,101,W/2+21,118,'F');
   doc.setTextColor(...muted); doc.setFont('helvetica','bold'); doc.setFontSize(11);
-  doc.text('SAN DIEGO++ COMPLETIONIST', W/2, 162, {align:'center', charSpace:2});
+  doc.text('SAN DIEGO COMPLETIONIST', W/2, 162, {align:'center', charSpace:2});
   doc.setTextColor(...ink); doc.setFont('times','bold'); doc.setFontSize(36);
   doc.text('Certificate of Completion', W/2, 204, {align:'center'});
   doc.setFont('helvetica','normal'); doc.setFontSize(13); doc.setTextColor(...muted);
@@ -383,7 +425,7 @@ function makeCert(l){
   doc.text(`completed all ${l.items.length} ${l.unit} of`, W/2, 314, {align:'center'});
   doc.setFont('helvetica','bold'); doc.setFontSize(20); doc.setTextColor(...ink);
   doc.text(l.title + (l.timed?' — '+bestTier(tierInfo(l)):''), W/2, 342, {align:'center'});
-  const rows=l.items.map(i=>({n:i.name+(i.elev?` (${i.elev.toLocaleString()} ft)`:''), d:state.done[i.id]})).sort((a,b)=>a.d<b.d?-1:a.d>b.d?1:0);
+  const rows=l.items.map(i=>({n:i.name+(i.elev?` (${i.elev.toLocaleString()} ft)`:''), d:state.done[i.id]==='-'?'':state.done[i.id]})).sort((a,b)=>a.d<b.d?-1:a.d>b.d?1:0);
   const cols=rows.length<=8?1:rows.length<=30?2:rows.length<=60?3:4;
   const fs=rows.length<=8?11:rows.length<=30?8.5:rows.length<=60?7:5.5;
   const perCol=Math.ceil(rows.length/cols), colW=(W-150)/cols, lh=fs*1.4, top=372;
@@ -392,9 +434,9 @@ function makeCert(l){
     const c=Math.floor(k/perCol), y=top+(k%perCol)*lh;
     const x=cols===1?W/2-150:75+c*colW, w=cols===1?300:colW-12;
     doc.setTextColor(...ink); doc.text(doc.splitTextToSize(r.n,w-fs*6)[0], x, y);
-    doc.setTextColor(...muted); doc.text(fmtDate(r.d), x+w, y, {align:'right'});
+    doc.setTextColor(...muted); doc.text(r.d?fmtDate(r.d):'—', x+w, y, {align:'right'});
   });
-  const last=rows.map(r=>r.d).sort().pop();
+  const last=rows.map(r=>r.d).filter(Boolean).sort().pop() || today();
   doc.setFontSize(10); doc.setTextColor(...muted);
   doc.text(`Completed ${fmtDate(last)}  ·  chasevarga.com/sd`, W/2, H-52, {align:'center'});
   doc.save(`${l.key}-certificate.pdf`);
