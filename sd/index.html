@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SD++ Completionist</title>
+<meta name="description" content="Checklists for San Diego completionists: the Mission Trails 5 peaks, summits, every library, every transit line, every museum. Progress saves in your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{
+  --bg:#f7f3ec; --surface:#fffdf9; --ink:#1f2a33; --muted:#6b7780; --line:#e6dfd3;
+  --accent:#0e7c86; --accent-ink:#fff; --done:#2f9e5b; --todo:#8a5a3b; --soft:#eaf5ee;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#11171c; --surface:#182129; --ink:#e8eef2; --muted:#93a2ad; --line:#2a3640;
+    --accent:#3fb5be; --accent-ink:#0b1216; --done:#53c784; --todo:#b88660; --soft:#17302a;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11171c; --surface:#182129; --ink:#e8eef2; --muted:#93a2ad; --line:#2a3640;
+  --accent:#3fb5be; --accent-ink:#0b1216; --done:#53c784; --todo:#b88660; --soft:#17302a;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.45 Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+svg.lucide{width:18px;height:18px;stroke-width:2;flex:none;vertical-align:middle}
+header{padding:28px 0 0;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+h1{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:clamp(26px,5vw,36px);margin:0;letter-spacing:-.01em}
+h1 span{color:var(--accent)}
+.overall{font-size:13px;color:var(--muted)}
+
+nav.tabs{position:sticky;top:0;z-index:1000;background:var(--bg);border-bottom:1px solid var(--line);margin-top:14px}
+nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+nav.tabs .wrap::-webkit-scrollbar{display:none}
+.tab{appearance:none;border:0;background:none;color:var(--muted);font:inherit;font-weight:500;padding:12px 10px 10px;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;display:flex;gap:6px;align-items:center}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tab .count{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tab .count.full{color:var(--done);font-weight:600}
+.sep{width:1px;background:var(--line);margin:12px 6px;flex:none}
+
+main{padding:18px 0 40px}
+.head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 16px;margin-bottom:12px}
+h2{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:24px;margin:0}
+.blurb{color:var(--muted);margin:2px 0 0}
+.progress{min-width:180px;flex:0 1 240px}
+.progress .nums{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.progress strong{color:var(--ink);font-weight:600}
+.bar{height:6px;background:var(--line);border-radius:999px;overflow:hidden;margin-top:4px}
+.bar i{display:block;height:100%;background:var(--done);border-radius:inherit;transition:width .3s}
+
+.tiers{display:flex;gap:6px;margin:0 0 12px;flex-wrap:wrap}
+.tier{display:flex;align-items:center;gap:6px;font-size:13px;padding:5px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--surface)}
+.tier.on{border-color:var(--done);color:var(--done);background:var(--soft);font-weight:600}
+.tier svg.lucide{width:14px;height:14px}
+
+#map{height:360px;border-radius:12px;border:1px solid var(--line);background:var(--surface)}
+.leaflet-container{font:inherit}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9)} }
+:root[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9)}
+.leaflet-popup-content{margin:10px 12px}
+.pop b{display:block;font-size:14px;margin-bottom:6px}
+
+.award{margin:14px 0;padding:12px 14px;border-radius:12px;border:1px dashed var(--line);display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;color:var(--muted);font-size:14px}
+.award .l{display:flex;gap:8px;align-items:center}
+.award.ready{border:1px solid var(--done);background:var(--soft);color:var(--ink)}
+.award form{display:flex;gap:8px;flex-wrap:wrap}
+input[type=text],input[type=search],input[type=date],textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+input[type=date]{padding:3px 6px;font-size:12px;color:var(--muted)}
+.btn{appearance:none;font:inherit;font-weight:600;border:0;border-radius:8px;padding:7px 12px;cursor:pointer;background:var(--accent);color:var(--accent-ink);display:inline-flex;gap:6px;align-items:center}
+.btn.ghost{background:none;color:var(--accent);border:1px solid var(--line)}
+.btn.sm{padding:4px 9px;font-size:13px}
+
+.tools{display:flex;gap:8px;align-items:center;margin:14px 0 10px;flex-wrap:wrap}
+.search{flex:1;min-width:160px;position:relative}
+.search input{width:100%;padding-left:32px}
+.search svg{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--muted);width:16px;height:16px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{appearance:none;font:inherit;font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:4px 10px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.toggle{font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center;cursor:pointer}
+
+ul.items{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.group{display:flex;justify-content:space-between;padding:10px 14px 6px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-top:1px solid var(--line)}
+.group:first-child{border-top:0}
+li.item{display:flex;gap:12px;align-items:center;padding:9px 14px;border-top:1px solid var(--line)}
+li.item:first-child,.group+li.item{border-top:0}
+li.item input[type=checkbox]{width:19px;height:19px;margin:0;accent-color:var(--done);cursor:pointer;flex:none}
+.body{flex:1;min-width:0}
+.name{font-weight:500;cursor:pointer}
+.name:hover{color:var(--accent)}
+li.done .name{color:var(--muted)}
+.meta{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.acts{display:flex;gap:2px;align-items:center;flex:none}
+.icon{display:inline-flex;padding:6px;border-radius:8px;color:var(--muted)}
+.icon:hover{color:var(--accent);background:var(--bg)}
+.empty{padding:20px;text-align:center;color:var(--muted)}
+.counter{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.counter input{width:110px;padding:4px 8px;font-size:13px}
+.rt{display:inline-flex;align-items:center;gap:2px;font-size:12px;font-weight:600;background:var(--soft);color:var(--done);border-radius:6px;padding:2px 4px 2px 7px}
+.rt button{appearance:none;border:0;background:none;color:inherit;cursor:pointer;padding:0 2px;font-size:14px;line-height:1}
+
+footer{border-top:1px solid var(--line);padding:20px 0 40px;color:var(--muted);font-size:13px}
+footer summary{cursor:pointer;color:var(--ink)}
+footer textarea{width:100%;min-height:64px;margin:8px 0;font-family:ui-monospace,monospace;font-size:12px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:2000}
+.toast.show{opacity:1}
+@media (max-width:640px){ #map{height:260px} .progress{flex-basis:100%} }
+</style>
+</head>
+<body>
+<header class="wrap">
+  <h1>San Diego<span>++</span></h1>
+  <div class="overall" id="overall"></div>
+</header>
+
+<nav class="tabs" aria-label="Lists"><div class="wrap" role="tablist" id="tabs"></div></nav>
+
+<main class="wrap" role="tabpanel">
+  <div class="head">
+    <div><h2 id="title"></h2><p class="blurb" id="blurb"></p></div>
+    <div class="progress"><div class="nums"><span id="frac"></span><strong id="pct"></strong></div><div class="bar"><i id="bar"></i></div></div>
+  </div>
+  <div class="tiers" id="tiers" hidden></div>
+  <div id="map" aria-label="Map"></div>
+  <div class="award" id="award"></div>
+  <div class="tools">
+    <div class="search"><i data-lucide="search"></i><input type="search" id="q" placeholder="Search" aria-label="Search this list"></div>
+    <label class="toggle"><input type="checkbox" id="hideDone"> Hide done</label>
+  </div>
+  <div class="chips" id="chips" style="margin-bottom:10px"></div>
+  <ul class="items" id="items"></ul>
+</main>
+
+<footer class="wrap">
+  <p>Progress saves in this browser only. No account.</p>
+  <details>
+    <summary>Back up or move progress</summary>
+    <textarea id="code" aria-label="Progress code" placeholder="Paste a code to restore"></textarea>
+    <div class="row">
+      <button class="btn ghost sm" id="copyCode">Copy my code</button>
+      <button class="btn ghost sm" id="loadCode">Restore</button>
+      <button class="btn ghost sm" id="reset">Reset all</button>
+    </div>
+  </details>
+  <p>Map © OpenStreetMap contributors. Icons: Lucide.</p>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="data.js"></script>
+<script>
+(function(){
+const LISTS = window.SD_LISTS;
+const KEY = 'sdpp.v1';
+const $ = id => document.getElementById(id);
+const icons = () => window.lucide && lucide.createIcons();
+
+// ---- state (per-browser, localStorage) ----
+let state = { done:{}, name:'', bus:[] };
+try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.done) state = Object.assign(state, s); } catch(e){}
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} }
+
+const today = () => { const d=new Date(); return new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10); };
+const fmtDate = s => s ? new Date(s+'T12:00').toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'}) : '';
+const esc = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const countDone = l => l.items.filter(i=>state.done[i.id]).length;
+const mapsUrl = i => 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(i.q || (i.lat+','+i.lng));
+function toast(msg){ const t=$('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toast.t); toast.t=setTimeout(()=>t.classList.remove('show'),2200); }
+
+// ---- map ----
+const map = L.map('map',{scrollWheelZoom:false}).setView([32.8,-117.15],11);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
+  maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+const layer = L.layerGroup().addTo(map);
+let markers = {};
+
+// ---- tabs / filters ----
+let current = LISTS.find(l=>'#'+l.key===location.hash) || LISTS[0];
+let groupFilter = null;
+function renderTabs(){
+  let html='', sep=false;
+  LISTS.forEach(l=>{
+    if (l.personal && !sep){ html+='<span class="sep" aria-hidden="true"></span>'; sep=true; }
+    const n=countDone(l), N=l.items.length;
+    html+=`<button class="tab" role="tab" aria-selected="${l===current}" data-key="${l.key}"><i data-lucide="${l.icon}"></i>${esc(l.short)} <span class="count${n===N?' full':''}">${n}/${N}</span></button>`;
+  });
+  $('tabs').innerHTML=html;
+  const uniq=new Set(LISTS.flatMap(l=>l.items.map(i=>i.id)));
+  $('overall').textContent=`${[...uniq].filter(id=>state.done[id]).length} of ${uniq.size} done`;
+}
+$('tabs').addEventListener('click',e=>{
+  const b=e.target.closest('.tab'); if(!b) return;
+  current=LISTS.find(l=>l.key===b.dataset.key); groupFilter=null; $('q').value='';
+  history.replaceState(null,'','#'+current.key);
+  render(true);
+});
+const groups = l => [...new Set(l.items.map(i=>i.g))];
+
+function metaFor(i){
+  const b=[];
+  if (i.elev) b.push(i.elev.toLocaleString()+' ft');
+  if (i.meta) b.push(i.meta);
+  return b.join(' · ');
+}
+
+// ---- 5-peak time tiers ----
+function tierInfo(l){
+  const ds=l.items.map(i=>state.done[i.id]);
+  if (ds.some(d=>!d)) return {day:false,week:false,all:false};
+  const t=ds.map(d=>new Date(d+'T12:00').getTime()), span=Math.round((Math.max(...t)-Math.min(...t))/864e5);
+  return {day:span===0, week:span<=6, all:true};
+}
+const bestTier = ti => ti.day?'In One Day':ti.week?'In One Week':'All Time';
+
+function render(fit){
+  const l=current, n=countDone(l), N=l.items.length;
+  renderTabs();
+  $('title').textContent=l.title;
+  $('blurb').textContent=l.blurb;
+  $('frac').textContent=`${n} of ${N} ${l.unit}`;
+  $('pct').textContent=Math.round(100*n/N)+'%';
+  $('bar').style.width=(100*n/N)+'%';
+  const tiers=$('tiers');
+  if (l.timed){
+    const ti=tierInfo(l);
+    tiers.hidden=false;
+    tiers.innerHTML=[['day','Day','sun'],['week','Week','calendar-days'],['all','All time','infinity']]
+      .map(([k,label,ic])=>`<span class="tier${ti[k]?' on':''}"><i data-lucide="${ti[k]?'circle-check':ic}"></i>${label}</span>`).join('');
+  } else tiers.hidden=true;
+  const g=groups(l);
+  $('chips').innerHTML = g.length>1 ? ['All',...g].map(x=>`<button class="chip" aria-pressed="${(x==='All'&&!groupFilter)||x===groupFilter}" data-g="${esc(x)}">${esc(x)}</button>`).join('') : '';
+  renderAward(l,n,N);
+  renderItems();
+  renderMap(fit);
+  icons();
+}
+$('chips').addEventListener('click',e=>{
+  const c=e.target.closest('.chip'); if(!c) return;
+  groupFilter = c.dataset.g==='All'?null:c.dataset.g;
+  render(true);
+});
+
+function visible(){
+  const q=$('q').value.trim().toLowerCase(), hide=$('hideDone').checked;
+  return current.items.filter(i=>(!groupFilter||i.g===groupFilter)&&(!hide||!state.done[i.id])&&(!q||(i.name+' '+i.g+' '+(i.meta||'')+' '+(i.q||'')).toLowerCase().includes(q)));
+}
+
+function renderMap(fit){
+  layer.clearLayers(); markers={};
+  const css=getComputedStyle(document.documentElement);
+  const cDone=css.getPropertyValue('--done').trim(), cTodo=css.getPropertyValue('--todo').trim();
+  const pts=[];
+  visible().forEach(i=>{
+    if (i.lat==null) return;
+    const d=!!state.done[i.id];
+    const m=L.circleMarker([i.lat,i.lng],{radius:7,weight:2,color:'#fff',fillColor:d?cDone:cTodo,fillOpacity:1})
+      .bindPopup(()=>`<div class="pop"><b>${esc(i.name)}</b><button class="btn sm" data-toggle="${i.id}">${state.done[i.id]?'Undo':'Mark done'}</button></div>`)
+      .addTo(layer);
+    if (d) m.bringToFront();
+    markers[i.id]=m; pts.push([i.lat,i.lng]);
+  });
+  if (fit && pts.length) map.fitBounds(pts,{padding:[30,30],maxZoom:14});
+}
+map.on('popupopen',e=>{
+  const btn=e.popup.getElement().querySelector('[data-toggle]');
+  if (btn) btn.onclick=()=>{ toggle(btn.dataset.toggle); map.closePopup(); };
+});
+
+function counterHtml(i){
+  return `<div class="counter">${state.bus.map(r=>`<span class="rt">${esc(r)}<button data-rm="${esc(r)}" aria-label="Remove route ${esc(r)}">×</button></span>`).join('')}
+    <input list="busRoutes" placeholder="Add route #" data-add="1" aria-label="Add a bus route you rode">
+    <datalist id="busRoutes">${(current.bus||[]).filter(r=>!state.bus.includes(r)).map(r=>`<option value="${r}">`).join('')}</datalist>
+    <span class="meta">${Math.min(state.bus.length,i.counter)}/${i.counter}${state.bus.length>i.counter?` (${state.bus.length} total)`:''}</span></div>`;
+}
+
+function renderItems(){
+  const l=current, items=visible(), multi=groups(l).length>1 && !groupFilter;
+  let html='', last=null;
+  const order=groups(l);
+  items.slice().sort((a,b)=>order.indexOf(a.g)-order.indexOf(b.g)).forEach(i=>{
+    if (multi && i.g!==last){
+      last=i.g;
+      const gi=l.items.filter(x=>x.g===last);
+      html+=`<li class="group"><span>${esc(last)}</span><span>${gi.filter(x=>state.done[x.id]).length}/${gi.length}</span></li>`;
+    }
+    const d=state.done[i.id], meta=metaFor(i);
+    html+=`<li class="item${d?' done':''}">
+      <input type="checkbox" ${d?'checked':''} ${i.counter?'disabled title="Log routes below"':''} data-id="${i.id}" aria-label="${esc(i.name)}">
+      <div class="body"><div class="name" data-pan="${i.id}">${esc(i.name)}</div>${meta?`<div class="meta">${esc(meta)}</div>`:''}${i.counter?counterHtml(i):''}</div>
+      <div class="acts">
+        ${d?`<input type="date" value="${d}" max="${today()}" data-date="${i.id}" aria-label="Date done">`:''}
+        ${i.url?`<a class="icon" href="${esc(i.url)}" target="_blank" rel="noopener" aria-label="Website" title="Website"><i data-lucide="globe"></i></a>`:''}
+        ${i.lat!=null?`<a class="icon" href="${mapsUrl(i)}" target="_blank" rel="noopener" aria-label="Open in Google Maps" title="Google Maps"><i data-lucide="map-pin"></i></a>`:''}
+      </div></li>`;
+  });
+  $('items').innerHTML = html || '<li class="empty">Nothing here.</li>';
+  icons();
+}
+$('items').addEventListener('change',e=>{
+  const t=e.target;
+  if (t.dataset.id) toggle(t.dataset.id);
+  else if (t.dataset.date){ state.done[t.dataset.date]=t.value||today(); save(); render(false); }
+  else if (t.dataset.add) addRoute(t.value);
+});
+$('items').addEventListener('keydown',e=>{ if (e.target.dataset.add && e.key==='Enter'){ e.preventDefault(); addRoute(e.target.value); } });
+$('items').addEventListener('click',e=>{
+  const rm=e.target.closest('[data-rm]');
+  if (rm){ state.bus=state.bus.filter(r=>r!==rm.dataset.rm); syncCounter(); return; }
+  const p=e.target.closest('[data-pan]'); if(!p) return;
+  const m=markers[p.dataset.pan]; if(!m) return;
+  map.setView(m.getLatLng(),15); m.openPopup();
+  $('map').scrollIntoView({behavior:'smooth',block:'center'});
+});
+$('q').addEventListener('input',()=>{ renderItems(); renderMap(false); });
+$('hideDone').addEventListener('change',()=>{ renderItems(); renderMap(false); });
+
+function addRoute(v){
+  v=String(v||'').trim().toUpperCase(); if(!v) return;
+  if (!state.bus.includes(v)) state.bus.push(v);
+  syncCounter();
+}
+function syncCounter(){
+  const it=current.items.find(i=>i.counter);
+  const was=!!state.done[it.id];
+  if (state.bus.length>=it.counter && !was){ state.done[it.id]=today(); toast('5 routes ridden!'); }
+  if (state.bus.length<it.counter && was) delete state.done[it.id];
+  save(); render(false);
+  const inp=document.querySelector('[data-add]'); if(inp) inp.focus();
+}
+
+function toggle(id){
+  const wasFull=countDone(current)===current.items.length;
+  if (state.done[id]) delete state.done[id]; else state.done[id]=today();
+  save(); render(false);
+  if (!wasFull && countDone(current)===current.items.length) toast(`${current.title} complete!`);
+}
+
+// ---- award / certificate ----
+function renderAward(l,n,N){
+  const el=$('award');
+  if (n<N){
+    el.className='award';
+    el.innerHTML=`<span class="l"><i data-lucide="award"></i>Certificate unlocks at ${N}/${N}</span>`;
+    return;
+  }
+  el.className='award ready';
+  el.innerHTML=`<span class="l"><i data-lucide="award"></i><b>Complete${l.timed?' · '+bestTier(tierInfo(l)):''}</b></span>
+    <form id="certForm"><input type="text" id="certName" placeholder="Your name" value="${esc(state.name)}" maxlength="60" required aria-label="Name for certificate">
+    <button class="btn" type="submit"><i data-lucide="download"></i>Certificate</button></form>`;
+  $('certForm').onsubmit=e=>{ e.preventDefault(); state.name=$('certName').value.trim(); save(); makeCert(l); };
+}
+
+function makeCert(l){
+  const { jsPDF } = window.jspdf;
+  const doc=new jsPDF({orientation:'landscape',unit:'pt',format:'letter'});
+  const W=792,H=612, teal=[14,124,134], ink=[31,42,51], muted=[107,119,128];
+  doc.setFillColor(250,246,239); doc.rect(0,0,W,H,'F');
+  doc.setDrawColor(...teal); doc.setLineWidth(3); doc.rect(28,28,W-56,H-56);
+  doc.setLineWidth(.8); doc.rect(38,38,W-76,H-76);
+  doc.setFillColor(...teal); doc.circle(W/2,104,32,'F');
+  doc.setFillColor(250,246,239); doc.triangle(W/2-19,118,W/2,88,W/2+19,118,'F');
+  doc.setFillColor(...teal); doc.triangle(W/2-5,118,W/2+8,101,W/2+21,118,'F');
+  doc.setTextColor(...muted); doc.setFont('helvetica','bold'); doc.setFontSize(11);
+  doc.text('SAN DIEGO++ COMPLETIONIST', W/2, 162, {align:'center', charSpace:2});
+  doc.setTextColor(...ink); doc.setFont('times','bold'); doc.setFontSize(36);
+  doc.text('Certificate of Completion', W/2, 204, {align:'center'});
+  doc.setFont('helvetica','normal'); doc.setFontSize(13); doc.setTextColor(...muted);
+  doc.text('This certifies that', W/2, 238, {align:'center'});
+  doc.setFont('times','bolditalic'); doc.setFontSize(32); doc.setTextColor(...teal);
+  doc.text(state.name || 'A San Diego Completionist', W/2, 280, {align:'center'});
+  doc.setDrawColor(...muted); doc.setLineWidth(.5); doc.line(W/2-180,290,W/2+180,290);
+  doc.setFont('helvetica','normal'); doc.setFontSize(13); doc.setTextColor(...muted);
+  doc.text(`completed all ${l.items.length} ${l.unit} of`, W/2, 314, {align:'center'});
+  doc.setFont('helvetica','bold'); doc.setFontSize(20); doc.setTextColor(...ink);
+  doc.text(l.title + (l.timed?' — '+bestTier(tierInfo(l)):''), W/2, 342, {align:'center'});
+  const rows=l.items.map(i=>({n:i.name+(i.elev?` (${i.elev.toLocaleString()} ft)`:''), d:state.done[i.id]})).sort((a,b)=>a.d<b.d?-1:a.d>b.d?1:0);
+  const cols=rows.length<=8?1:rows.length<=30?2:rows.length<=60?3:4;
+  const fs=rows.length<=8?11:rows.length<=30?8.5:rows.length<=60?7:5.5;
+  const perCol=Math.ceil(rows.length/cols), colW=(W-150)/cols, lh=fs*1.4, top=372;
+  doc.setFont('helvetica','normal'); doc.setFontSize(fs);
+  rows.forEach((r,k)=>{
+    const c=Math.floor(k/perCol), y=top+(k%perCol)*lh;
+    const x=cols===1?W/2-150:75+c*colW, w=cols===1?300:colW-12;
+    doc.setTextColor(...ink); doc.text(doc.splitTextToSize(r.n,w-fs*6)[0], x, y);
+    doc.setTextColor(...muted); doc.text(fmtDate(r.d), x+w, y, {align:'right'});
+  });
+  const last=rows.map(r=>r.d).sort().pop();
+  doc.setFontSize(10); doc.setTextColor(...muted);
+  doc.text(`Completed ${fmtDate(last)}  ·  chasevarga.com/sd`, W/2, H-52, {align:'center'});
+  doc.save(`${l.key}-certificate.pdf`);
+}
+
+// ---- backup / restore ----
+$('copyCode').onclick=async()=>{
+  const code=btoa(unescape(encodeURIComponent(JSON.stringify(state))));
+  $('code').value=code;
+  try{ await navigator.clipboard.writeText(code); toast('Code copied'); }catch(e){ $('code').select(); toast('Copy the code from the box'); }
+};
+$('loadCode').onclick=()=>{
+  try{
+    const s=JSON.parse(decodeURIComponent(escape(atob($('code').value.trim()))));
+    if(!s||typeof s.done!=='object') throw 0;
+    if(!confirm('Replace current progress with this code?')) return;
+    state={done:s.done,name:s.name||'',bus:s.bus||[]}; save(); render(true); toast('Restored');
+  }catch(e){ toast("That code didn't work"); }
+};
+$('reset').onclick=()=>{ if(confirm('Erase all progress in this browser?')){ state={done:{},name:'',bus:[]}; save(); render(true); } };
+
+render(true);
+})();
+</script>
+</body>
+</html>
