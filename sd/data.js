@@ -72,66 +72,87 @@ window.SD_LISTS = [
   "items": [
    {
     "id": "br-park-boulevard-bridge",
-    "name": "1. Park Boulevard Bridge",
+    "name": "Park Boulevard Bridge",
     "g": "Route",
     "lat": 32.73345,
     "lng": -117.14655,
     "q": "Park Boulevard Bridge, Balboa Park",
-    "icon": "footprints"
+    "badge": {
+     "c": "#0e7c86",
+     "t": "1"
+    }
    },
    {
     "id": "br-cabrillo-bridge",
-    "name": "2. Cabrillo Bridge",
+    "name": "Cabrillo Bridge",
     "g": "Route",
     "lat": 32.74074,
     "lng": -117.1564,
     "q": "Cabrillo Bridge, San Diego",
-    "icon": "footprints"
+    "badge": {
+     "c": "#0e7c86",
+     "t": "2"
+    }
    },
    {
     "id": "br-first-avenue-bridge",
-    "name": "3. First Avenue Bridge",
+    "name": "First Avenue Bridge",
     "g": "Route",
     "lat": 32.7356,
     "lng": -117.1636,
     "q": "First Avenue Bridge, San Diego",
-    "icon": "footprints"
+    "badge": {
+     "c": "#0e7c86",
+     "t": "3"
+    }
    },
    {
     "id": "br-quince-street-bridge",
-    "name": "4. Quince Street Bridge",
+    "name": "Quince Street Bridge",
     "g": "Route",
     "lat": 32.7366,
     "lng": -117.1617,
     "q": "Quince Street Bridge, San Diego",
-    "icon": "footprints"
+    "badge": {
+     "c": "#0e7c86",
+     "t": "4"
+    }
    },
    {
     "id": "br-spruce-street-suspension-bridge",
-    "name": "5. Spruce Street Suspension Bridge",
+    "name": "Spruce Street Suspension Bridge",
     "g": "Route",
     "lat": 32.73876,
     "lng": -117.166,
     "q": "Spruce Street Suspension Bridge, San Diego",
-    "icon": "footprints"
+    "badge": {
+     "c": "#0e7c86",
+     "t": "5"
+    }
    },
    {
     "id": "br-vermont-street-bridge",
-    "name": "6. Vermont Street Bridge",
+    "name": "Vermont Street Bridge",
     "g": "Route",
     "lat": 32.75126,
     "lng": -117.15345,
     "q": "Vermont Street Bridge, San Diego",
-    "icon": "footprints"
+    "badge": {
+     "c": "#0e7c86",
+     "t": "6"
+    }
    },
    {
     "id": "br-georgia-street-bridge",
-    "name": "7. Georgia Street Bridge",
+    "name": "Georgia Street Bridge",
     "g": "Route",
     "lat": 32.74843,
     "lng": -117.1449,
     "q": "Georgia Street Bridge, San Diego",
-    "icon": "footprints"
+    "badge": {
+     "c": "#0e7c86",
+     "t": "7"
+    }
    }
   ]
  },
@@ -201,7 +222,7 @@ window.SD_LISTS = [
     "lng": -117.11642,
     "q": "Black Mountain Open Space Park, San Diego",
     "elev": 1554,
-    "icon": "mountain-snow"
+    "logo": "sandiego.gov"
    },
    {
     "id": "pk-soledad",
@@ -211,7 +232,7 @@ window.SD_LISTS = [
     "lng": -117.2448,
     "q": "Mt. Soledad National Veterans Memorial",
     "elev": 822,
-    "icon": "mountain-snow"
+    "logo": "soledadmemorial.com"
    },
    {
     "id": "pk-iron",
@@ -221,7 +242,7 @@ window.SD_LISTS = [
     "lng": -116.9554,
     "q": "Iron Mountain, Poway",
     "elev": 2696,
-    "icon": "mountain-snow"
+    "logo": "poway.org"
    },
    {
     "id": "pk-woodson",
@@ -231,7 +252,7 @@ window.SD_LISTS = [
     "lng": -116.9707,
     "q": "Mount Woodson, San Diego County, CA",
     "elev": 2894,
-    "icon": "mountain-snow"
+    "logo": "poway.org"
    },
    {
     "id": "pk-el-cajon-mtn",
@@ -241,7 +262,7 @@ window.SD_LISTS = [
     "lng": -116.82,
     "q": "El Cajon Mountain, San Diego County, CA",
     "elev": 3675,
-    "icon": "mountain-snow"
+    "logo": "sdparks.org"
    },
    {
     "id": "pk-cuyamaca",
@@ -251,7 +272,7 @@ window.SD_LISTS = [
     "lng": -116.6064,
     "q": "Cuyamaca Peak, San Diego County, CA",
     "elev": 6512,
-    "icon": "mountain-snow"
+    "logo": "parks.ca.gov"
    },
    {
     "id": "pk-stonewall",
@@ -261,7 +282,7 @@ window.SD_LISTS = [
     "lng": -116.572,
     "q": "Stonewall Peak, Julian",
     "elev": 5730,
-    "icon": "mountain-snow"
+    "logo": "parks.ca.gov"
    },
    {
     "id": "pk-garnet",
@@ -271,7 +292,7 @@ window.SD_LISTS = [
     "lng": -116.4587,
     "q": "Garnet Peak, San Diego County, CA",
     "elev": 5909,
-    "icon": "mountain-snow"
+    "logo": "fs.usda.gov"
    },
    {
     "id": "pk-hot-springs",
@@ -292,7 +313,7 @@ window.SD_LISTS = [
     "lng": -116.836,
     "q": "High Point Lookout, Palomar Mountain",
     "elev": 6140,
-    "icon": "mountain-snow"
+    "logo": "fs.usda.gov"
    },
    {
     "id": "pk-corte-madera",
@@ -302,7 +323,7 @@ window.SD_LISTS = [
     "lng": -116.591,
     "q": "Corte Madera Mountain, San Diego County, CA",
     "elev": 4657,
-    "icon": "mountain-snow"
+    "logo": "fs.usda.gov"
    },
    {
     "id": "pk-gower",
@@ -312,7 +333,7 @@ window.SD_LISTS = [
     "lng": -116.7625,
     "q": "Mount Gower Preserve, Ramona",
     "elev": 3104,
-    "icon": "mountain-snow"
+    "logo": "sdparks.org"
    },
    {
     "id": "pk-helix",
@@ -332,7 +353,7 @@ window.SD_LISTS = [
     "lng": -117.1775,
     "q": "Double Peak Park, San Marcos",
     "elev": 1644,
-    "icon": "mountain-snow"
+    "logo": "san-marcos.net"
    },
    {
     "id": "pk-mother-miguel",
@@ -352,7 +373,7 @@ window.SD_LISTS = [
     "lng": -117.0878,
     "q": "Bernardo Mountain, San Diego County, CA",
     "elev": 1150,
-    "icon": "mountain-snow"
+    "logo": "sdrp.org"
    },
    {
     "id": "pk-torrey-pines",
@@ -362,7 +383,7 @@ window.SD_LISTS = [
     "lng": -117.25387,
     "q": "Torrey Pines State Natural Reserve Visitor Center",
     "meta": "Top of the reserve",
-    "icon": "flag"
+    "logo": "torreypine.org"
    },
    {
     "id": "pk-potato-chip",
@@ -372,7 +393,7 @@ window.SD_LISTS = [
     "lng": -116.9742,
     "q": "Potato Chip Rock, San Diego County, CA",
     "meta": "Mount Woodson",
-    "icon": "flag"
+    "logo": "poway.org"
    },
    {
     "id": "pk-cedar-creek",
@@ -382,7 +403,7 @@ window.SD_LISTS = [
     "lng": -116.7298,
     "q": "Cedar Creek Falls, San Diego County, CA",
     "meta": "Permit required",
-    "icon": "flag"
+    "logo": "fs.usda.gov"
    },
    {
     "id": "pk-three-sisters",
@@ -391,7 +412,7 @@ window.SD_LISTS = [
     "lat": 32.97374,
     "lng": -116.6857,
     "q": "Three Sisters Falls, San Diego County, CA",
-    "icon": "flag"
+    "logo": "fs.usda.gov"
    },
    {
     "id": "pk-penasquitos-falls",
@@ -400,7 +421,7 @@ window.SD_LISTS = [
     "lat": 32.9338,
     "lng": -117.1612,
     "q": "Los Penasquitos Canyon Waterfall",
-    "icon": "flag"
+    "logo": "sdparks.org"
    },
    {
     "id": "pk-annies",
@@ -419,7 +440,7 @@ window.SD_LISTS = [
     "lat": 32.83976,
     "lng": -117.0432,
     "q": "Old Mission Dam, Mission Trails",
-    "icon": "flag"
+    "logo": "mtrp.org"
    }
   ]
  },
@@ -1387,7 +1408,8 @@ window.SD_LISTS = [
     "q": "12th & Imperial Transit Center",
     "meta": "1946 streetcar",
     "route": false,
-    "img": "img/silver.svg"
+    "img": "img/pcc-529.svg",
+    "wide": true
    },
    {
     "id": "tr-pcc-530",
@@ -1398,7 +1420,20 @@ window.SD_LISTS = [
     "q": "12th & Imperial Transit Center",
     "meta": "1946 streetcar",
     "route": false,
-    "img": "img/silver.svg"
+    "img": "img/pcc-530.svg",
+    "wide": true
+   },
+   {
+    "id": "tr-u2-1001",
+    "name": "U2 1001",
+    "g": "Vintage cars",
+    "lat": 32.7058,
+    "lng": -117.1522,
+    "q": "12th & Imperial Transit Center",
+    "meta": "Original 1981 trolley",
+    "route": false,
+    "img": "img/u2-1001.svg",
+    "wide": true
    },
    {
     "id": "tr-coaster",
@@ -1701,7 +1736,107 @@ window.SD_LISTS = [
    "968",
    "985",
    "992"
-  ]
+  ],
+  "busNames": {
+   "1": "Fashion Valley – La Mesa",
+   "2": "Downtown San Diego – 30th & Adams",
+   "3": "UCSD Hospital – Euclid Transit Center",
+   "4": "12th & Imperial Trolley – Lomita Village",
+   "5": "Downtown San Diego – Euclid Transit Center",
+   "6": "North Park – Fashion Valley",
+   "7": "Downtown San Diego – University/College",
+   "8": "Old Town – Balboa Av TC",
+   "9": "Old Town – Jewell & Garnet",
+   "10": "Old Town – University/College",
+   "11": "SDSU – Downtown San Diego",
+   "12": "12th & Imperial – Skyline Hills",
+   "13": "Kaiser Hospital – 24th St Transit Center",
+   "14": "Grantville Trolley – Baltimore & Lake Murray",
+   "18": "Grantville Trolley via Camino del Rio",
+   "20": "Downtown – Rancho Bernardo Transit Station",
+   "25": "Fashion Valley – Kearny Mesa TC",
+   "27": "Pacific Beach – Kearny Mesa Transit Center",
+   "28": "Old Town T.C. – Shelter Island",
+   "30": "Old Town – UTC via Pacific Beach",
+   "31": "UTC – Mira Mesa",
+   "35": "Ocean Beach – Old Town",
+   "41": "Fashion Valley – UCSD",
+   "43": "Balboa Av TC – Kearny Mesa",
+   "44": "Old Town – Kearny Mesa",
+   "60": "Euclid Av Transit Center – UTC via Convoy",
+   "83": "Downtown San Diego – Old Town",
+   "84": "Point Loma Shuttle",
+   "88": "Old Town – Hotel Circle",
+   "105": "Old Town – University City",
+   "115": "El Cajon T.C. – SDSU T.C.",
+   "120": "Downtown San Diego – Kearny Mesa Transit Center",
+   "201": "Super Loop – Counterclockwise",
+   "202": "Super Loop – Clockwise",
+   "204": "Super Loop – Judicial Dr.",
+   "215": "Mid – City Rapid",
+   "225": "Downtown – Otay Mesa TC",
+   "227": "Imperial Beach – Otay Mesa TC",
+   "235": "Downtown – Escondido Transit Center",
+   "237": "Miramar College Transit Station – UCSD",
+   "280": "Escondido Transit Center – Downtown",
+   "290": "Sabre Springs Station – Downtown",
+   "701": "H St Transit Center – Palomar St TC via Hilltop Dr",
+   "704": "E St Transit Center – Palomar Transit Center",
+   "705": "E St Transit Center – Plaza Bonita",
+   "707": "Otay Ranch Town Center – Southwestern College",
+   "709": "H St Transit Center – Otay Ranch Town Center",
+   "712": "Palomar Transit Center – Southwestern College",
+   "815": "El Cajon Transit Center – East Main St",
+   "816": "El Cajon TC – Cuyamaca College",
+   "832": "Santee Center – NE Santee Loop Clockwise",
+   "833": "Santee Center – Parkway Plaza",
+   "834": "West Santee Loop",
+   "838": "East County Square – Viejas",
+   "848": "El Cajon – Lakeside",
+   "851": "Spring Valley – La Mesa",
+   "852": "University & 54th – Grossmont Transit Ctr",
+   "854": "Grossmont Transit Ctr – Grossmont College",
+   "855": "Rancho San Diego – La Mesa",
+   "856": "SDSU – Cuyamaca College",
+   "864": "El Cajon – East County Sq",
+   "872": "El Cajon Shuttle Loop Counterclockwise",
+   "874": "El Cajon Eastside Shuttle Clockwise",
+   "875": "El Cajon Eastside Shuttle Counterclockwise",
+   "888": "Jacumba – El Cajon",
+   "891": "Borrego – El Cajon via Shelter Valley",
+   "892": "Borrego – El Cajon via Ranchita/Lake Henshaw",
+   "894": "Morena/Campo – El Cajon",
+   "901": "Iris Transit Center – Downtown",
+   "904": "Coronado Shuttle",
+   "905": "Iris Transit Center – Otay Mesa Transit Center",
+   "906": "Iris Transit Center – San Ysidro Clockwise",
+   "907": "Iris Transit Center – San Ysidro Counterclockwise",
+   "909": "Otay Mesa Transit Center – SWC at Otay Mesa",
+   "910": "Downtown – San Ysidro (OWL Service)",
+   "916": "Oak Park – Emerald Hills Loop CW",
+   "917": "Oak Park – Emerald Hills Loop CCW",
+   "921": "UTC – Miramar College Transit Station",
+   "923": "Downtown to Point Loma",
+   "928": "Fashion Valley – Kearny Mesa",
+   "929": "12th & Imperial – Iris Transit Center",
+   "932": "Iris Transit Center – 8th St. Transit Center",
+   "933": "Iris TC Loop – Imperial Beach Counterclock",
+   "934": "Iris TC Loop – Imperial Beach Clockwise",
+   "936": "Spring Valley – SDSU",
+   "944": "Sabre Springs Station – Poway",
+   "945": "Rancho Bernardo Station – Poway",
+   "955": "National City – San Diego State University",
+   "961": "24th St Transit Center – Encanto Trolley",
+   "962": "8th St Transit Center – Spring Valley",
+   "963": "8th St Transit Center – Paradise Hills",
+   "964": "Mira Mesa – Alliant University via MCTS",
+   "965": "City Heights Shuttle",
+   "967": "24th St Transit Center – Division & Ava",
+   "968": "8th St Transit Center – Plaza Bonita",
+   "985": "UCSD Central Campus Station – Torrey Pines",
+   "992": "Airport/Downtown Shuttle",
+   "": "Old Town to Airport Shuttle"
+  }
  },
  {
   "key": "museums",
@@ -1838,8 +1973,8 @@ window.SD_LISTS = [
     "lat": 32.72773,
     "lng": -117.1486,
     "q": "Centro Cultural de la Raza, San Diego",
-    "logo": "centrodelaraza.com",
-    "url": "https://centrodelaraza.com"
+    "url": "https://centrodelaraza.com",
+    "icon": "palette"
    },
    {
     "id": "mu-worldbeat-cultural-center",
@@ -1898,8 +2033,8 @@ window.SD_LISTS = [
     "lat": 32.71066,
     "lng": -117.1651,
     "q": "The New Children's Museum San Diego, San Diego",
-    "logo": "thinkplaycreate.org",
-    "url": "https://thinkplaycreate.org"
+    "url": "https://thinkplaycreate.org",
+    "icon": "blocks"
    },
    {
     "id": "mu-chinese-historical-museum",
@@ -1928,8 +2063,8 @@ window.SD_LISTS = [
     "lat": 32.72164,
     "lng": -117.1676,
     "q": "San Diego Firehouse Museum, San Diego",
-    "logo": "sandiegofirehousemuseum.com",
-    "url": "https://sandiegofirehousemuseum.com"
+    "url": "https://sandiegofirehousemuseum.com",
+    "icon": "flame"
    },
    {
     "id": "mu-navy-seal-museum",
@@ -1958,8 +2093,8 @@ window.SD_LISTS = [
     "lat": 32.70814,
     "lng": -117.146,
     "q": "Villa Montezuma Museum, San Diego",
-    "logo": "villamontezumamuseum.org",
-    "url": "https://villamontezumamuseum.org"
+    "url": "https://villamontezumamuseum.org",
+    "icon": "house"
    },
    {
     "id": "mu-new-americans-museum",
@@ -1968,8 +2103,8 @@ window.SD_LISTS = [
     "lat": 32.7382,
     "lng": -117.2134,
     "q": "New Americans Museum Liberty Station, San Diego",
-    "logo": "newamericansmuseum.org",
-    "url": "https://newamericansmuseum.org"
+    "url": "https://newamericansmuseum.org",
+    "icon": "earth"
    },
    {
     "id": "mu-jun-pero-serra-museum",
@@ -2078,8 +2213,8 @@ window.SD_LISTS = [
     "lat": 33.05719,
     "lng": -117.2798,
     "q": "San Dieguito Heritage Museum, San Diego",
-    "logo": "sdheritagemuseum.org",
-    "url": "https://sdheritagemuseum.org"
+    "url": "https://sdheritagemuseum.org",
+    "icon": "landmark"
    },
    {
     "id": "mu-lux-art-institute",
@@ -2088,8 +2223,8 @@ window.SD_LISTS = [
     "lat": 33.02785,
     "lng": -117.2575,
     "q": "Lux Art Institute, San Diego",
-    "logo": "luxartinstitute.org",
-    "url": "https://luxartinstitute.org"
+    "url": "https://luxartinstitute.org",
+    "icon": "brush"
    }
   ]
  },
