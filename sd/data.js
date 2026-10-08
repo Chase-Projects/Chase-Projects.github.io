@@ -68,15 +68,14 @@ window.SD_LISTS = [
   "icon": "footprints",
   "unit": "bridges",
   "blurb": "A 5.5-mile loop from Balboa Park through Bankers Hill and Hillcrest.",
-  "route": true,
   "items": [
    {
     "id": "br-park-boulevard-bridge",
     "name": "Park Boulevard Bridge",
     "g": "Route",
-    "lat": 32.73345,
-    "lng": -117.14655,
-    "q": "Park Boulevard Bridge, Balboa Park",
+    "lat": 32.73192,
+    "lng": -117.14614,
+    "q": "El Prado bridge over Park Boulevard, Balboa Park",
     "badge": {
      "c": "#0e7c86",
      "t": "1"
@@ -86,8 +85,8 @@ window.SD_LISTS = [
     "id": "br-cabrillo-bridge",
     "name": "Cabrillo Bridge",
     "g": "Route",
-    "lat": 32.74074,
-    "lng": -117.1564,
+    "lat": 32.73143,
+    "lng": -117.1545,
     "q": "Cabrillo Bridge, San Diego",
     "badge": {
      "c": "#0e7c86",
@@ -154,6 +153,1768 @@ window.SD_LISTS = [
      "t": "7"
     }
    }
+  ],
+  "path": [
+   [
+    32.73188,
+    -117.14565
+   ],
+   [
+    32.73183,
+    -117.14569
+   ],
+   [
+    32.73186,
+    -117.14579
+   ],
+   [
+    32.73192,
+    -117.14585
+   ],
+   [
+    32.73192,
+    -117.14644
+   ],
+   [
+    32.73192,
+    -117.14655
+   ],
+   [
+    32.73192,
+    -117.1466
+   ],
+   [
+    32.7319,
+    -117.14668
+   ],
+   [
+    32.7318,
+    -117.14676
+   ],
+   [
+    32.73175,
+    -117.14684
+   ],
+   [
+    32.73167,
+    -117.14684
+   ],
+   [
+    32.73165,
+    -117.14691
+   ],
+   [
+    32.73161,
+    -117.14697
+   ],
+   [
+    32.7316,
+    -117.14699
+   ],
+   [
+    32.73157,
+    -117.14702
+   ],
+   [
+    32.7315,
+    -117.14705
+   ],
+   [
+    32.73145,
+    -117.14705
+   ],
+   [
+    32.73145,
+    -117.14739
+   ],
+   [
+    32.73145,
+    -117.14744
+   ],
+   [
+    32.73145,
+    -117.14748
+   ],
+   [
+    32.73145,
+    -117.14753
+   ],
+   [
+    32.73145,
+    -117.14756
+   ],
+   [
+    32.73145,
+    -117.1478
+   ],
+   [
+    32.73132,
+    -117.1478
+   ],
+   [
+    32.73132,
+    -117.14781
+   ],
+   [
+    32.73132,
+    -117.14783
+   ],
+   [
+    32.73132,
+    -117.14787
+   ],
+   [
+    32.73132,
+    -117.14806
+   ],
+   [
+    32.73132,
+    -117.14809
+   ],
+   [
+    32.73132,
+    -117.14828
+   ],
+   [
+    32.73131,
+    -117.14886
+   ],
+   [
+    32.73131,
+    -117.1489
+   ],
+   [
+    32.73131,
+    -117.14911
+   ],
+   [
+    32.73131,
+    -117.14922
+   ],
+   [
+    32.73131,
+    -117.14929
+   ],
+   [
+    32.73131,
+    -117.14934
+   ],
+   [
+    32.73131,
+    -117.1496
+   ],
+   [
+    32.73131,
+    -117.15001
+   ],
+   [
+    32.73131,
+    -117.15005
+   ],
+   [
+    32.7313,
+    -117.15013
+   ],
+   [
+    32.7313,
+    -117.15021
+   ],
+   [
+    32.7313,
+    -117.15027
+   ],
+   [
+    32.7313,
+    -117.15047
+   ],
+   [
+    32.73131,
+    -117.1505
+   ],
+   [
+    32.7313,
+    -117.15051
+   ],
+   [
+    32.7313,
+    -117.15056
+   ],
+   [
+    32.73131,
+    -117.1506
+   ],
+   [
+    32.73131,
+    -117.15062
+   ],
+   [
+    32.7313,
+    -117.15083
+   ],
+   [
+    32.7313,
+    -117.15086
+   ],
+   [
+    32.7313,
+    -117.1512
+   ],
+   [
+    32.7313,
+    -117.15133
+   ],
+   [
+    32.7313,
+    -117.1519
+   ],
+   [
+    32.7313,
+    -117.1521
+   ],
+   [
+    32.7313,
+    -117.15216
+   ],
+   [
+    32.7313,
+    -117.15227
+   ],
+   [
+    32.73139,
+    -117.15227
+   ],
+   [
+    32.73139,
+    -117.15258
+   ],
+   [
+    32.73139,
+    -117.15271
+   ],
+   [
+    32.73139,
+    -117.15288
+   ],
+   [
+    32.73143,
+    -117.15288
+   ],
+   [
+    32.73143,
+    -117.153
+   ],
+   [
+    32.73143,
+    -117.15311
+   ],
+   [
+    32.73141,
+    -117.15588
+   ],
+   [
+    32.73141,
+    -117.15596
+   ],
+   [
+    32.73141,
+    -117.156
+   ],
+   [
+    32.73141,
+    -117.15701
+   ],
+   [
+    32.7314,
+    -117.15786
+   ],
+   [
+    32.7314,
+    -117.15804
+   ],
+   [
+    32.73157,
+    -117.15804
+   ],
+   [
+    32.73157,
+    -117.15825
+   ],
+   [
+    32.73164,
+    -117.15825
+   ],
+   [
+    32.73169,
+    -117.15824
+   ],
+   [
+    32.73172,
+    -117.15825
+   ],
+   [
+    32.73176,
+    -117.15825
+   ],
+   [
+    32.7318,
+    -117.15826
+   ],
+   [
+    32.73182,
+    -117.15827
+   ],
+   [
+    32.73187,
+    -117.1583
+   ],
+   [
+    32.7319,
+    -117.15833
+   ],
+   [
+    32.7321,
+    -117.15851
+   ],
+   [
+    32.73222,
+    -117.15863
+   ],
+   [
+    32.73227,
+    -117.15868
+   ],
+   [
+    32.73232,
+    -117.15871
+   ],
+   [
+    32.7324,
+    -117.15876
+   ],
+   [
+    32.73248,
+    -117.15877
+   ],
+   [
+    32.73257,
+    -117.15877
+   ],
+   [
+    32.73298,
+    -117.15881
+   ],
+   [
+    32.73338,
+    -117.15885
+   ],
+   [
+    32.7334,
+    -117.1593
+   ],
+   [
+    32.73341,
+    -117.15933
+   ],
+   [
+    32.73341,
+    -117.15938
+   ],
+   [
+    32.73341,
+    -117.15945
+   ],
+   [
+    32.73341,
+    -117.15955
+   ],
+   [
+    32.7334,
+    -117.16021
+   ],
+   [
+    32.7334,
+    -117.16031
+   ],
+   [
+    32.7334,
+    -117.16035
+   ],
+   [
+    32.7334,
+    -117.16038
+   ],
+   [
+    32.7334,
+    -117.1604
+   ],
+   [
+    32.7334,
+    -117.16041
+   ],
+   [
+    32.73339,
+    -117.16044
+   ],
+   [
+    32.73339,
+    -117.16112
+   ],
+   [
+    32.73339,
+    -117.16116
+   ],
+   [
+    32.73339,
+    -117.16126
+   ],
+   [
+    32.73339,
+    -117.16134
+   ],
+   [
+    32.73339,
+    -117.16203
+   ],
+   [
+    32.73338,
+    -117.16203
+   ],
+   [
+    32.73338,
+    -117.16213
+   ],
+   [
+    32.73338,
+    -117.16226
+   ],
+   [
+    32.73339,
+    -117.16295
+   ],
+   [
+    32.73338,
+    -117.16305
+   ],
+   [
+    32.73338,
+    -117.16317
+   ],
+   [
+    32.73338,
+    -117.16387
+   ],
+   [
+    32.73347,
+    -117.16388
+   ],
+   [
+    32.73355,
+    -117.16389
+   ],
+   [
+    32.73355,
+    -117.16397
+   ],
+   [
+    32.7342,
+    -117.16397
+   ],
+   [
+    32.73428,
+    -117.16397
+   ],
+   [
+    32.73554,
+    -117.16398
+   ],
+   [
+    32.7356,
+    -117.16398
+   ],
+   [
+    32.73564,
+    -117.16398
+   ],
+   [
+    32.73588,
+    -117.16397
+   ],
+   [
+    32.73657,
+    -117.16397
+   ],
+   [
+    32.73661,
+    -117.16397
+   ],
+   [
+    32.73661,
+    -117.16387
+   ],
+   [
+    32.73661,
+    -117.1632
+   ],
+   [
+    32.73661,
+    -117.16319
+   ],
+   [
+    32.73662,
+    -117.16306
+   ],
+   [
+    32.73662,
+    -117.16297
+   ],
+   [
+    32.73662,
+    -117.16296
+   ],
+   [
+    32.73661,
+    -117.16226
+   ],
+   [
+    32.73661,
+    -117.16222
+   ],
+   [
+    32.73661,
+    -117.16218
+   ],
+   [
+    32.73661,
+    -117.16141
+   ],
+   [
+    32.73661,
+    -117.16137
+   ],
+   [
+    32.73661,
+    -117.16132
+   ],
+   [
+    32.73669,
+    -117.16132
+   ],
+   [
+    32.7367,
+    -117.16133
+   ],
+   [
+    32.73672,
+    -117.16133
+   ],
+   [
+    32.73672,
+    -117.16127
+   ],
+   [
+    32.73661,
+    -117.16127
+   ],
+   [
+    32.73661,
+    -117.16132
+   ],
+   [
+    32.73661,
+    -117.16141
+   ],
+   [
+    32.73661,
+    -117.16218
+   ],
+   [
+    32.73661,
+    -117.16222
+   ],
+   [
+    32.73661,
+    -117.16226
+   ],
+   [
+    32.7367,
+    -117.16225
+   ],
+   [
+    32.7367,
+    -117.16227
+   ],
+   [
+    32.7367,
+    -117.16298
+   ],
+   [
+    32.73757,
+    -117.16298
+   ],
+   [
+    32.73767,
+    -117.16298
+   ],
+   [
+    32.73775,
+    -117.16298
+   ],
+   [
+    32.73861,
+    -117.16299
+   ],
+   [
+    32.73861,
+    -117.1631
+   ],
+   [
+    32.7387,
+    -117.1631
+   ],
+   [
+    32.7387,
+    -117.16389
+   ],
+   [
+    32.7387,
+    -117.164
+   ],
+   [
+    32.7387,
+    -117.16413
+   ],
+   [
+    32.73871,
+    -117.16491
+   ],
+   [
+    32.73877,
+    -117.16491
+   ],
+   [
+    32.73877,
+    -117.16502
+   ],
+   [
+    32.73877,
+    -117.16515
+   ],
+   [
+    32.73877,
+    -117.1655
+   ],
+   [
+    32.73877,
+    -117.16553
+   ],
+   [
+    32.73876,
+    -117.16652
+   ],
+   [
+    32.73876,
+    -117.16658
+   ],
+   [
+    32.73876,
+    -117.16668
+   ],
+   [
+    32.73876,
+    -117.16672
+   ],
+   [
+    32.73876,
+    -117.16677
+   ],
+   [
+    32.73872,
+    -117.16678
+   ],
+   [
+    32.73869,
+    -117.16681
+   ],
+   [
+    32.73818,
+    -117.16681
+   ],
+   [
+    32.73869,
+    -117.16681
+   ],
+   [
+    32.73872,
+    -117.16678
+   ],
+   [
+    32.73876,
+    -117.16677
+   ],
+   [
+    32.73876,
+    -117.16672
+   ],
+   [
+    32.73876,
+    -117.16668
+   ],
+   [
+    32.73876,
+    -117.16652
+   ],
+   [
+    32.73877,
+    -117.16553
+   ],
+   [
+    32.73877,
+    -117.16515
+   ],
+   [
+    32.73877,
+    -117.16502
+   ],
+   [
+    32.73877,
+    -117.16491
+   ],
+   [
+    32.73871,
+    -117.16491
+   ],
+   [
+    32.7387,
+    -117.16413
+   ],
+   [
+    32.7387,
+    -117.164
+   ],
+   [
+    32.7387,
+    -117.16389
+   ],
+   [
+    32.7387,
+    -117.1631
+   ],
+   [
+    32.7388,
+    -117.1631
+   ],
+   [
+    32.7388,
+    -117.16299
+   ],
+   [
+    32.73966,
+    -117.163
+   ],
+   [
+    32.73974,
+    -117.163
+   ],
+   [
+    32.73985,
+    -117.163
+   ],
+   [
+    32.73985,
+    -117.16229
+   ],
+   [
+    32.73984,
+    -117.16218
+   ],
+   [
+    32.73984,
+    -117.16209
+   ],
+   [
+    32.73985,
+    -117.16142
+   ],
+   [
+    32.73986,
+    -117.1614
+   ],
+   [
+    32.73987,
+    -117.16139
+   ],
+   [
+    32.74071,
+    -117.16139
+   ],
+   [
+    32.74072,
+    -117.16131
+   ],
+   [
+    32.74072,
+    -117.16122
+   ],
+   [
+    32.74072,
+    -117.16119
+   ],
+   [
+    32.74072,
+    -117.16048
+   ],
+   [
+    32.74081,
+    -117.16049
+   ],
+   [
+    32.7409,
+    -117.16049
+   ],
+   [
+    32.7409,
+    -117.16046
+   ],
+   [
+    32.7409,
+    -117.16044
+   ],
+   [
+    32.7409,
+    -117.16041
+   ],
+   [
+    32.7409,
+    -117.16037
+   ],
+   [
+    32.7409,
+    -117.16028
+   ],
+   [
+    32.7409,
+    -117.1596
+   ],
+   [
+    32.74106,
+    -117.15962
+   ],
+   [
+    32.74107,
+    -117.15954
+   ],
+   [
+    32.74109,
+    -117.15945
+   ],
+   [
+    32.7411,
+    -117.1594
+   ],
+   [
+    32.74149,
+    -117.1594
+   ],
+   [
+    32.74212,
+    -117.15941
+   ],
+   [
+    32.74406,
+    -117.15942
+   ],
+   [
+    32.74428,
+    -117.15942
+   ],
+   [
+    32.74474,
+    -117.15949
+   ],
+   [
+    32.74499,
+    -117.15949
+   ],
+   [
+    32.74507,
+    -117.15947
+   ],
+   [
+    32.7451,
+    -117.15941
+   ],
+   [
+    32.74514,
+    -117.1594
+   ],
+   [
+    32.74522,
+    -117.1594
+   ],
+   [
+    32.74522,
+    -117.15898
+   ],
+   [
+    32.74522,
+    -117.15849
+   ],
+   [
+    32.74532,
+    -117.15849
+   ],
+   [
+    32.74543,
+    -117.15849
+   ],
+   [
+    32.74615,
+    -117.15849
+   ],
+   [
+    32.7469,
+    -117.15849
+   ],
+   [
+    32.74697,
+    -117.1585
+   ],
+   [
+    32.74704,
+    -117.1585
+   ],
+   [
+    32.74704,
+    -117.1584
+   ],
+   [
+    32.74704,
+    -117.15832
+   ],
+   [
+    32.74741,
+    -117.15831
+   ],
+   [
+    32.74758,
+    -117.15831
+   ],
+   [
+    32.74829,
+    -117.15831
+   ],
+   [
+    32.74829,
+    -117.15781
+   ],
+   [
+    32.74829,
+    -117.15768
+   ],
+   [
+    32.74829,
+    -117.15755
+   ],
+   [
+    32.74838,
+    -117.15755
+   ],
+   [
+    32.74848,
+    -117.15755
+   ],
+   [
+    32.74849,
+    -117.15742
+   ],
+   [
+    32.74849,
+    -117.15733
+   ],
+   [
+    32.74849,
+    -117.15731
+   ],
+   [
+    32.74849,
+    -117.15721
+   ],
+   [
+    32.74849,
+    -117.15713
+   ],
+   [
+    32.74849,
+    -117.15709
+   ],
+   [
+    32.74849,
+    -117.15646
+   ],
+   [
+    32.7485,
+    -117.15635
+   ],
+   [
+    32.74851,
+    -117.15625
+   ],
+   [
+    32.74851,
+    -117.1561
+   ],
+   [
+    32.74851,
+    -117.15575
+   ],
+   [
+    32.7485,
+    -117.15564
+   ],
+   [
+    32.74857,
+    -117.1554
+   ],
+   [
+    32.74857,
+    -117.15539
+   ],
+   [
+    32.74858,
+    -117.1553
+   ],
+   [
+    32.7486,
+    -117.15523
+   ],
+   [
+    32.7486,
+    -117.1552
+   ],
+   [
+    32.74863,
+    -117.15524
+   ],
+   [
+    32.74895,
+    -117.15525
+   ],
+   [
+    32.74901,
+    -117.15522
+   ],
+   [
+    32.74883,
+    -117.15484
+   ],
+   [
+    32.74882,
+    -117.15471
+   ],
+   [
+    32.74886,
+    -117.15468
+   ],
+   [
+    32.74882,
+    -117.1546
+   ],
+   [
+    32.74896,
+    -117.1545
+   ],
+   [
+    32.74911,
+    -117.1544
+   ],
+   [
+    32.74925,
+    -117.1543
+   ],
+   [
+    32.74939,
+    -117.1542
+   ],
+   [
+    32.74947,
+    -117.15415
+   ],
+   [
+    32.74958,
+    -117.15408
+   ],
+   [
+    32.74961,
+    -117.15402
+   ],
+   [
+    32.74965,
+    -117.15391
+   ],
+   [
+    32.74972,
+    -117.15362
+   ],
+   [
+    32.74976,
+    -117.15345
+   ],
+   [
+    32.75011,
+    -117.15359
+   ],
+   [
+    32.75023,
+    -117.15363
+   ],
+   [
+    32.75032,
+    -117.15367
+   ],
+   [
+    32.75035,
+    -117.15359
+   ],
+   [
+    32.75035,
+    -117.15357
+   ],
+   [
+    32.75041,
+    -117.15357
+   ],
+   [
+    32.75142,
+    -117.15356
+   ],
+   [
+    32.75155,
+    -117.15352
+   ],
+   [
+    32.75158,
+    -117.15349
+   ],
+   [
+    32.7516,
+    -117.15347
+   ],
+   [
+    32.75171,
+    -117.15347
+   ],
+   [
+    32.75172,
+    -117.15283
+   ],
+   [
+    32.75171,
+    -117.15093
+   ],
+   [
+    32.75168,
+    -117.15086
+   ],
+   [
+    32.75161,
+    -117.1508
+   ],
+   [
+    32.75169,
+    -117.15058
+   ],
+   [
+    32.75176,
+    -117.1504
+   ],
+   [
+    32.75169,
+    -117.1502
+   ],
+   [
+    32.75165,
+    -117.1501
+   ],
+   [
+    32.75164,
+    -117.15005
+   ],
+   [
+    32.75159,
+    -117.14992
+   ],
+   [
+    32.75157,
+    -117.14986
+   ],
+   [
+    32.75145,
+    -117.14952
+   ],
+   [
+    32.75141,
+    -117.14941
+   ],
+   [
+    32.75136,
+    -117.14927
+   ],
+   [
+    32.75134,
+    -117.14923
+   ],
+   [
+    32.75133,
+    -117.14918
+   ],
+   [
+    32.75117,
+    -117.14875
+   ],
+   [
+    32.75116,
+    -117.14873
+   ],
+   [
+    32.75112,
+    -117.14861
+   ],
+   [
+    32.75106,
+    -117.14844
+   ],
+   [
+    32.75102,
+    -117.14835
+   ],
+   [
+    32.75102,
+    -117.14834
+   ],
+   [
+    32.75086,
+    -117.14787
+   ],
+   [
+    32.75085,
+    -117.14785
+   ],
+   [
+    32.75069,
+    -117.1474
+   ],
+   [
+    32.75065,
+    -117.1473
+   ],
+   [
+    32.75062,
+    -117.1472
+   ],
+   [
+    32.7505,
+    -117.14686
+   ],
+   [
+    32.75043,
+    -117.1469
+   ],
+   [
+    32.75031,
+    -117.14655
+   ],
+   [
+    32.7503,
+    -117.14653
+   ],
+   [
+    32.75028,
+    -117.14644
+   ],
+   [
+    32.75026,
+    -117.14635
+   ],
+   [
+    32.75023,
+    -117.14625
+   ],
+   [
+    32.75021,
+    -117.14615
+   ],
+   [
+    32.7502,
+    -117.14614
+   ],
+   [
+    32.7502,
+    -117.14561
+   ],
+   [
+    32.75029,
+    -117.14561
+   ],
+   [
+    32.75029,
+    -117.14509
+   ],
+   [
+    32.75029,
+    -117.14499
+   ],
+   [
+    32.75021,
+    -117.14499
+   ],
+   [
+    32.74888,
+    -117.14498
+   ],
+   [
+    32.74861,
+    -117.14498
+   ],
+   [
+    32.74858,
+    -117.14499
+   ],
+   [
+    32.74856,
+    -117.14499
+   ],
+   [
+    32.74852,
+    -117.14499
+   ],
+   [
+    32.74834,
+    -117.14499
+   ],
+   [
+    32.74831,
+    -117.14499
+   ],
+   [
+    32.7483,
+    -117.14499
+   ],
+   [
+    32.74828,
+    -117.14499
+   ],
+   [
+    32.74827,
+    -117.14499
+   ],
+   [
+    32.74822,
+    -117.14499
+   ],
+   [
+    32.74821,
+    -117.14499
+   ],
+   [
+    32.74655,
+    -117.14496
+   ],
+   [
+    32.74653,
+    -117.14496
+   ],
+   [
+    32.74652,
+    -117.14505
+   ],
+   [
+    32.74652,
+    -117.14558
+   ],
+   [
+    32.74643,
+    -117.14558
+   ],
+   [
+    32.74636,
+    -117.14557
+   ],
+   [
+    32.74636,
+    -117.14597
+   ],
+   [
+    32.74636,
+    -117.14608
+   ],
+   [
+    32.74635,
+    -117.1461
+   ],
+   [
+    32.74634,
+    -117.14613
+   ],
+   [
+    32.74634,
+    -117.14614
+   ],
+   [
+    32.7463,
+    -117.14623
+   ],
+   [
+    32.74627,
+    -117.1463
+   ],
+   [
+    32.74627,
+    -117.14632
+   ],
+   [
+    32.74627,
+    -117.14635
+   ],
+   [
+    32.74627,
+    -117.14638
+   ],
+   [
+    32.74624,
+    -117.14641
+   ],
+   [
+    32.74622,
+    -117.14644
+   ],
+   [
+    32.74618,
+    -117.14647
+   ],
+   [
+    32.74602,
+    -117.14657
+   ],
+   [
+    32.7459,
+    -117.14666
+   ],
+   [
+    32.74583,
+    -117.14673
+   ],
+   [
+    32.74573,
+    -117.14684
+   ],
+   [
+    32.74573,
+    -117.14683
+   ],
+   [
+    32.74558,
+    -117.14682
+   ],
+   [
+    32.74485,
+    -117.14681
+   ],
+   [
+    32.74435,
+    -117.1468
+   ],
+   [
+    32.7439,
+    -117.1468
+   ],
+   [
+    32.74364,
+    -117.1468
+   ],
+   [
+    32.74345,
+    -117.1468
+   ],
+   [
+    32.74282,
+    -117.1468
+   ],
+   [
+    32.74226,
+    -117.14681
+   ],
+   [
+    32.74218,
+    -117.1468
+   ],
+   [
+    32.74177,
+    -117.14679
+   ],
+   [
+    32.74162,
+    -117.14679
+   ],
+   [
+    32.74117,
+    -117.14679
+   ],
+   [
+    32.74117,
+    -117.14735
+   ],
+   [
+    32.74117,
+    -117.14737
+   ],
+   [
+    32.74112,
+    -117.14738
+   ],
+   [
+    32.7411,
+    -117.14738
+   ],
+   [
+    32.74104,
+    -117.14738
+   ],
+   [
+    32.74078,
+    -117.14737
+   ],
+   [
+    32.74062,
+    -117.14736
+   ],
+   [
+    32.74042,
+    -117.14731
+   ],
+   [
+    32.74035,
+    -117.14729
+   ],
+   [
+    32.74025,
+    -117.14724
+   ],
+   [
+    32.74018,
+    -117.1472
+   ],
+   [
+    32.74015,
+    -117.14731
+   ],
+   [
+    32.74011,
+    -117.14742
+   ],
+   [
+    32.74009,
+    -117.14752
+   ],
+   [
+    32.74005,
+    -117.14748
+   ],
+   [
+    32.7398,
+    -117.14736
+   ],
+   [
+    32.73957,
+    -117.14723
+   ],
+   [
+    32.73887,
+    -117.14675
+   ],
+   [
+    32.73875,
+    -117.14668
+   ],
+   [
+    32.73849,
+    -117.1465
+   ],
+   [
+    32.73827,
+    -117.14639
+   ],
+   [
+    32.738,
+    -117.14628
+   ],
+   [
+    32.73774,
+    -117.14616
+   ],
+   [
+    32.73744,
+    -117.14605
+   ],
+   [
+    32.73707,
+    -117.14597
+   ],
+   [
+    32.73671,
+    -117.14591
+   ],
+   [
+    32.7364,
+    -117.14588
+   ],
+   [
+    32.73618,
+    -117.14587
+   ],
+   [
+    32.73584,
+    -117.14589
+   ],
+   [
+    32.73536,
+    -117.14593
+   ],
+   [
+    32.7353,
+    -117.14596
+   ],
+   [
+    32.73522,
+    -117.14596
+   ],
+   [
+    32.73514,
+    -117.14598
+   ],
+   [
+    32.73511,
+    -117.14597
+   ],
+   [
+    32.73507,
+    -117.14597
+   ],
+   [
+    32.73471,
+    -117.146
+   ],
+   [
+    32.734,
+    -117.14607
+   ],
+   [
+    32.73385,
+    -117.14609
+   ],
+   [
+    32.73373,
+    -117.1461
+   ],
+   [
+    32.7336,
+    -117.14612
+   ],
+   [
+    32.73348,
+    -117.14613
+   ],
+   [
+    32.73336,
+    -117.14614
+   ],
+   [
+    32.73326,
+    -117.14615
+   ],
+   [
+    32.7332,
+    -117.14616
+   ],
+   [
+    32.73317,
+    -117.14618
+   ],
+   [
+    32.73309,
+    -117.14619
+   ],
+   [
+    32.73298,
+    -117.1462
+   ],
+   [
+    32.73298,
+    -117.1461
+   ],
+   [
+    32.73298,
+    -117.14596
+   ],
+   [
+    32.73299,
+    -117.14589
+   ],
+   [
+    32.73293,
+    -117.14588
+   ],
+   [
+    32.7329,
+    -117.14586
+   ],
+   [
+    32.73279,
+    -117.14576
+   ],
+   [
+    32.73273,
+    -117.14564
+   ],
+   [
+    32.73266,
+    -117.14559
+   ],
+   [
+    32.73262,
+    -117.14561
+   ],
+   [
+    32.7325,
+    -117.1457
+   ],
+   [
+    32.73238,
+    -117.14572
+   ],
+   [
+    32.73225,
+    -117.14568
+   ],
+   [
+    32.7321,
+    -117.14561
+   ],
+   [
+    32.732,
+    -117.1456
+   ],
+   [
+    32.73196,
+    -117.14559
+   ],
+   [
+    32.73191,
+    -117.14561
+   ],
+   [
+    32.73188,
+    -117.14565
+   ]
   ]
  },
  {
@@ -459,7 +2220,8 @@ window.SD_LISTS = [
     "lat": 32.708906,
     "lng": -117.154141,
     "q": "Central Library Library, 330 Park Blvd, San Diego, CA 92101",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/central-library"
    },
    {
     "id": "lib-pacific-highlands-ranch",
@@ -468,7 +2230,8 @@ window.SD_LISTS = [
     "lat": 32.961348,
     "lng": -117.187504,
     "q": "Pacific Highlands Ranch Library, 12911 Pacific Place, San Diego, CA 92130",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/pacific-highlands-ranch-library"
    },
    {
     "id": "lib-balboa",
@@ -477,7 +2240,8 @@ window.SD_LISTS = [
     "lat": 32.82232,
     "lng": -117.174965,
     "q": "Balboa Library, 4255 Mt Abernathy Ave, San Diego, CA 92117",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/balboa-library"
    },
    {
     "id": "lib-benjamin-allied-gardens",
@@ -486,7 +2250,8 @@ window.SD_LISTS = [
     "lat": 32.793066,
     "lng": -117.081493,
     "q": "Benjamin (Allied Gardens) Library, 5188 Zion Ave, San Diego, CA 92120",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/allied-gardens-benjamin-library"
    },
    {
     "id": "lib-carmel-mountain-ranch",
@@ -495,7 +2260,8 @@ window.SD_LISTS = [
     "lat": 32.981721,
     "lng": -117.073851,
     "q": "Carmel Mountain Ranch Library, 12095 World Trade Dr, San Diego, CA 92128",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/carmel-mountain-ranch-library"
    },
    {
     "id": "lib-carmel-valley",
@@ -504,7 +2270,8 @@ window.SD_LISTS = [
     "lat": 32.952228,
     "lng": -117.230891,
     "q": "Carmel Valley Library, 3919 Townsgate Dr, San Diego, CA 92130",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/carmel-valley-library"
    },
    {
     "id": "lib-city-heights-weingart",
@@ -513,7 +2280,8 @@ window.SD_LISTS = [
     "lat": 32.747479,
     "lng": -117.100308,
     "q": "City Heights/Weingart Library, 3795 Fairmount Ave, San Diego, CA 92105",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/city-heights-weingart-library-and-performance-annex"
    },
    {
     "id": "lib-clairemont",
@@ -522,7 +2290,8 @@ window.SD_LISTS = [
     "lat": 32.793586,
     "lng": -117.193982,
     "q": "Clairemont Library, 2920 Burgener Blvd, San Diego, CA 92110",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/clairemont-library"
    },
    {
     "id": "lib-college-rolando",
@@ -531,7 +2300,8 @@ window.SD_LISTS = [
     "lat": 32.769436,
     "lng": -117.056133,
     "q": "College-Rolando Library, 6600 Montezuma Rd, San Diego, CA 92115",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/college-rolando-library"
    },
    {
     "id": "lib-kensington-normal-heights",
@@ -540,7 +2310,8 @@ window.SD_LISTS = [
     "lat": 32.763027,
     "lng": -117.106865,
     "q": "Kensington-Normal Heights Library, 4121 Adams Ave, San Diego, CA 92116",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/kensington-normal-heights-library"
    },
    {
     "id": "lib-la-jolla-riford",
@@ -549,7 +2320,8 @@ window.SD_LISTS = [
     "lat": 32.84076,
     "lng": -117.276071,
     "q": "La Jolla/Riford Library, 7555 Draper Ave, La Jolla, CA 92037",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/la-jolla-riford-library"
    },
    {
     "id": "lib-linda-vista",
@@ -558,7 +2330,8 @@ window.SD_LISTS = [
     "lat": 32.783262,
     "lng": -117.17004,
     "q": "Linda Vista Library, 2160 Ulric St, San Diego, CA 92111",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/linda-vista-library"
    },
    {
     "id": "lib-logan-heights",
@@ -567,7 +2340,8 @@ window.SD_LISTS = [
     "lat": 32.697338,
     "lng": -117.133632,
     "q": "Logan Heights Library, 567 S 28th St, San Diego, CA 92113",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/logan-heights-library"
    },
    {
     "id": "lib-malcolm-x-valencia-park",
@@ -576,7 +2350,8 @@ window.SD_LISTS = [
     "lat": 32.710818,
     "lng": -117.083944,
     "q": "Malcolm X/Valencia Park Library, 5148 Market St, San Diego, CA 92114",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/valencia-park-malcolm-x-library"
    },
    {
     "id": "lib-mira-mesa",
@@ -585,7 +2360,8 @@ window.SD_LISTS = [
     "lat": 32.915169,
     "lng": -117.142718,
     "q": "Mira Mesa Library, 8405 New Salem St, San Diego, CA 92126",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/mira-mesa-library"
    },
    {
     "id": "lib-mission-hills-hillcrest-knox",
@@ -594,7 +2370,8 @@ window.SD_LISTS = [
     "lat": 32.749573,
     "lng": -117.165239,
     "q": "Mission Hills-Hillcrest/Knox Library, 215 W Washington St, San Diego, CA 92103",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/mission-hills-library"
    },
    {
     "id": "lib-mission-valley",
@@ -603,7 +2380,8 @@ window.SD_LISTS = [
     "lat": 32.779326,
     "lng": -117.126935,
     "q": "Mission Valley Library, 2123 Fenton Pkwy, San Diego, CA 92108",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/mission-valley-library"
    },
    {
     "id": "lib-mountain-view-beckwourth",
@@ -612,7 +2390,8 @@ window.SD_LISTS = [
     "lat": 32.698013,
     "lng": -117.102606,
     "q": "Mountain View/Beckwourth Library, 721 San Pasqual St, San Diego, CA 92113",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/mountain-view-beckwourth-library"
    },
    {
     "id": "lib-north-clairemont",
@@ -621,7 +2400,8 @@ window.SD_LISTS = [
     "lat": 32.828373,
     "lng": -117.206457,
     "q": "North Clairemont Library, 4616 Clairemont Dr, San Diego, CA 92117",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/north-clairemont-library"
    },
    {
     "id": "lib-north-park",
@@ -630,7 +2410,8 @@ window.SD_LISTS = [
     "lat": 32.74727,
     "lng": -117.126847,
     "q": "North Park Library, 3795 31st St, San Diego, CA 92104",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/north-park-library"
    },
    {
     "id": "lib-north-university-community",
@@ -639,7 +2420,8 @@ window.SD_LISTS = [
     "lat": 32.867643,
     "lng": -117.199132,
     "q": "North University Community Library, 8820 Judicial Dr, San Diego, CA 92122",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/north-university-community-library"
    },
    {
     "id": "lib-oak-park",
@@ -648,7 +2430,18 @@ window.SD_LISTS = [
     "lat": 32.735051,
     "lng": -117.08003,
     "q": "Oak Park Library, 2802 54th St, San Diego, CA 92105",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/oak-park-library"
+   },
+   {
+    "id": "lib-otay-mesa-nestor",
+    "name": "Otay Mesa-Nestor",
+    "g": "SDPL",
+    "lat": 32.57672,
+    "lng": -117.06802,
+    "q": "Otay Mesa-Nestor Library, 3003 Coronado Ave, San Diego, CA 92154",
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/otay-mesa-nestor-library"
    },
    {
     "id": "lib-ocean-beach",
@@ -657,7 +2450,8 @@ window.SD_LISTS = [
     "lat": 32.745485,
     "lng": -117.247212,
     "q": "Ocean Beach Library, 4801 Santa Monica Ave, San Diego, CA 92107",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/ocean-beach-library"
    },
    {
     "id": "lib-pacific-beach-taylor",
@@ -666,7 +2460,8 @@ window.SD_LISTS = [
     "lat": 32.794157,
     "lng": -117.249877,
     "q": "Pacific Beach/Taylor Library, 4275 Cass St, San Diego, CA 92109",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/pacific-beach-taylor-library"
    },
    {
     "id": "lib-paradise-hills",
@@ -675,7 +2470,8 @@ window.SD_LISTS = [
     "lat": 32.672709,
     "lng": -117.061217,
     "q": "Paradise Hills Library, 5922 Rancho Hills Dr, San Diego, CA 92139",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/paradise-hills-library"
    },
    {
     "id": "lib-point-loma-hervey",
@@ -684,7 +2480,8 @@ window.SD_LISTS = [
     "lat": 32.74008,
     "lng": -117.229418,
     "q": "Point Loma/Hervey Library, 3701 Voltaire St, San Diego, CA 92107",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/point-loma-hervey-library"
    },
    {
     "id": "lib-rancho-bernardo",
@@ -693,7 +2490,8 @@ window.SD_LISTS = [
     "lat": 33.024948,
     "lng": -117.075278,
     "q": "Rancho Bernardo Library, 17110 Bernardo Center Dr, San Diego, CA 92128",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/rancho-bernardo-library"
    },
    {
     "id": "lib-rancho-pe-asquitos",
@@ -702,7 +2500,8 @@ window.SD_LISTS = [
     "lat": 32.958029,
     "lng": -117.122208,
     "q": "Rancho Peñasquitos Library, 13330 Salmon River Rd, San Diego, CA 92129",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/rancho-penasquitos-library"
    },
    {
     "id": "lib-san-carlos",
@@ -711,7 +2510,8 @@ window.SD_LISTS = [
     "lat": 32.802036,
     "lng": -117.040599,
     "q": "San Carlos Library, 7265 Jackson Dr, San Diego, CA 92119",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/san-carlos-library"
    },
    {
     "id": "lib-san-ysidro",
@@ -720,7 +2520,8 @@ window.SD_LISTS = [
     "lat": 32.557724,
     "lng": -117.04323,
     "q": "San Ysidro Library, 4235 Beyer Blvd, San Diego, CA 92173",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/san-ysidro-library"
    },
    {
     "id": "lib-scripps-miramar-ranch",
@@ -729,7 +2530,8 @@ window.SD_LISTS = [
     "lat": 32.911774,
     "lng": -117.101723,
     "q": "Scripps Miramar Ranch Library, 10301 Scripps Lake Dr, San Diego, CA 92131",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/scripps-miramar-ranch-library"
    },
    {
     "id": "lib-serra-mesa-kearny-mesa",
@@ -738,7 +2540,8 @@ window.SD_LISTS = [
     "lat": 32.809207,
     "lng": -117.133705,
     "q": "Serra Mesa-Kearny Mesa Library, 9005 Aero Dr, San Diego, CA 92123",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/serra-mesa-kearny-mesa-library"
    },
    {
     "id": "lib-skyline-hills",
@@ -747,7 +2550,8 @@ window.SD_LISTS = [
     "lat": 32.696991,
     "lng": -117.02689,
     "q": "Skyline Hills Library, 7900 Paradise Valley Rd, San Diego, CA 92139",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/skyline-hills-library"
    },
    {
     "id": "lib-tierrasanta",
@@ -756,7 +2560,8 @@ window.SD_LISTS = [
     "lat": 32.820882,
     "lng": -117.098087,
     "q": "Tierrasanta Library, 4985 La Cuenta Dr, San Diego, CA 92124",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/tierrasanta-library"
    },
    {
     "id": "lib-university-community",
@@ -765,7 +2570,8 @@ window.SD_LISTS = [
     "lat": 32.853995,
     "lng": -117.200979,
     "q": "University Community Library, 4155 Governor Dr, San Diego, CA 92122",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/university-community-library"
    },
    {
     "id": "lib-university-heights",
@@ -774,7 +2580,8 @@ window.SD_LISTS = [
     "lat": 32.753796,
     "lng": -117.146259,
     "q": "University Heights Library, 4193 Park Blvd, San Diego, CA 92103",
-    "logo": "sandiego.gov"
+    "logo": "sandiego.gov",
+    "url": "https://www.sandiego.gov/public-library/locations/university-heights-library"
    },
    {
     "id": "lib-sdcl-4s-ranch",
@@ -783,7 +2590,8 @@ window.SD_LISTS = [
     "lat": 33.02111,
     "lng": -117.11434,
     "q": "4S Ranch Library, 10433 Reserve Drive, San Diego, CA 92127",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/3"
    },
    {
     "id": "lib-sdcl-alpine",
@@ -792,7 +2600,8 @@ window.SD_LISTS = [
     "lat": 32.83804,
     "lng": -116.77616,
     "q": "Alpine Library, 1752 Alpine Boulevard, Alpine, CA 91901",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/4"
    },
    {
     "id": "lib-sdcl-bonita-sunnyside",
@@ -801,7 +2610,8 @@ window.SD_LISTS = [
     "lat": 32.66143,
     "lng": -117.03427,
     "q": "Bonita-Sunnyside Library, 4375 Bonita Road, Bonita, CA 91902",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/5"
    },
    {
     "id": "lib-sdcl-borrego-springs",
@@ -810,7 +2620,8 @@ window.SD_LISTS = [
     "lat": 33.25394,
     "lng": -116.37968,
     "q": "Borrego Springs Library, 2580 Country Club Road, Borrego Springs, CA 92004",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/6"
    },
    {
     "id": "lib-sdcl-campo-morena-village",
@@ -819,7 +2630,8 @@ window.SD_LISTS = [
     "lat": 32.64333,
     "lng": -116.45631,
     "q": "Campo-Morena Village Library, 31356 Highway 94, Campo, CA 91906",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/7"
    },
    {
     "id": "lib-cardiff-by-the-sea-county",
@@ -828,7 +2640,8 @@ window.SD_LISTS = [
     "lat": 33.02196,
     "lng": -117.28142,
     "q": "Cardiff-by-the-Sea Library, 2081 Newcastle Avenue, Cardiff, CA 92007",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/8"
    },
    {
     "id": "lib-sdcl-casa-de-oro",
@@ -837,7 +2650,8 @@ window.SD_LISTS = [
     "lat": 32.74826,
     "lng": -116.98989,
     "q": "Casa de Oro Library, 9610 Campo Road, Spring Valley, CA 91977",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/10"
    },
    {
     "id": "lib-sdcl-crest",
@@ -846,7 +2660,8 @@ window.SD_LISTS = [
     "lat": 32.8053,
     "lng": -116.8685,
     "q": "Crest Library, 105 Juanita Lane, El Cajon, CA 92021",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/9"
    },
    {
     "id": "lib-del-mar-county",
@@ -855,7 +2670,8 @@ window.SD_LISTS = [
     "lat": 32.9578,
     "lng": -117.26436,
     "q": "Del Mar Library, 1309 Camino Del Mar, Del Mar, CA 92014",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/12"
    },
    {
     "id": "lib-sdcl-descanso",
@@ -864,7 +2680,8 @@ window.SD_LISTS = [
     "lat": 32.86011,
     "lng": -116.6149,
     "q": "Descanso Library, 9545 River Drive, Descanso, CA 91916",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/11"
    },
    {
     "id": "lib-sdcl-el-cajon",
@@ -873,7 +2690,8 @@ window.SD_LISTS = [
     "lat": 32.79306,
     "lng": -116.96074,
     "q": "El Cajon Library, 201 East Douglas Avenue, El Cajon, CA 92020",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/13"
    },
    {
     "id": "lib-encinitas-county",
@@ -882,7 +2700,8 @@ window.SD_LISTS = [
     "lat": 33.04558,
     "lng": -117.29083,
     "q": "Encinitas Library, 540 Cornish Drive, Encinitas, CA 92024",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/14"
    },
    {
     "id": "lib-sdcl-fallbrook",
@@ -891,7 +2710,8 @@ window.SD_LISTS = [
     "lat": 33.3817,
     "lng": -117.25324,
     "q": "Fallbrook Library, 124 South Mission Road, Fallbrook, CA 92028",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/15"
    },
    {
     "id": "lib-sdcl-fletcher-hills",
@@ -900,7 +2720,18 @@ window.SD_LISTS = [
     "lat": 32.80175,
     "lng": -116.99757,
     "q": "Fletcher Hills Library, 576 Garfield Avenue, El Cajon, CA 92020",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/16"
+   },
+   {
+    "id": "lib-sdcl-imperial-beach",
+    "name": "Imperial Beach",
+    "g": "SDCL",
+    "lat": 32.57689,
+    "lng": -117.11625,
+    "q": "Imperial Beach Library, 810 Imperial Beach Blvd, Imperial Beach, CA 91932",
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/18"
    },
    {
     "id": "lib-sdcl-jacumba",
@@ -909,7 +2740,8 @@ window.SD_LISTS = [
     "lat": 32.61731,
     "lng": -116.18711,
     "q": "Jacumba Library, 44605 Old Highway 80, Jacumba, CA 91934",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/19"
    },
    {
     "id": "lib-sdcl-julian",
@@ -918,7 +2750,8 @@ window.SD_LISTS = [
     "lat": 33.07697,
     "lng": -116.59658,
     "q": "Julian Library, 1850 Highway 78, Julian, CA 92036",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/20"
    },
    {
     "id": "lib-sdcl-la-mesa",
@@ -927,7 +2760,8 @@ window.SD_LISTS = [
     "lat": 32.76643,
     "lng": -117.0233,
     "q": "La Mesa Library, 8074 Allison Avenue, La Mesa, CA 91942",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/24"
    },
    {
     "id": "lib-sdcl-lakeside",
@@ -936,7 +2770,8 @@ window.SD_LISTS = [
     "lat": 32.85742,
     "lng": -116.92432,
     "q": "Lakeside Library, 12428 Woodside Avenue, Lakeside, CA 92040",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/21"
    },
    {
     "id": "lib-sdcl-lemon-grove",
@@ -945,7 +2780,8 @@ window.SD_LISTS = [
     "lat": 32.73865,
     "lng": -117.02927,
     "q": "Lemon Grove Library, 3001 School Lane, Lemon Grove, CA 91945",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/23"
    },
    {
     "id": "lib-sdcl-lincoln-acres",
@@ -954,7 +2790,8 @@ window.SD_LISTS = [
     "lat": 32.66654,
     "lng": -117.07134,
     "q": "Lincoln Acres Library, 2725 Granger Avenue, National City, CA 91950",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/22"
    },
    {
     "id": "lib-sdcl-pine-valley",
@@ -963,7 +2800,8 @@ window.SD_LISTS = [
     "lat": 32.82409,
     "lng": -116.53068,
     "q": "Pine Valley Library, 28804 Old Highway 80, Pine Valley, CA 91962",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/25"
    },
    {
     "id": "lib-sdcl-potrero",
@@ -972,7 +2810,8 @@ window.SD_LISTS = [
     "lat": 32.61079,
     "lng": -116.61249,
     "q": "Potrero Library, 24883 Potrero Valley Road, Potrero, CA 91963",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/26"
    },
    {
     "id": "lib-sdcl-poway",
@@ -981,7 +2820,8 @@ window.SD_LISTS = [
     "lat": 32.95599,
     "lng": -117.04593,
     "q": "Poway Library, 13137 Poway Road, Poway, CA 92064",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/27"
    },
    {
     "id": "lib-sdcl-ramona",
@@ -990,7 +2830,8 @@ window.SD_LISTS = [
     "lat": 33.03992,
     "lng": -116.87321,
     "q": "Ramona Library, 1275 Main Street, Ramona, CA 92065",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/28"
    },
    {
     "id": "lib-sdcl-rancho-san-diego",
@@ -999,7 +2840,8 @@ window.SD_LISTS = [
     "lat": 32.7494,
     "lng": -116.92908,
     "q": "Rancho San Diego Library, 11555 Via Rancho San Diego, El Cajon, CA 92019",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/29"
    },
    {
     "id": "lib-sdcl-rancho-santa-fe",
@@ -1008,7 +2850,8 @@ window.SD_LISTS = [
     "lat": 33.02102,
     "lng": -117.20554,
     "q": "Rancho Santa Fe Library, 17040 Avenida de Acacias, Rancho Santa Fe, CA 92067",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/30"
    },
    {
     "id": "lib-sdcl-san-marcos",
@@ -1017,7 +2860,8 @@ window.SD_LISTS = [
     "lat": 33.14126,
     "lng": -117.16038,
     "q": "San Marcos Library, 2 Civic Center Drive, San Marcos, CA 92069",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/32"
    },
    {
     "id": "lib-sdcl-santee",
@@ -1026,7 +2870,8 @@ window.SD_LISTS = [
     "lat": 32.84475,
     "lng": -116.99701,
     "q": "Santee Library, 9225 Carlton Hills Boulevard, Santee, CA 92071",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/33"
    },
    {
     "id": "lib-solana-beach-county",
@@ -1035,7 +2880,8 @@ window.SD_LISTS = [
     "lat": 32.99557,
     "lng": -117.26259,
     "q": "Solana Beach Library, 157 Stevens Avenue, Solana Beach, CA 92075",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/31"
    },
    {
     "id": "lib-sdcl-spring-valley",
@@ -1044,7 +2890,8 @@ window.SD_LISTS = [
     "lat": 32.71233,
     "lng": -117.00234,
     "q": "Spring Valley Library, 836 Kempton Street, Spring Valley, CA 91977",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/34"
    },
    {
     "id": "lib-sdcl-valley-center",
@@ -1053,7 +2900,8 @@ window.SD_LISTS = [
     "lat": 33.2426,
     "lng": -117.02488,
     "q": "Valley Center Library, 29200 Cole Grade Road, Valley Center, CA 92082",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/35"
    },
    {
     "id": "lib-sdcl-vista",
@@ -1062,7 +2910,8 @@ window.SD_LISTS = [
     "lat": 33.20163,
     "lng": -117.2325,
     "q": "Vista Library, 700 Eucalyptus Avenue, Vista, CA 92084",
-    "logo": "sdcl.org"
+    "logo": "sdcl.org",
+    "url": "https://www.sdcl.org/locations/36"
    },
    {
     "id": "lib-carlsbad-dove-library",
@@ -1071,7 +2920,8 @@ window.SD_LISTS = [
     "lat": 33.1057,
     "lng": -117.26896,
     "q": "Carlsbad — Dove Library, 1775 Dove Lane, Carlsbad, CA 92011",
-    "logo": "carlsbadca.gov"
+    "logo": "carlsbadca.gov",
+    "url": "https://www.carlsbadca.gov/departments/library"
    },
    {
     "id": "lib-carlsbad-georgina-cole-library",
@@ -1080,7 +2930,8 @@ window.SD_LISTS = [
     "lat": 33.16443,
     "lng": -117.3405,
     "q": "Carlsbad — Georgina Cole Library, 1250 Carlsbad Village Drive, Carlsbad, CA 92008",
-    "logo": "carlsbadca.gov"
+    "logo": "carlsbadca.gov",
+    "url": "https://www.carlsbadca.gov/departments/library"
    },
    {
     "id": "lib-carlsbad-library-learning-center",
@@ -1089,7 +2940,8 @@ window.SD_LISTS = [
     "lat": 33.1593,
     "lng": -117.33856,
     "q": "Carlsbad — Library Learning Center, 3368 Eureka Place, Carlsbad, CA 92008",
-    "logo": "carlsbadca.gov"
+    "logo": "carlsbadca.gov",
+    "url": "https://www.carlsbadca.gov/departments/library"
    },
    {
     "id": "lib-chula-vista-civic-center",
@@ -1098,7 +2950,8 @@ window.SD_LISTS = [
     "lat": 32.64108,
     "lng": -117.08331,
     "q": "Chula Vista — Civic Center, 365 F Street, Chula Vista, CA 91910",
-    "logo": "chulavistaca.gov"
+    "logo": "chulavistaca.gov",
+    "url": "https://www.chulavistaca.gov/departments/library"
    },
    {
     "id": "lib-chula-vista-south-chula-vista",
@@ -1107,7 +2960,8 @@ window.SD_LISTS = [
     "lat": 32.60173,
     "lng": -117.06845,
     "q": "Chula Vista — South Chula Vista, 389 Orange Avenue, Chula Vista, CA 91911",
-    "logo": "chulavistaca.gov"
+    "logo": "chulavistaca.gov",
+    "url": "https://www.chulavistaca.gov/departments/library"
    },
    {
     "id": "lib-chula-vista-otay-ranch",
@@ -1116,7 +2970,8 @@ window.SD_LISTS = [
     "lat": 32.62203,
     "lng": -116.96761,
     "q": "Chula Vista — Otay Ranch, 2015 Birch Road, Chula Vista, CA 91915",
-    "logo": "chulavistaca.gov"
+    "logo": "chulavistaca.gov",
+    "url": "https://www.chulavistaca.gov/departments/library"
    },
    {
     "id": "lib-coronado-public-library",
@@ -1125,7 +2980,8 @@ window.SD_LISTS = [
     "lat": 32.69115,
     "lng": -117.17766,
     "q": "Coronado Public Library, 640 Orange Avenue, Coronado, CA 92118",
-    "logo": "coronado.ca.us"
+    "logo": "coronado.ca.us",
+    "url": "https://coronadolibrary.org/"
    },
    {
     "id": "lib-escondido-public-library",
@@ -1134,7 +2990,8 @@ window.SD_LISTS = [
     "lat": 33.12089,
     "lng": -117.07976,
     "q": "Escondido Public Library, 239 South Kalmia Street, Escondido, CA 92025",
-    "logo": "escondido.gov"
+    "logo": "escondido.gov",
+    "url": "https://www.escondido.gov/162/Library"
    },
    {
     "id": "lib-national-city-public-library",
@@ -1143,7 +3000,8 @@ window.SD_LISTS = [
     "lat": 32.67056,
     "lng": -117.10419,
     "q": "National City Public Library, 1401 National City Boulevard, National City, CA 91950",
-    "logo": "nationalcityca.gov"
+    "logo": "nationalcityca.gov",
+    "url": "https://www.nationalcityca.gov/government/library"
    },
    {
     "id": "lib-oceanside-civic-center",
@@ -1152,7 +3010,8 @@ window.SD_LISTS = [
     "lat": 33.1971,
     "lng": -117.38042,
     "q": "Oceanside — Civic Center, 330 North Coast Highway, Oceanside, CA 92054",
-    "logo": "oceansidelibrary.org"
+    "logo": "oceansidelibrary.org",
+    "url": "https://www.oceansidelibrary.org/"
    },
    {
     "id": "lib-oceanside-mission-branch",
@@ -1161,7 +3020,8 @@ window.SD_LISTS = [
     "lat": 33.2269,
     "lng": -117.3284,
     "q": "Oceanside — Mission Branch, 3861 Mission Avenue, Oceanside, CA 92058",
-    "logo": "oceansidelibrary.org"
+    "logo": "oceansidelibrary.org",
+    "url": "https://www.oceansidelibrary.org/"
    },
    {
     "id": "lib-oceanside-john-landes",
@@ -1170,7 +3030,8 @@ window.SD_LISTS = [
     "lat": 33.19528,
     "lng": -117.28506,
     "q": "Oceanside — John Landes, 2855 Cedar Road, Oceanside, CA 92056",
-    "logo": "oceansidelibrary.org"
+    "logo": "oceansidelibrary.org",
+    "url": "https://www.oceansidelibrary.org/"
    },
    {
     "id": "lib-oceanside-reads-literacy-center",
@@ -1179,7 +3040,8 @@ window.SD_LISTS = [
     "lat": 33.19839,
     "lng": -117.3779,
     "q": "Oceanside — READS Literacy Center, 804 Pier View Way, Oceanside, CA 92054",
-    "logo": "oceansidelibrary.org"
+    "logo": "oceansidelibrary.org",
+    "url": "https://www.oceansidelibrary.org/"
    },
    {
     "id": "lib-uc-san-diego-geisel-library",
@@ -1188,7 +3050,8 @@ window.SD_LISTS = [
     "lat": 32.88112,
     "lng": -117.23752,
     "q": "UC San Diego — Geisel Library, Geisel Library, La Jolla",
-    "logo": "ucsd.edu"
+    "logo": "ucsd.edu",
+    "url": "https://library.ucsd.edu/"
    },
    {
     "id": "lib-sdsu-love-library",
@@ -1197,7 +3060,8 @@ window.SD_LISTS = [
     "lat": 32.7754,
     "lng": -117.0714,
     "q": "SDSU — Love Library, Malcolm A. Love Library, San Diego",
-    "logo": "sdsu.edu"
+    "logo": "sdsu.edu",
+    "url": "https://library.sdsu.edu/"
    },
    {
     "id": "lib-usd-copley-library",
@@ -1206,7 +3070,8 @@ window.SD_LISTS = [
     "lat": 32.77141,
     "lng": -117.1934,
     "q": "USD — Copley Library, Copley Library, University of San Diego",
-    "logo": "sandiego.edu"
+    "logo": "sandiego.edu",
+    "url": "https://www.sandiego.edu/library/"
    },
    {
     "id": "lib-usd-pardee-legal-research-center",
@@ -1215,7 +3080,8 @@ window.SD_LISTS = [
     "lat": 32.7717,
     "lng": -117.18747,
     "q": "USD — Pardee Legal Research Center, Pardee Legal Research Center, San Diego",
-    "logo": "sandiego.edu"
+    "logo": "sandiego.edu",
+    "url": "https://www.sandiego.edu/law/library/"
    },
    {
     "id": "lib-plnu-ryan-library",
@@ -1224,7 +3090,8 @@ window.SD_LISTS = [
     "lat": 32.71827,
     "lng": -117.2501,
     "q": "PLNU — Ryan Library, Ryan Library, Point Loma Nazarene",
-    "logo": "pointloma.edu"
+    "logo": "pointloma.edu",
+    "url": "https://www.pointloma.edu/ryan-library"
    },
    {
     "id": "lib-csu-san-marcos-kellogg-library",
@@ -1233,7 +3100,8 @@ window.SD_LISTS = [
     "lat": 33.12918,
     "lng": -117.15965,
     "q": "CSU San Marcos — Kellogg Library, Kellogg Library, San Marcos",
-    "logo": "csusm.edu"
+    "logo": "csusm.edu",
+    "url": "https://library.csusm.edu/"
    },
    {
     "id": "lib-san-diego-city-college-library",
@@ -1242,7 +3110,8 @@ window.SD_LISTS = [
     "lat": 32.71919,
     "lng": -117.1536,
     "q": "San Diego City College Library",
-    "logo": "sdcity.edu"
+    "logo": "sdcity.edu",
+    "url": "https://library.sdcity.edu/"
    },
    {
     "id": "lib-san-diego-mesa-college-library",
@@ -1251,7 +3120,8 @@ window.SD_LISTS = [
     "lat": 32.80488,
     "lng": -117.17166,
     "q": "San Diego Mesa College Library",
-    "logo": "sdmesa.edu"
+    "logo": "sdmesa.edu",
+    "url": "https://www.sdmesa.edu/library/"
    },
    {
     "id": "lib-san-diego-miramar-college-library",
@@ -1260,7 +3130,8 @@ window.SD_LISTS = [
     "lat": 32.90907,
     "lng": -117.12431,
     "q": "San Diego Miramar College Library, 10440 Black Mountain Road, San Diego, CA 92126",
-    "logo": "sdmiramar.edu"
+    "logo": "sdmiramar.edu",
+    "url": "https://sdmiramar.edu/services/library"
    },
    {
     "id": "lib-grossmont-college-library",
@@ -1269,7 +3140,8 @@ window.SD_LISTS = [
     "lat": 32.81625,
     "lng": -117.00545,
     "q": "Grossmont College Library, 8800 Grossmont College Drive, El Cajon, CA 92020",
-    "logo": "grossmont.edu"
+    "logo": "grossmont.edu",
+    "url": "https://www.grossmont.edu/library/"
    },
    {
     "id": "lib-cuyamaca-college-library",
@@ -1278,7 +3150,8 @@ window.SD_LISTS = [
     "lat": 32.74466,
     "lng": -116.9407,
     "q": "Cuyamaca College Library, 900 Rancho San Diego Parkway, El Cajon, CA 92019",
-    "logo": "cuyamaca.edu"
+    "logo": "cuyamaca.edu",
+    "url": "https://www.cuyamaca.edu/academics/library/"
    },
    {
     "id": "lib-southwestern-college-library",
@@ -1287,7 +3160,8 @@ window.SD_LISTS = [
     "lat": 32.64202,
     "lng": -117.00111,
     "q": "Southwestern College Library, 900 Otay Lakes Road, Chula Vista, CA 91910",
-    "logo": "swccd.edu"
+    "logo": "swccd.edu",
+    "url": "https://www.swccd.edu/student-support/library/"
    },
    {
     "id": "lib-palomar-college-library",
@@ -1296,7 +3170,8 @@ window.SD_LISTS = [
     "lat": 33.14781,
     "lng": -117.18586,
     "q": "Palomar College Library, 1140 West Mission Road, San Marcos, CA 92069",
-    "logo": "palomar.edu"
+    "logo": "palomar.edu",
+    "url": "https://www.palomar.edu/library/"
    },
    {
     "id": "lib-miracosta-college-library",
@@ -1305,7 +3180,8 @@ window.SD_LISTS = [
     "lat": 33.19077,
     "lng": -117.30236,
     "q": "MiraCosta College Library, 1 Barnard Drive, Oceanside, CA 92056",
-    "logo": "miracosta.edu"
+    "logo": "miracosta.edu",
+    "url": "https://library.miracosta.edu/"
    },
    {
     "id": "lib-san-diego-law-library",
@@ -1314,7 +3190,8 @@ window.SD_LISTS = [
     "lat": 32.7169,
     "lng": -117.16482,
     "q": "San Diego Law Library, 1105 Front Street, San Diego, CA 92101",
-    "logo": "sandiegolawlibrary.org"
+    "logo": "sandiegolawlibrary.org",
+    "url": "https://sandiegolawlibrary.org/"
    },
    {
     "id": "lib-lgbt-community-center-library",
@@ -1323,7 +3200,8 @@ window.SD_LISTS = [
     "lat": 32.74883,
     "lng": -117.1483,
     "q": "LGBT Community Center Library, 3909 Centre Street, San Diego, CA 92103",
-    "logo": "thecentersd.org"
+    "logo": "thecentersd.org",
+    "url": "https://thecentersd.org/"
    },
    {
     "id": "lib-athenaeum-music-arts-library",
@@ -1332,7 +3210,8 @@ window.SD_LISTS = [
     "lat": 32.84699,
     "lng": -117.2742,
     "q": "Athenaeum Music & Arts Library, 1008 Wall Street, La Jolla, CA 92037",
-    "logo": "ljathenaeum.org"
+    "logo": "ljathenaeum.org",
+    "url": "https://www.ljathenaeum.org/"
    }
   ]
  },
@@ -1974,7 +3853,7 @@ window.SD_LISTS = [
     "lng": -117.1486,
     "q": "Centro Cultural de la Raza, San Diego",
     "url": "https://centrodelaraza.com",
-    "icon": "palette"
+    "logo": "centrodelaraza.com"
    },
    {
     "id": "mu-worldbeat-cultural-center",
@@ -1983,8 +3862,8 @@ window.SD_LISTS = [
     "lat": 32.7272,
     "lng": -117.1495,
     "q": "WorldBeat Cultural Center, San Diego",
-    "logo": "worldbeatcenter.org",
-    "url": "https://worldbeatcenter.org"
+    "url": "https://worldbeatcenter.org",
+    "mono": "worldbeatcenter.org"
    },
    {
     "id": "mu-japanese-friendship-garden",
@@ -2094,7 +3973,7 @@ window.SD_LISTS = [
     "lng": -117.146,
     "q": "Villa Montezuma Museum, San Diego",
     "url": "https://villamontezumamuseum.org",
-    "icon": "house"
+    "logo": "villamontezumamuseum.org"
    },
    {
     "id": "mu-new-americans-museum",
@@ -2104,7 +3983,7 @@ window.SD_LISTS = [
     "lng": -117.2134,
     "q": "New Americans Museum Liberty Station, San Diego",
     "url": "https://newamericansmuseum.org",
-    "icon": "earth"
+    "logo": "newamericansmuseum.org"
    },
    {
     "id": "mu-jun-pero-serra-museum",
@@ -2225,6 +4104,16 @@ window.SD_LISTS = [
     "q": "Lux Art Institute, San Diego",
     "url": "https://luxartinstitute.org",
     "icon": "brush"
+   },
+   {
+    "id": "mu-heritage-of-the-americas",
+    "name": "Heritage of the Americas Museum",
+    "g": "East County",
+    "lat": 32.74292,
+    "lng": -116.94064,
+    "q": "Heritage of the Americas Museum, 12110 Cuyamaca College Dr W, El Cajon, CA 92019",
+    "logo": "heritageamericas",
+    "url": "https://www.cuyamaca.edu/get-involved/arts-and-culture"
    }
   ]
  },
@@ -2246,7 +4135,7 @@ window.SD_LISTS = [
     "q": "Leila, 3956 30th St, San Diego, CA 92104",
     "url": "http://www.leilanorthpark.com/",
     "meta": "Persian restaurant in North Park",
-    "logo": "leilanorthpark.com"
+    "mono": "ch/leila"
    },
    {
     "id": "ch-part-time-lover-3829-3",
@@ -2257,7 +4146,7 @@ window.SD_LISTS = [
     "q": "Part Time Lover, 3829 30th St, San Diego, CA 92104",
     "url": "http://parttimeloverhifi.com/",
     "meta": "Cocktail bar with a record shop in back",
-    "logo": "parttimeloverhifi.com"
+    "mono": "ch/part-time-lover"
    },
    {
     "id": "ch-polite-provisions-4696-3",
@@ -2268,7 +4157,7 @@ window.SD_LISTS = [
     "q": "Polite Provisions, 4696 30th St, San Diego, CA 92116",
     "url": "http://politeprovisions.com/",
     "meta": "Apothecary-style cocktail bar",
-    "logo": "politeprovisions.com"
+    "mono": "ch/polite"
    },
    {
     "id": "ch-fortunate-son-2943-a",
@@ -2279,7 +4168,7 @@ window.SD_LISTS = [
     "q": "Fortunate Son, 2943 Adams Ave, San Diego, CA 92116",
     "url": "http://www.fortunatesonchinese.com/",
     "meta": "Chinese restaurant",
-    "logo": "fortunatesonchinese.com"
+    "mono": "ch/fortunate-son"
    },
    {
     "id": "ch-underbelly-north-park-3000-u",
@@ -2290,7 +4179,7 @@ window.SD_LISTS = [
     "q": "Underbelly North Park, 3000 Upas St, San Diego, CA 92104",
     "url": "http://www.godblessunderbelly.com/",
     "meta": "Ramen",
-    "logo": "godblessunderbelly.com"
+    "mono": "ch/underbelly"
    },
    {
     "id": "ch-the-lafayette-hotel-2223-e",
@@ -2301,7 +4190,7 @@ window.SD_LISTS = [
     "q": "The Lafayette Hotel, 2223 El Cajon Blvd, San Diego, CA 92104",
     "url": "https://lafayettehotelsd.com/",
     "meta": "Hotel complex that also holds Beginner's Diner / Lou Lou's Jungle Room / Quixote / The Gutter",
-    "logo": "lafayettehotelsd.com"
+    "mono": "ch/lafayette"
    },
    {
     "id": "ch-beginner-s-diner-2223-e",
@@ -2312,7 +4201,7 @@ window.SD_LISTS = [
     "q": "Beginner's Diner, 2223 El Cajon Blvd, San Diego, CA 92104",
     "url": "http://www.lafayettehotelsd.com/",
     "meta": "24-hour diner inside the Lafayette",
-    "logo": "lafayettehotelsd.com"
+    "mono": "ch/beginners-diner"
    },
    {
     "id": "ch-lou-lou-s-jungle-room-2223-e",
@@ -2323,7 +4212,7 @@ window.SD_LISTS = [
     "q": "Lou Lou's Jungle Room, 2223 El Cajon Blvd, San Diego, CA 92104",
     "url": "https://www.loulousclub.com/",
     "meta": "Live jazz and supper club inside the Lafayette",
-    "logo": "loulousclub.com"
+    "mono": "ch/lou-lous"
    },
    {
     "id": "ch-quixote-2223-e",
@@ -2334,7 +4223,7 @@ window.SD_LISTS = [
     "q": "Quixote, 2223 El Cajon Blvd, San Diego, CA 92104",
     "url": "https://lafayettehotelsd.com/",
     "meta": "Gothic-Mexican restaurant inside the Lafayette",
-    "logo": "lafayettehotelsd.com"
+    "mono": "ch/quixote"
    },
    {
     "id": "ch-the-gutter-2223-e",
@@ -2343,9 +4232,9 @@ window.SD_LISTS = [
     "lat": 32.7548646,
     "lng": -117.1403188,
     "q": "The Gutter, 2223 El Cajon Blvd, San Diego, CA 92104",
-    "url": null,
+    "url": "https://ch-projects.com/projects/the-gutter",
     "meta": "Bowling bar inside the Lafayette",
-    "logo": "lafayettehotelsd.com"
+    "mono": "ch/gutter"
    },
    {
     "id": "ch-neighborhood-777-g",
@@ -2356,7 +4245,7 @@ window.SD_LISTS = [
     "q": "Neighborhood, 777 G St, San Diego, CA 92101",
     "url": "http://neighborhoodsd.com/",
     "meta": "East Village gastropub; Noble Experiment and Young Blood are hidden inside",
-    "logo": "neighborhoodsd.com"
+    "mono": "ch/neighborhood"
    },
    {
     "id": "ch-noble-experiment-777-g",
@@ -2367,7 +4256,7 @@ window.SD_LISTS = [
     "q": "Noble Experiment, 777 G St, San Diego, CA 92101",
     "url": "http://www.nobleexperimentsd.com/",
     "meta": "Speakeasy behind the barrels; no menu; walk-in line only",
-    "logo": "nobleexperimentsd.com"
+    "mono": "ch/noble-experiment"
    },
    {
     "id": "ch-young-blood-777-g",
@@ -2378,7 +4267,7 @@ window.SD_LISTS = [
     "q": "Young Blood, 777 G St, San Diego, CA 92101",
     "url": "https://www.youngbloodsucks.com/",
     "meta": "Three-course cocktail speakeasy; reserve ahead",
-    "logo": "youngbloodsucks.com"
+    "mono": "ch/youngblood"
    },
    {
     "id": "ch-j-tony-s-631-ni",
@@ -2389,7 +4278,7 @@ window.SD_LISTS = [
     "q": "J & Tony's, 631 Ninth Ave, San Diego, CA 92101",
     "url": "http://www.prosciuttoboys.com/",
     "meta": "Discount cured meats and Negroni warehouse",
-    "logo": "prosciuttoboys.com"
+    "mono": "ch/j-tonys"
    },
    {
     "id": "ch-seneca-901-ba",
@@ -2400,7 +4289,7 @@ window.SD_LISTS = [
     "q": "Seneca, 901 Bayfront Ct Level 19, San Diego, CA 92101",
     "url": "http://senecatrattoria.com/",
     "meta": "Rooftop Italian trattoria",
-    "logo": "senecatrattoria.com"
+    "mono": "ch/seneca"
    },
    {
     "id": "ch-born-and-raised-1909-i",
@@ -2411,7 +4300,7 @@ window.SD_LISTS = [
     "q": "Born and Raised, 1909 India St, San Diego, CA 92101",
     "url": "http://bornandraisedsteak.com/",
     "meta": "Steakhouse in Little Italy",
-    "logo": "bornandraisedsteak.com"
+    "mono": "ch/born-raised"
    },
    {
     "id": "ch-ironside-fish-oyster-1654-i",
@@ -2422,7 +4311,7 @@ window.SD_LISTS = [
     "q": "Ironside Fish & Oyster, 1654 India St, San Diego, CA 92101",
     "url": "https://ironsidefishandoyster.com/",
     "meta": "Seafood in Little Italy",
-    "logo": "ironsidefishandoyster.com"
+    "mono": "ch/ironside"
    },
    {
     "id": "ch-morning-glory-550-w",
@@ -2433,7 +4322,7 @@ window.SD_LISTS = [
     "q": "Morning Glory, 550 W Date St Ste C, San Diego, CA 92101",
     "url": "http://www.morningglorybreakfast.com/",
     "meta": "Brunch; expect a wait",
-    "logo": "morningglorybreakfast.com"
+    "mono": "ch/morning-glory"
    },
    {
     "id": "ch-underbelly-750-w",
@@ -2444,7 +4333,7 @@ window.SD_LISTS = [
     "q": "Underbelly, 750 W Fir St #101, San Diego, CA 92101",
     "url": "http://www.godblessunderbelly.com/",
     "meta": "Original Little Italy ramen spot",
-    "logo": "godblessunderbelly.com"
+    "mono": "ch/underbelly"
    },
    {
     "id": "ch-craft-commerce-675-w",
@@ -2455,7 +4344,7 @@ window.SD_LISTS = [
     "q": "Craft & Commerce, 675 W Beech St, San Diego, CA 92101",
     "url": "http://craft-commerce.com/",
     "meta": "Cocktail bar; False Idol is hidden inside",
-    "logo": "craft-commerce.com"
+    "mono": "ch/craft-commerce"
    },
    {
     "id": "ch-false-idol-675-w",
@@ -2466,7 +4355,7 @@ window.SD_LISTS = [
     "q": "False Idol, 675 W Beech St, San Diego, CA 92101",
     "url": "http://falseidoltiki.com/",
     "meta": "Tiki speakeasy inside Craft & Commerce",
-    "logo": "falseidoltiki.com"
+    "mono": "ch/false-idol"
    },
    {
     "id": "ch-raised-by-wolves-4301-l",
@@ -2477,7 +4366,7 @@ window.SD_LISTS = [
     "q": "Raised by Wolves, 4301 La Jolla Village Dr #2030, San Diego, CA 92122",
     "url": "http://raisedxwolves.com/",
     "meta": "UTC; speakeasy behind a bottle shop with a rotating-chair entrance",
-    "logo": "raisedxwolves.com"
+    "mono": "ch/raised-by-wolves"
    },
    {
     "id": "ch-the-baby-grand-1315-o",
@@ -2488,7 +4377,7 @@ window.SD_LISTS = [
     "q": "The Baby Grand, 1315 Orange Ave, Coronado, CA 92118",
     "url": "https://www.thebabygrandcoronado.com/",
     "meta": "Coronado hotel; houses Night Hawk and Fallen Empire",
-    "logo": "thebabygrandcoronado.com"
+    "mono": "ch/baby-grand"
    },
    {
     "id": "ch-night-hawk-1315-o",
@@ -2499,7 +4388,7 @@ window.SD_LISTS = [
     "q": "Night Hawk, 1315 Orange Ave, Coronado, CA 92118",
     "url": "https://www.thebabygrandcoronado.com/night-hawk",
     "meta": "Mediterranean restaurant at The Baby Grand",
-    "logo": "thebabygrandcoronado.com"
+    "mono": "ch/baby-grand"
    },
    {
     "id": "ch-fallen-empire-1315-o",
@@ -2510,7 +4399,62 @@ window.SD_LISTS = [
     "q": "Fallen Empire, 1315 Orange Ave, Coronado, CA 92118",
     "url": "https://www.thebabygrandcoronado.com/fallen-empire",
     "meta": "Champagne and caviar speakeasy behind a pocket door in the lobby",
-    "logo": "thebabygrandcoronado.com"
+    "mono": "ch/fallen-empire"
+   },
+   {
+    "id": "ch-kindred-1503-30",
+    "name": "Kindred",
+    "g": "Partner",
+    "lat": 32.72145,
+    "lng": -117.13008,
+    "q": "Kindred, 1503 30th St, San Diego, CA 92102",
+    "url": "https://barkindred.com/",
+    "meta": "South Park bar and restaurant",
+    "mono": "ch/kindred"
+   },
+   {
+    "id": "ch-mothership-2310-30",
+    "name": "Mothership",
+    "g": "Partner",
+    "lat": 32.72999,
+    "lng": -117.12977,
+    "q": "Mothership, 2310 30th St, San Diego, CA 92104",
+    "url": "https://mothershiptrip.com/",
+    "meta": "North Park; sci-fi themed dining",
+    "mono": "ch/mothership"
+   },
+   {
+    "id": "ch-starlite-3175-india",
+    "name": "Starlite",
+    "g": "Partner",
+    "lat": 32.73642,
+    "lng": -117.17504,
+    "q": "Starlite, 3175 India St, San Diego, CA 92103",
+    "url": "https://starlitesd.com/",
+    "meta": "Middletown; cocktail lounge and American eats",
+    "mono": "ch/starlite"
+   },
+   {
+    "id": "ch-vulture-4608-park",
+    "name": "Vulture",
+    "g": "Partner",
+    "lat": 32.76129,
+    "lng": -117.14643,
+    "q": "Vulture, 4608 Park Blvd, San Diego, CA 92116",
+    "url": "https://www.vulturerestaurant.com/",
+    "meta": "University Heights; dinner-party restaurant",
+    "icon": "bird"
+   },
+   {
+    "id": "ch-dreamboat-4608-park",
+    "name": "Dreamboat",
+    "g": "Partner",
+    "lat": 32.76129,
+    "lng": -117.14643,
+    "q": "Dreamboat, 4608 Park Blvd, San Diego, CA 92116",
+    "url": "https://www.dreamboatdiner.com/",
+    "meta": "Ten-seat micro-diner next to Vulture",
+    "icon": "coffee"
    }
   ]
  }

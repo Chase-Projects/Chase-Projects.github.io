@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>San Diego Completionist</title>
 <meta name="description" content="Checklists for San Diego completionists: the Mission Trails 5 peaks, summits, every library, every transit line, every museum. Progress saves in your browser.">
+<script>try{var t=localStorage.getItem('sdpp.theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -32,9 +33,12 @@ svg.lucide{width:18px;height:18px;stroke-width:2;flex:none;vertical-align:middle
 header{padding:28px 0 0;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
 h1{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:clamp(26px,5vw,36px);margin:0;letter-spacing:-.01em}
 h1 span{color:var(--accent)}
-.overall{font-size:13px;color:var(--muted)}
+.overall{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:10px}
+.theme{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;width:34px;height:34px;display:grid;place-items:center;cursor:pointer}
+.theme:hover{color:var(--accent)}
+.theme svg.lucide{width:17px;height:17px}
 
-nav.tabs{position:sticky;top:0;z-index:1000;background:var(--bg);border-bottom:1px solid var(--line);margin-top:14px}
+nav.tabs{position:sticky;top:0;z-index:1200;background:var(--bg);border-bottom:1px solid var(--line);margin-top:14px}
 nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
 nav.tabs .wrap::-webkit-scrollbar{display:none}
 .tab{appearance:none;border:0;background:none;color:var(--muted);font:inherit;font-weight:500;padding:12px 10px 10px;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;display:flex;gap:6px;align-items:center}
@@ -86,21 +90,23 @@ input[type=date]{padding:3px 6px;font-size:12px;color:var(--muted)}
 .toggle{font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center;cursor:pointer}
 
 #items{display:flex;flex-direction:column;gap:14px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px}
 .card h3{display:flex;justify-content:space-between;align-items:center;margin:0;padding:10px 14px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-bottom:1px solid var(--line)}
 .card h3 .full{color:var(--done)}
 .card ul{list-style:none;margin:0;padding:0}
-.thumb{width:32px;height:32px;border-radius:8px;flex:none;display:grid;place-items:center;background:var(--bg);border:1px solid var(--line);overflow:hidden}
-.thumb img{width:22px;height:22px;object-fit:contain}
-.thumb.logo{background:#fff}
-.thumb.badge{border:0;color:#fff;font-size:11px;font-weight:700;letter-spacing:-.02em}
+.thumb{width:56px;height:40px;flex:none;display:grid;place-items:center}
+.thumb img{max-width:40px;max-height:40px;width:auto;height:auto;object-fit:contain;border-radius:6px}
+.thumb.logo.wide img{max-width:56px;max-height:32px;border-radius:0}
+.thumb.mono{background:var(--ink);-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat;width:56px;height:36px}
+.thumb.badge{width:32px;height:32px;margin:0 12px;border-radius:999px;color:#fff;font-size:14px;font-weight:700;letter-spacing:-.02em}
 .thumb.badge svg.lucide{width:18px;height:18px}
 .thumb.plain{color:var(--accent)}
-.thumb.svg{background:none;border:0}
-.thumb.svg img{width:30px;height:30px}
-.thumb.svg.wide{width:52px}
-.thumb.svg.wide img{width:52px;height:24px}
-.thumb.pill{width:44px;height:24px;border-radius:999px;border:0;color:#fff;font-size:15px;font-weight:700;letter-spacing:-.01em}
+.thumb.plain svg.lucide{width:26px;height:26px;stroke-width:1.75}
+.thumb.svg img{max-width:40px;max-height:40px;border-radius:0}
+.thumb.svg.wide img{max-width:56px;max-height:30px}
+.thumb.pill{width:52px;height:28px;margin:0 2px;border-radius:999px;color:#fff;font-size:16px;font-weight:700;letter-spacing:-.01em}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .thumb.ink img{background:#e8eef2;padding:3px} }
+:root[data-theme="dark"] .thumb.ink img{background:#e8eef2;padding:3px}
 .dateclr{appearance:none;border:0;background:none;color:var(--muted);cursor:pointer;padding:4px;border-radius:6px;display:inline-flex}
 .dateclr:hover{color:var(--ink);background:var(--bg)}
 .dateclr svg.lucide{width:15px;height:15px}
@@ -118,15 +124,17 @@ li.done .name{color:var(--muted)}
 .icon:hover{color:var(--accent);background:var(--bg)}
 .empty{padding:20px;text-align:center;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:12px}
 .counter{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.counter input{width:110px;padding:4px 8px;font-size:13px}
+.combo{position:relative}
+.counter input{width:170px;padding:4px 8px;font-size:13px}
+.sugg{position:absolute;left:0;top:calc(100% + 4px);z-index:1100;min-width:280px;max-width:min(360px,80vw);max-height:260px;overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.18);padding:4px}
+.sugg button{appearance:none;display:flex;gap:8px;align-items:center;width:100%;text-align:left;border:0;background:none;color:var(--ink);font:inherit;font-size:13px;padding:6px 8px;border-radius:6px;cursor:pointer}
+.sugg button:hover,.sugg button.on{background:var(--bg)}
+.sugg b{min-width:34px;text-align:center;font-size:12px;background:var(--soft);color:var(--done);border-radius:5px;padding:1px 4px}
+.sugg .none{padding:6px 8px;font-size:13px;color:var(--muted)}
 .rt{display:inline-flex;align-items:center;gap:2px;font-size:12px;font-weight:600;background:var(--soft);color:var(--done);border-radius:6px;padding:2px 4px 2px 7px}
 .rt .rtn{font-weight:500;margin-left:5px;opacity:.85}
 .rt button{appearance:none;border:0;background:none;color:inherit;cursor:pointer;padding:0 2px;font-size:14px;line-height:1}
 
-footer{border-top:1px solid var(--line);padding:20px 0 40px;color:var(--muted);font-size:13px}
-footer summary{cursor:pointer;color:var(--ink)}
-footer textarea{width:100%;min-height:64px;margin:8px 0;font-family:ui-monospace,monospace;font-size:12px}
-.row{display:flex;gap:8px;flex-wrap:wrap}
 .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:2000}
 .toast.show{opacity:1}
 @media (max-width:640px){ #map{height:260px} .progress{flex-basis:100%} }
@@ -135,7 +143,7 @@ footer textarea{width:100%;min-height:64px;margin:8px 0;font-family:ui-monospace
 <body>
 <header class="wrap">
   <h1>San Diego <span>Completionist</span></h1>
-  <div class="overall" id="overall"></div>
+  <div class="overall"><span id="overall"></span><button class="theme" id="theme" aria-label="Toggle dark mode" title="Toggle dark mode"></button></div>
 </header>
 
 <nav class="tabs" aria-label="Lists"><div class="wrap" role="tablist" id="tabs"></div></nav>
@@ -156,35 +164,25 @@ footer textarea{width:100%;min-height:64px;margin:8px 0;font-family:ui-monospace
   <div id="items"></div>
 </main>
 
-<footer class="wrap">
-  <p>Progress saves in this browser only. No account.</p>
-  <details>
-    <summary>Back up or move progress</summary>
-    <textarea id="code" aria-label="Progress code" placeholder="Paste a code to restore"></textarea>
-    <div class="row">
-      <button class="btn ghost sm" id="copyCode">Copy my code</button>
-      <button class="btn ghost sm" id="loadCode">Restore</button>
-      <button class="btn ghost sm" id="reset">Reset all</button>
-    </div>
-  </details>
-  <p>Map © OpenStreetMap contributors. Icons: Lucide.</p>
-</footer>
 <div class="toast" id="toast" role="status"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
-<script src="data.js?v=6"></script>
+<script src="data.js?v=8"></script>
 <script>
 (function(){
 const LISTS = window.SD_LISTS;
 const KEY = 'sdpp.v1';
+// transparent dark logos that get a light backing in dark mode
+const INK = new Set(['chulavistaca.gov','coronadohistory.org','cuyamaca.edu','newamericansmuseum.org','sandiegoairandspace.org','sdcity.edu','sdmart.org','swccd.edu','veteranmuseum.org']);
 const $ = id => document.getElementById(id);
 const icons = () => window.lucide && lucide.createIcons();
 
 // ---- state (per-browser, localStorage) ----
 let state = { done:{}, name:'', bus:[] };
 try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.done) state = Object.assign(state, s); } catch(e){}
+(function(){ const t=LISTS.find(l=>l.bus); if (!t) return; state.bus=state.bus.filter(r=>t.bus.includes(r)); const it=t.items.find(i=>i.counter); if (it && state.bus.length<it.counter) delete state.done[it.id]; })();
 function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} }
 
 const today = () => { const d=new Date(); return new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10); };
@@ -289,8 +287,8 @@ function renderMap(fit){
     markers[i.id]=m; pts.push([i.lat,i.lng]);
   });
   if (current.key==='transit') drawRoutes(cDone);
-  if (current.route && pts.length>1) L.polyline([...pts,pts[0]],{color:css.getPropertyValue('--accent').trim(),weight:4,dashArray:'6 8',interactive:false}).addTo(layer);
-  if (fit && pts.length) map.fitBounds(pts,{padding:[30,30],maxZoom:14});
+  if (current.path) L.polyline(current.path,{color:css.getPropertyValue('--accent').trim(),weight:4,opacity:.85,interactive:false}).addTo(layer).bringToBack();
+  if (fit && pts.length) map.fitBounds(current.path||pts,{padding:[30,30],maxZoom:14});
 }
 let routesLoading=false;
 function drawRoutes(){
@@ -315,8 +313,7 @@ map.on('popupopen',e=>{
 function counterHtml(i){
   const nm=current.busNames||{};
   return `<div class="counter">${state.bus.map(r=>`<span class="rt">${esc(r)}${nm[r]?`<span class="rtn">${esc(nm[r])}</span>`:''}<button data-rm="${esc(r)}" aria-label="Remove route ${esc(r)}">×</button></span>`).join('')}
-    <input list="busRoutes" placeholder="Add route #" data-add="1" aria-label="Add a bus route you rode">
-    <datalist id="busRoutes">${(current.bus||[]).filter(r=>!state.bus.includes(r)).map(r=>`<option value="${r}"${nm[r]?` label="${esc(r+' · '+nm[r])}"`:''}>`).join('')}</datalist>
+    <span class="combo"><input type="search" placeholder="Add a route" data-add="1" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="sugg" aria-label="Search bus routes by number or name"><div class="sugg" id="sugg" role="listbox" hidden></div></span>
     <span class="meta">${Math.min(state.bus.length,i.counter)}/${i.counter}${state.bus.length>i.counter?` (${state.bus.length} total)`:''}</span></div>`;
 }
 
@@ -324,12 +321,13 @@ function thumb(i){
   if (i.img) return `<span class="thumb svg${i.wide?' wide':''}"><img src="${i.img}" alt=""></span>`;
   if (i.badge && i.badge.pill) return `<span class="thumb pill" style="background:${i.badge.c}">${esc(i.badge.t)}</span>`;
   if (i.badge){ const t=i.badge.t; return `<span class="thumb badge" style="background:${i.badge.c}">${/^\d+$/.test(t)?t:`<i data-lucide="${t}"></i>`}</span>`; }
-  if (i.logo) return `<span class="thumb logo"><img src="img/logo/${i.logo}.png" alt="" loading="lazy" onerror="this.remove()"></span>`;
+  if (i.mono) return `<span class="thumb mono" style="--m:url('img/logo/${i.mono}.png')"></span>`;
+  if (i.logo) return `<span class="thumb logo${INK.has(i.logo)?' ink':''}"><img src="img/logo/${i.logo}.png" alt="" loading="lazy" onload="if(this.naturalWidth>1.6*this.naturalHeight)this.parentNode.classList.add('wide')" onerror="this.remove()"></span>`;
   return `<span class="thumb plain"><i data-lucide="${i.icon||current.icon}"></i></span>`;
 }
 function itemHtml(i){
-  const d=state.done[i.id], meta=metaFor(i);
-  const date = !d ? '' : d==='-'
+  const d=state.done[i.id], meta=metaFor(i), full=countDone(current)===current.items.length;
+  const date = !d || !full || i.counter ? '' : d==='-'
     ? `<input type="date" class="adddate" max="${today()}" data-date="${i.id}" aria-label="Add date" title="Add date">`
     : `<input type="date" value="${d}" max="${today()}" data-date="${i.id}" aria-label="Date done"><button class="dateclr" data-clr="${i.id}" aria-label="Remove date" title="Remove date"><i data-lucide="x"></i></button>`;
   return `<li class="item${d?' done':''}">
@@ -355,10 +353,35 @@ $('items').addEventListener('change',e=>{
   const t=e.target;
   if (t.dataset.id) toggle(t.dataset.id);
   else if (t.dataset.date){ state.done[t.dataset.date]=t.value||'-'; save(); render(false); }
-  else if (t.dataset.add) addRoute(t.value);
 });
-$('items').addEventListener('keydown',e=>{ if (e.target.dataset.add && e.key==='Enter'){ e.preventDefault(); addRoute(e.target.value); } });
+
+// ---- bus route search: match by number or by name, only real routes ----
+let sel=0;
+function matches(q){
+  q=q.trim().toLowerCase(); if(!q) return [];
+  const nm=current.busNames||{}, pool=(current.bus||[]).filter(r=>!state.bus.includes(r));
+  const exact=pool.filter(r=>r.toLowerCase()===q), num=pool.filter(r=>r!==q&&r.toLowerCase().startsWith(q)), name=pool.filter(r=>!r.toLowerCase().startsWith(q)&&(nm[r]||'').toLowerCase().includes(q));
+  return [...exact,...num,...name];
+}
+function showSugg(inp){
+  const box=$('sugg'), m=matches(inp.value), nm=current.busNames||{};
+  sel=Math.min(sel,Math.max(m.length-1,0));
+  box.hidden=!inp.value.trim(); inp.setAttribute('aria-expanded',String(!box.hidden));
+  box.innerHTML = m.length ? m.slice(0,40).map((r,k)=>`<button type="button" role="option" class="${k===sel?'on':''}" data-pick="${esc(r)}"><b>${esc(r)}</b>${esc(nm[r]||'')}</button>`).join('') : '<div class="none">No matching route</div>';
+}
+$('items').addEventListener('input',e=>{ if (e.target.dataset.add){ sel=0; showSugg(e.target); } });
+$('items').addEventListener('keydown',e=>{
+  const t=e.target; if (!t.dataset.add) return;
+  const m=matches(t.value);
+  if (e.key==='ArrowDown'||e.key==='ArrowUp'){ e.preventDefault(); if(m.length){ sel=(sel+(e.key==='ArrowDown'?1:-1)+m.length)%m.length; showSugg(t); $('sugg').querySelector('.on')?.scrollIntoView({block:'nearest'}); } }
+  else if (e.key==='Enter'){ e.preventDefault(); if (m.length) addRoute(m[sel]); else if (t.value.trim()) toast('No matching route'); }
+  else if (e.key==='Escape'){ t.value=''; $('sugg').hidden=true; }
+});
+$('items').addEventListener('focusout',e=>{ if (e.target.dataset.add) setTimeout(()=>{ const b=$('sugg'); if(b && !b.contains(document.activeElement)) b.hidden=true; },150); });
+$('items').addEventListener('mousedown',e=>{ if (e.target.closest('[data-pick]')) e.preventDefault(); });
 $('items').addEventListener('click',e=>{
+  const pk=e.target.closest('[data-pick]');
+  if (pk){ addRoute(pk.dataset.pick); return; }
   const clr=e.target.closest('[data-clr]');
   if (clr){ state.done[clr.dataset.clr]='-'; save(); render(false); return; }
   const rm=e.target.closest('[data-rm]');
@@ -372,8 +395,8 @@ $('q').addEventListener('input',()=>{ renderItems(); renderMap(false); });
 $('hideDone').addEventListener('change',()=>{ renderItems(); renderMap(false); });
 
 function addRoute(v){
-  v=String(v||'').trim().toUpperCase(); if(!v) return;
-  if (!state.bus.includes(v)) state.bus.push(v);
+  if (!(current.bus||[]).includes(v) || state.bus.includes(v)) return;
+  state.bus.push(v); sel=0;
   syncCounter();
 }
 function syncCounter(){
@@ -447,21 +470,17 @@ function makeCert(l){
   doc.save(`${l.key}-certificate.pdf`);
 }
 
-// ---- backup / restore ----
-$('copyCode').onclick=async()=>{
-  const code=btoa(unescape(encodeURIComponent(JSON.stringify(state))));
-  $('code').value=code;
-  try{ await navigator.clipboard.writeText(code); toast('Code copied'); }catch(e){ $('code').select(); toast('Copy the code from the box'); }
+// ---- theme ----
+const isDark = () => document.documentElement.dataset.theme ? document.documentElement.dataset.theme==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+function paintTheme(){ $('theme').innerHTML=`<i data-lucide="${isDark()?'sun':'moon'}"></i>`; icons(); }
+$('theme').onclick=()=>{
+  const t=isDark()?'light':'dark';
+  document.documentElement.dataset.theme=t;
+  try{ localStorage.setItem('sdpp.theme',t); }catch(e){}
+  paintTheme(); renderMap(false);
 };
-$('loadCode').onclick=()=>{
-  try{
-    const s=JSON.parse(decodeURIComponent(escape(atob($('code').value.trim()))));
-    if(!s||typeof s.done!=='object') throw 0;
-    if(!confirm('Replace current progress with this code?')) return;
-    state={done:s.done,name:s.name||'',bus:s.bus||[]}; save(); render(true); toast('Restored');
-  }catch(e){ toast("That code didn't work"); }
-};
-$('reset').onclick=()=>{ if(confirm('Erase all progress in this browser?')){ state={done:{},name:'',bus:[]}; save(); render(true); } };
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{ if(!document.documentElement.dataset.theme){ paintTheme(); renderMap(false); } });
+paintTheme();
 
 render(true);
 })();
